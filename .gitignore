@@ -8,6 +8,7 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+.DS_Store
 
 ###> phpunit/phpunit ###
 /phpunit.xml
