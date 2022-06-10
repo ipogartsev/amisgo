@@ -52,6 +52,13 @@ p {
     font-weight: normal;
 }
 
+txt-heroshot{
+    font-family: 'Montserrat';
+    font-size: 3.4rem;
+    font-weight: bold;
+    
+}
+
 .date {
     font-family: 'Karla';
     font-size: 1.8rem;
@@ -72,18 +79,6 @@ p {
 }
 
 /******************************** BOUTONS *******************************/
-/**.filtre{
-    background: var(--jaunesable);
-    border-radius: 1.6rem;
-    width: 15%;
-    align-items: center;
-    margin-top: 1rem;
-    margin-right: 1.5rem;
-    margin-bottom: 1rem;
-    margin-left: 1.5rem;
-
-}
-*/
 
 /* Filter button */
 .filter-button {
@@ -99,13 +94,28 @@ p {
     margin: auto;
 }
 
-.btn-outline-light a{
-    color: var(--blanc)
+.btn-heroshot {
+    background-color: var(--blanc);
+
+    border-radius: 1.3rem;
+    border: none;
+
 }
 
-.btn-outline-light a:hover{
+.btn-heroshot a {
     color: var(--corail);
+
 }
+
+.btn-heroshot :hover{
+    background-color: var(--corail);
+}
+
+.btn-heroshot a:hover{
+    color: var(--blanc);
+    background-color: var(--corail);
+}
+
 
 .btn-warning:hover{
     Text-Decoration: None !important; 
@@ -148,9 +158,11 @@ p {
 }
 
 /*************NAV DEBUT*********/
+
 .navbar{
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    background: linear-gradient(90deg, #FC6B76 0%, #F9C041 82%);
 }
 
 .navbar-brand{
@@ -158,7 +170,6 @@ p {
 
 }
 .nav-link{
-    background-color: var(--degrade);
     color: rgb(0, 0, 0);
 }
 
@@ -171,7 +182,6 @@ p {
 /********************Section top******************/
 .section-top{
     background-color: rgba(117, 190, 218, 0.0);
-    background-image: url(../img/heroshot-activites.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 10rem;
