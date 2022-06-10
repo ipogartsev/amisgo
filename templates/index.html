@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AmisGO !</title>
+
+  <!-- Bibliothèque fontawesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- Link -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body id="homepage">
+  <!------------------------ HEADER START------------------------>
+  <header>
+    <div class="container mw-100 px-0">
+      <nav class="navbar navbar-light px-5" class="navbar navbar-expand-xs" style="background-color: #e3f2fd;">
+
+        <!-------------------------- Logo -------------------------->
+        <a class="navbar-brand" href="index.html"><img src="assets/img/Logo.svg"></a>
+
+        <!-------------------------- Menus -------------------------->
+        <div id="navbarNav">
+          <ul class="navbar-nav ms-auto d-flex flex-row">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Personnalités</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a class="nav-link" href="activites.html">Activités</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Fil d'Actualités</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-------------------------- Login -------------------------->
+        <div id="login">
+          <a class="navbar-brand d-flex justify-content-center" href="#"><img src="#INSERTLOGIN"></a>
+          <div class="d-flex text-center">
+            <a class="nav-link active px-1" aria-current="page" href="#">S'identifier</a>
+            <a class="nav-link active px-1" aria-current="page" href="#">Se connecter</a>
+          </div>
+        </div>
+      </nav>
+      <!-------------------------- HERO SHOT -------------------------->
+      <div class="bs-docs-header" id="hero-shot">
+        <div class="container">
+          <div class="col-6 ms-5">
+            <h1>Ready ? Amis ? Go !</h1>
+            <p class="ms-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas quibusdam cum excepturi
+              fugit a odio.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint, incidunt repellendus provident ullam
+              amet consectetur quam, minima, minus facere temporibus deleniti! Adipisci accusantium placeat natus quia
+              provident, molestiae cum!
+            </p>
+            <div class="d-flex justify-content-end me-5" id="decouvrir">
+              <a href="#" class="btn btn-primary">Faire le test !</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+  <!------------------------ HEADER END------------------------>
+
+  <!------------------------ MAIN START------------------------>
+  <main>
+    <section id="nos-activités">
+      <!-------------------------- H2 NOS ACTIVITES -------------------------->
+      <div class="container text-center">
+        <div class="row">
+          <h2>Nos Activités</h2>
+        </div>
+
+        <!-------------------------- BARRE DE RECHERCHE -------------------------->
+        <div class="row" id="rechercher">
+          <div class="input-group justify-content-center">
+            <!-------------------------- Localisation -------------------------->
+            <select class="col-2">
+              <option>
+                Ile de France
+              </option>
+            </select>
+            <!-------------------------- Input Recherche -------------------------->
+            <div class="col-5 form-outline">
+              <input id="search-input" type="search" id="Recherche" class="form-control"
+                placeholder="Recherche une activité" />
+            </div>
+
+            <!-------------------------- Bouton Recherche -------------------------->
+            <button id="search-button" type="button" class="col-2 btn btn-outline-primary">
+              <i class="fas fa-search me-3"></i>
+              Rechercher
+            </button>
+          </div>
+        </div>
+        <!-------------------------- FILTRES -------------------------->
+        <div class="row">
+          <div class="justify-content-center d-inline-flex">
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-sport.svg" alt="">
+              <p>Sport</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-pleinair.svg" alt="">
+              <p>Plein Air</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-musique.svg" alt="">
+              <p>Musique</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-danse.svg" alt="">
+              <p>Danse</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-cuisine.svg" alt="">
+              <p>Cuisine</p>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="justify-content-center d-inline-flex">
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-jeux.svg" alt="">
+              <p>Jeux</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-spectacle.svg" alt="">
+              <p>Spectacle</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-culture.svg" alt="">
+              <p>Culture</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-bienetre.svg" alt="">
+              <p>Bien Être</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-apero.svg" alt="">
+              <p>Apéro</p>
+            </button>
+          </div>
+        </div>
+
+    </section>
+
+    <!-------------------------- SECTION "LES PLUS POPULAIRES" START -------------------------->
+    <section id="populaire"></section>
+    <div class="container">
+      <div class="row">
+        <!-------------------------- H3 Les plus populaires -------------------------->
+        <h3 class="text-center">Les plus populaires</h3>
+      </div>
+    </div>
+
+    <!-------------------------- 2 CARDS START -------------------------->
+    <!-------------------------- Cards -------------------------->
+    <div class="container-fluid d-flex">
+      <div class="row">
+        <article class="card col-6 d-flex flex-row">
+          <img class="card-img" src="assets/img/testcards.png" alt="">
+          <div class="d-flex flex-column card-body">
+            <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3 Juillet 14h00</time>
+            <div class="">
+              <h4>Titre activité</h4>
+              <h5>Localisation</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus
+                ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et
+                tincidunt. Amet sit ut proin et tincidunt.</p>
+
+              <div class="d-flex flex-row">
+                <div class="col-6 filtre">
+                  <img src="assets/icones/icone-pleinair.svg" alt="">
+                  <button class="btn btn-link">Plein Air</button>
+                </div>
+
+                <div class="col-9 d-flex justify-content-end iconeparticipants" style="position:relative">
+                  <img class="iconeparticipant1" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant2" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant3" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant4" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant5" src="assets/icones/icone-user.svg">
+                  <img class="icone-nombre-participant" src="assets/icones/icone-user.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-------------------------- Cards -------------------------->
+        <article class="card col-6 d-flex flex-row">
+          <img class="card-img" src="assets/img/testcards.png" alt="">
+          <div class="d-flex flex-column card-body">
+            <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3 Juillet 14h00</time>
+            <div class="">
+              <h4>Titre activité</h4>
+              <h5>Localisation</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus
+                ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et
+                tincidunt. Amet sit ut proin et tincidunt.</p>
+
+              <div class="d-flex flex-row">
+                <div class="col-6 filtre">
+                  <img src="assets/icones/icone-pleinair.svg" alt="">
+                  <button class="btn btn-link">Plein Air</button>
+                </div>
+
+                <div class="col-9 d-flex justify-content-end iconeparticipants" style="position:relative">
+                  <img class="iconeparticipant1" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant2" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant3" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant4" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant5" src="assets/icones/icone-user.svg">
+                  <img class="icone-nombre-participant" src="assets/icones/icone-user.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-------------------------- 2 CARDS END -------------------------->
+
+    <!-------------------------- 2 CARDS START -------------------------->
+    <!-------------------------- Cards -------------------------->
+    <div class="container d-flex">
+      <div class="row">
+        <article class="cardactivite col-6 d-flex">
+          <div>
+            <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
+          </div>
+          <div>
+            <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+            </p>
+            <h4>Canoë Kayak Le Poulot,</h4>
+            <h5>Conflans Sainte-Honorine</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus ultrices
+              lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Amet sit
+              ut proin et tincidunt. </p>
+          </div>
+        </article>
+
+        <!-------------------------- Cards -------------------------->
+        <article class="col-6 d-flex">
+          <div class="">
+            <img src="" alt="Photo d'une personne faisant du canoë">
+          </div>
+          <div class="">
+            <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+            </p>
+            <div class="text-align-left">
+              <h4>Canoë Kayak Le Poulot,</h4>
+              <h5>Conflans Sainte-Honorine</h5>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
+                laborum
+                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+              </p>
+            </div>
+          </div>
+      </div>
+      </article>
+    </div>
+    <!-------------------------- 2 CARDS END -------------------------->
+
+    <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
+    <div class="d-flex justify-content-center me-5" id="decouvrir">
+      <a href="#" class="btn btn-secondary">Voir plus</a>
+    </div>
+    </div>
+    </section>
+    <!-------------------------- SECTION "LES PLUS POPULAIRES" END -------------------------->
+
+    <!-------------------------- SECTION "A VENIR" START -------------------------->
+    <section id="populaire"></section>
+    <div class="container text-center">
+      <div class="row">
+        <!-------------------------- H3 A venir -------------------------->
+        <h3>A venir</h3>
+      </div>
+
+      <!-------------------------- 2 CARDS START -------------------------->
+      <!-------------------------- Cards -------------------------->
+      <div class="container d-flex">
+        <div class="row">
+          <article class="d-flex col-6">
+            <div>
+              <img src="" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div>
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <h4>Canoë Kayak Le Poulot,</h4>
+              <h5>Conflans Sainte-Honorine</h5>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius laborum
+                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+              </p>
+            </div>
+          </article>
+
+          <!-------------------------- Cards -------------------------->
+          <article class="col-6 d-flex border">
+            <div class="">
+              <img src="" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div class="">
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <div class="text-align-left">
+                <h4>Canoë Kayak Le Poulot,</h4>
+                <h5>Conflans Sainte-Honorine</h5>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
+                  laborum
+                  quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+                </p>
+              </div>
+            </div>
+        </div>
+        </article>
+      </div>
+      <!-------------------------- 2 CARDS END -------------------------->
+
+      <!-------------------------- 2 CARDS START -------------------------->
+      <!-------------------------- Cards -------------------------->
+      <div class="container d-flex">
+        <div class="row">
+          <article class="col-6 d-flex border">
+            <div class="border">
+              <img src="" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div class="border">
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <h4>Canoë Kayak Le Poulot,</h4>
+              <h5>Conflans Sainte-Honorine</h5>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius laborum
+                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+              </p>
+            </div>
+          </article>
+
+          <!-------------------------- Cards -------------------------->
+          <article class="col-6 d-flex border">
+            <div class="">
+              <img src="" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div class="">
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <div class="text-align-left">
+                <h4>Canoë Kayak Le Poulot,</h4>
+                <h5>Conflans Sainte-Honorine</h5>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
+                  laborum
+                  quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+                </p>
+              </div>
+            </div>
+        </div>
+        </article>
+      </div>
+      <!-------------------------- 2 CARDS END -------------------------->
+
+      <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
+      <div class="d-flex justify-content-center me-5" id="decouvrir">
+        <a href="#" class="btn btn-secondary">Voir plus</a>
+      </div>
+    </div>
+    </section>
+    <!-------------------------- SECTION "A VENIR" END -------------------------->
+
+    <!-------------------------- SECTION "QUELQUES PERSONNALITÉS" START -------------------------->
+    <section class="container">
+      <div class="row text-center">
+        <!-------------------------- H3 Les plus populaires -------------------------->
+        <h3>Quelques personnalités</h3>
+      </div>
+
+      <!-------------------------- Card personnalités  -------------------------->
+      <div class="container">
+        <div class="row justify-content-center">
+          <!-------------------------- Card 01  -------------------------->
+          <div class="col-3 card justify-content-center mx-3">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
+                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
+            </div>
+          </div>
+
+          <!-------------------------- Card 02  -------------------------->
+          <div class="col-3 card justify-content-center mx-3">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
+                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
+            </div>
+          </div>
+
+          <!-------------------------- Card 03 -------------------------->
+          <div class="col-3 card justify-content-center mx-3">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
+                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
+      <div class="d-flex justify-content-center me-5" id="decouvrir">
+        <a href="#" class="btn btn-secondary">Voir plus</a>
+      </div>
+    </section>
+    <!-------------------------- SECTION "PERSONNALITÉS" END -------------------------->
+
+    <!-------------------------- SECTION "EQUIPE" START -------------------------->
+    <div class="row text-center mx-0">
+      <!-------------------------- H3 Notre Equipe -------------------------->
+      <h3>Notre Equipe</h3>
+    </div>
+
+    <section class="container">
+      <div class="row">
+        <div class="col-6">
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+        </div>
+        <div class="col-6">
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-------------------------- SECTION "EQUIPE" START -------------------------->
+
+  </main>
+  <!------------------------- MAIN END------------------------->
+
+  <!------------------------ FOOTER START------------------------>
+  <footer>
+    <!-------------------------- CATEGORIES -------------------------->
+    <div class="bs-docs-footer" id="footer">
+      <div class="container">
+        <div class="row ms-5">
+          <!-------------------------- A Propos -------------------------->
+          <div class="col-4">
+            <h4 class="mt-3">A propos</h4>
+            <div id="a-propos">
+              <ul class="list-unstyled">
+                <li class=""><a href="#">Notre histoire</a></li>
+                <li class=""><a href="#">Notre équipe</a></li>
+                <li class=""><a href="#">Deviens organisateur</a></li>
+                <li class=""><a href="#">Nos valeurs</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-------------------------- Liens Utiles -------------------------->
+          <div class="col-4">
+            <h4 class="mt-3">Liens utiles</h4>
+            <div id="utiles">
+              <ul class="list-unstyled">
+                <li class=""><a href="#">Accessibilité</a></li>
+                <li class=""><a href="#">Mentions légales</a></li>
+                <li class=""><a href="#">CGU</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-------------------------- Nous suivre -------------------------->
+          <div class="col-4">
+            <h4 class="mt-3">Nous suivre</h4>
+            <div id="suivre">
+              <ul class="list-unstyled">
+                <li class=""><i class="fab fa-facebook-f me-3" alt="logo facebook"></i>Facebook</li>
+                <li class=""><i class="fab fa-instagram me-3" alt="logo instagram"></i>Instagram</li>
+                <li class=""><i class="fab fa-twitter me-3" alt="logo twitter"></i>Twitter</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-------------------------- COPYRIGHT -------------------------->
+      <div class="row mx-0">
+        <div class="col text-center">
+          &copy; AmisGO, 2022
+        </div>
+      </div>
+
+  </footer>
+  <!------------------------ FOOTER END------------------------>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

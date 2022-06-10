@@ -1,0 +1,226 @@
+/********************* TYPOGRAPHIE *****************************/
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url('../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('ttf');
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
+    font-family: 'Karla', sans-serif;
+    src: url('../fonts/Karla/Karla-Italic-VariableFont_wght.ttf') format('ttf');
+    src: url('../fonts/Karla/Karla-VariableFont_wght.ttf') format('ttf');
+}
+
+/********************* REM *****************************/
+html {
+    font-size: 62, 5%;
+}
+
+/********************* STYLES *****************************/
+h1 {
+    font-family: 'Montserrat';
+    font-size: 6.0rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Montserrat';
+    font-size: 3.4rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Montserrat';
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+h4 {
+    font-family: 'Montserrat';
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+button {
+    font-family: 'Karla';
+    font-size: 1.8rem;
+    font-weight: medium;
+}
+
+p {
+    font-family: 'Karla';
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.date {
+    font-family: 'Karla';
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+/******************************** COULEURS *******************************/
+:root {
+    --noir: #0E101C;
+    --gris: #AEB6D5;
+    --grisclair: #DEE1EE;
+    --blanc: #F2F3F8;
+
+    --jaunesable: #F9C041;
+    --corail: #FC7073;
+    --degradeinverse: linear-gradient(90deg, #F6AA00 0%, #FC7073 82%);
+    --degrade: linear-gradient(90deg, #FC6B76 0%, #F9C041 82%);
+}
+
+/******************************** BOUTONS *******************************/
+/**.filtre{
+    background: var(--jaunesable);
+    border-radius: 1.6rem;
+    width: 15%;
+    align-items: center;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+
+}
+*/
+
+/* Filter button */
+.filter-button {
+    background: var(--jaunesable);
+    width: 205px;
+    border-radius: 1.3rem;
+    margin: 20px 0;
+}
+
+
+.filtre p{
+    text-align: center;
+    margin: auto;
+}
+
+.btn-outline-light a{
+    color: var(--blanc)
+}
+
+.btn-outline-light a:hover{
+    color: var(--corail);
+}
+
+.btn-warning:hover{
+    Text-Decoration: None !important; 
+}
+
+/******************************** CARDS *******************************/
+.card-img {
+    border-radius: 2rem 0rem 0rem 2rem;
+    width: 28, 3rem;
+    height: 31, 7rem;
+}
+.iconeparticipant1{
+    margin-left: 0rem;
+}
+
+.iconeparticipant2{
+    margin-left: -1.1rem;
+}
+
+.iconeparticipant3{
+    margin-left: -1.1rem;
+}
+.iconeparticipant4{
+    margin-left: -1.1rem;
+}
+.iconeparticipant5{
+    margin-left: -1.1rem;
+}
+.icone-nombre-participant{
+    margin-left: -1.1rem;
+}
+
+.card-body {
+    background: #D9D9D9;
+    border-radius: 2rem;
+}
+
+.test {
+    justify-content: flex-end;
+}
+
+/*************NAV DEBUT*********/
+.navbar{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.navbar-brand{
+    margin-left: 10rem;
+
+}
+.nav-link{
+    background-color: var(--degrade);
+    color: rgb(0, 0, 0);
+}
+
+#login{
+    margin-right: 10rem;
+
+}
+
+
+/********************Section top******************/
+.section-top{
+    background-color: rgba(117, 190, 218, 0.0);
+    background-image: url(../img/heroshot-activites.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10rem;
+    padding-left: 25rem;
+    color: white;
+    text-shadow: -.2rem .1rem .5rem rgb(73, 66, 66);
+    margin-bottom: 3rem;
+}
+
+/*************NAV FIN*********/
+
+/*************SEARCH BAR*********/
+.search-bar{
+    margin-bottom: 3rem;
+}
+
+.search-location{
+    background-color: var(--grisclair);
+    border: none;
+    border-top-left-radius: .8rem;
+    border-bottom-left-radius: .8rem;
+    padding: 1.2rem;
+}
+
+.form-control{
+    background-color: var(--blanc);
+    border: none;
+    padding: 1.2rem;
+}
+
+.form-outline ::placeholder{
+    color: grey;
+
+}
+
+.search-button{ 
+    text-transform: uppercase;
+    background-color: var(--grisclair);
+    color: var(--noir);
+    border: none;
+    border-radius: .8rem;
+
+}
+
+
+/*************FOOTER DEBUT*********/
+#footer {
+    background-color: #D9D9D9;
+    color: rgb(0, 0, 0);
+}
+
+/*************FOOTER FIN*********/

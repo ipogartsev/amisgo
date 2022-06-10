@@ -1,0 +1,30 @@
+/******************************
+INDEX CSS START
+******************************/
+
+/*************HEADER START*********/
+
+/********************Hero Shot******************/
+#homepage #hero-shot {
+    background-color: #BEBEBE;
+}
+
+#homepage #decouvrir{
+    text-align: left;
+}
+/*************HEADER END*********/
+
+
+/*************MAIN START*********/
+/********************Barre de recherche******************/
+#homepage #rechercher{
+    display: inline;
+}
+
+/*************MAIN END*********/
+
+
+
+/******************************
+INDEX CSS END
+******************************/
