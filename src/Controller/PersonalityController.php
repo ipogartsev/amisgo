@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\PersonalityRepository;
 
 class PersonalityController extends AbstractController
 {
@@ -12,32 +13,23 @@ class PersonalityController extends AbstractController
      * @Route("/perso", name="app_personality")
      * 
      */
-    public function index(): Response
+    public function index(PersonalityRepository $personalityRepository): Response
     {
         return $this->render('personality/index.html.twig', [
-            'controller_name' => 'PersonalityController',
+            'persons' => $personalityRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/perso/form", name="app_personality_form")
-     * 
+     * @Route("/perso/{title}", name="app_perso")
      */
-    public function form(): Response
-    {
-        return $this->render('personality/form.html.twig', [
-            'controller_name' => 'PersonalityController',
-        ]);
-    }
+    public function persoShow(PersonalityRepository $personalityRepository, string $title): Response
+    { 
     
- /**
-     * @Route("/perso/form2", name="app_personality_form2")
-     * 
-     */
-    public function form2(): Response
-    {
-        return $this->render('personality/form2.html.twig', [
-            'controller_name' => 'PersonalityController',
-        ]);
+      //Recuperer une personalité par type 
+      $person = $personalityRepository ->findOneBy(['type_of_personality' => $title]); 
+      // Recuperer 3 personnalités à afficher sur page accueil 
+      return $this->render('personality/persona.html.twig', [ 'person' => $person ]); 
     }
 }
+

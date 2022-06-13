@@ -39,6 +39,31 @@ class EventRepository extends ServiceEntityRepository
         }
     }
 
+    /** 
+     *  @return Event[] Returns an array of Event objects 
+     */ 
+ /*   public function findFutureEvents(int $maxResult): array
+    { 
+     //Chercher les evenements à venir à partir de demain return 
+        ->orderBy('e.date_of_event', 'ASC') 
+        ->setMaxResults($maxResult) 
+        ->getQuery() 
+        ->getOneOrNullResult() ;
+    } */
+  /** 
+  * @return Event[] Returns an array of Event objects 
+  */ 
+  /*public function findPopularEvents(int $maxResult): array
+  { 
+    //Chercher les evenements les plus populaires
+  return $this->createQueryBuilder('e') 
+  ->andWhere('e.participants_max/e.participants_registered >= 0.5') 
+  ->orderBy('e.date_of_event', 'ASC') ->setMaxResults($maxResult) 
+  ->getQuery() 
+  ->getResult();
+  }*/
+  
+
 //    /**
 //     * @return Event[] Returns an array of Event objects
 //     */
