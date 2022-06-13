@@ -1,6 +1,8 @@
-
+/* !!! On fixe le contenu à 1200px car taille d'un petit écran standard (tv)
+ce qui permet sur grand écran d'avoir de l'espace sur les côtés */
 #content-container {
     max-width: 1200px;
+    flex: 0 0 1200px;
     margin: 0 auto;
 }
 
@@ -11,11 +13,7 @@
 
 #activites .section-top {
     background-image: url(../img/heroshot-activites.jpg);
-    
-
 }
-
-
 
 .icon-background {
     background-color: #fff;
@@ -43,21 +41,104 @@
     margin: 50px 0;
 }
 
+/* Ici on fixe la taille des cartes à 570 de largeur
+ et 320 de hauteur pour permettre un espace entre 2 cartes */
 .cards-container article {
     flex: 0 0 570px;
     max-width: 570px;
+    height: 320px;
 }
 
-.card {
+.card-item {
     margin: 20px 0;
     border-radius: 20px;
     border: none;
+    position: relative;
 }
 
-.card-body {
+.card-item h4 {
+    margin: 0;
+    line-height: 1.125rem;
+    font-size: 1.125rem;
+}
+
+.card-item h5 {
+    margin: 0;
+    line-height: 1.125rem;
+    opacity: 0.6;
+    font-size: 1.125rem;
+}
+
+.card-item p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.card-item button {
+    width: 150px;
+}
+
+/* On donne au wrapper de l'image une taille de 45% de la carte
+soit plus de 40% pour que la partie desciption puisse chevaucher l'image*/
+.card-item-img-wrapper {
+    max-width: 45%;
+    flex: 0 0 45%;
+}
+
+.card-item-like-icon {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    top: 1rem;
+    left: 1rem;
+}
+
+.card-item-like-icon button {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    display: flex;
+}
+
+.card-item-like-icon button img {
+    width: 100%;
+}
+
+/* On fixe la height de l'image à 100% de son wrapper 
+et sa width en auto pour que, peu importe l'image affichée, 
+elle fera toute la hauteur de la carte. La width auto permet d'avoir
+une image proportionnelle et non trop étirée.
+On joue avec object-position pour centrer l'image */
+.card-item-img {
+    width: auto;
+    height: 100%;
+    object-position: -50px;
     border-radius: 20px;
-    margin-left: -30px;
-    background-color: burlywood;
+}
+
+/* On fixe le body de la carte à 65% et une margin-left négative
+pour qu'elle puisse chevaucher l'image */
+.card-item-body {
+    flex: 0 0 65%;
+    max-width: 65%;
+    border-radius: 20px;
+    margin-left: -57px;
+    padding: 1.25rem;
+    background-color: var(--gris);
+}
+
+ .card-item-body h4 {
+    color: var(--corail);
+ }
+ 
+ .card-item-body time {
+    color: var(--corail);
+ }
+
+.card-item-body-container {
+    margin-top: 1rem;
 }
 
 .card-filter-btn {
@@ -66,8 +147,80 @@
     border: none;
 }
 
+.card-filter-btn:hover {
+    background-color: transparent;
+}
+
+/* On met les wrapper des icônes en position relative
+pour pouvoir utiliser le z-index sur les icônes.
+Le height 100% permet au wrapper d'avoir une hauteur de 100% de la place disponible */
+.iconeparticipants {
+    position: relative;
+    height: 100%;
+}
+
+/* Cette classe donne une taille fixe aux icônes (32px),
+d'avoir un background blanc et une bordure */
+.icon-wrapper {
+    width: 32px;
+    height: 32px;
+    padding: 3px;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--jaunesable);
+}
+
+/* Cette classe donne une position fixée en haut à droite de son wrapper aux icônes */
+.icons-position {
+    position: absolute;
+    top: 0;
+}
+
+/* Pour les classe icon-position 1 à 6,
+on déplace les icônes à partir de la droite avec la propriété right
+Le z-index permet de mettre les icônes l'un par dessus l'autre. 
+Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage */
+.icon-position-1 {
+    right: 16px;
+    z-index: 5;
+}
+
+.icon-position-2 {
+    right: 32px;
+    z-index: 4;
+}
+
+.icon-position-3 {
+    right: 48px;
+    z-index: 3;
+}
+
+.icon-position-4 {
+    right: 64px;
+    z-index: 2;
+}
+
+.icon-position-5 {
+    right: 80px;
+    z-index: 1;
+}
+
+.icon-position-6 {
+    right: 0;
+    z-index: 6;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--jaunesable);
+}
+
 .see-more-btn {
     width: 200px;
+    height: 40px;
+    font-size: 18px;
     border-radius: 20px;
     margin-top: 50px;
+    padding: auto;    
 }

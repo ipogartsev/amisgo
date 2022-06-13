@@ -3,400 +3,595 @@
 {% block title %}Amisgo{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<body>
+<div class="container text-center">
+			<div class="row">
+				<h2>Nos Activités</h2>
+			</div>
+			<!-- Content container -->
+			<div class="d-flex flex-wrap" id="content-container">
 
-  <!------------------------ MAIN START------------------------>
-  <main>
-    <section id="nos-activités">
-      <!-------------------------- H2 NOS ACTIVITES -------------------------->
-      <div class="container text-center">
-        <div class="row">
-          <h2>Nos Activités</h2>
-        </div>
+				<!-- Search Section -->
+				<div class="d-flex flex-wrap section justify-content-center">
+					<div class="input-group justify-content-center search-bar">
+						<!-- Localisation -->
+						<select class="col-2 search-location">
+							<option>
+								Ile de France
+							</option>
+						</select>
+						<!-- Input Search -->
+						<div class="col-5 form-outline">
+							<input type="search" id="Recherche" class="form-control" placeholder="Recherche une activité">
+						</div>
 
-        <!-------------------------- BARRE DE RECHERCHE -------------------------->
-        <div class="row" id="rechercher">
-          <div class="input-group justify-content-center">
-            <!-------------------------- Localisation -------------------------->
-            <select class="col-2">
-              <option>
-                Ile de France
-              </option>
-            </select>
-            <!-------------------------- Input Recherche -------------------------->
-            <div class="col-5 form-outline">
-              <input id="search-input" type="search" id="Recherche" class="form-control"
-                placeholder="Recherche une activité" />
-            </div>
+						<!-- Button Search -->
+						<button type="button" class="col-2 btn btn-outline-primary search-button">
+							<i class="fas fa-search me-3"></i>
+							Rechercher
+						</button>
+					</div>
 
-            <!-------------------------- Bouton Recherche -------------------------->
-            <button id="search-button" type="button" class="col-2 btn btn-outline-primary">
-              <i class="fas fa-search me-3"></i>
-              Rechercher
-            </button>
-          </div>
-        </div>
-        <!-------------------------- FILTRES -------------------------->
-        <div class="row">
-          <div class="justify-content-center d-inline-flex">
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-sport.svg" alt="">
-              <p>Sport</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-pleinair.svg" alt="">
-              <p>Plein Air</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-musique.svg" alt="">
-              <p>Musique</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-danse.svg" alt="">
-              <p>Danse</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-cuisine.svg" alt="">
-              <p>Cuisine</p>
-            </button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="justify-content-center d-inline-flex">
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-jeux.svg" alt="">
-              <p>Jeux</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-spectacle.svg" alt="">
-              <p>Spectacle</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-culture.svg" alt="">
-              <p>Culture</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-bienetre.svg" alt="">
-              <p>Bien Être</p>
-            </button>
-            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-apero.svg" alt="">
-              <p>Apéro</p>
-            </button>
-          </div>
-        </div>
+					<! Filter Button Section ----->
+					<div class="d-flex flex-wrap justify-content-around section" id="filter-button-wrapper">
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-sport.svg" alt="">
+							</div>
+							<div class="activity-title">Sport</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/mountains_88302.svg" alt="">
+							</div>
+							<div class="activity-title">Plein air</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-music.svg" alt="">
+							</div>
+							<div class="activity-title">Musique</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-danse.svg" alt="">
+							</div>
+							<div class="activity-title">Danse</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-cuisine.svg" alt="">
+							</div>
+							<div class="activity-title">Cuisine</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-jeux.svg" alt="">
+							</div>
+							<div class="activity-title">Jeux</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-spectacle.svg" alt="">
+							</div>
+							<div class="activity-title">Spectacle</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-culture.svg" alt="">
+							</div>
+							<div class="activity-title">Culture</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-bienetre.svg" alt="">
+							</div>
+							<div class="activity-title">Bien-être</div>
+						</button>
+						<button class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-apero.svg" alt="">
+							</div>
+							<div class="activity-title">Apéro</div>
+						</button>
+					</div>
+				</div>
 
-    </section>
+				<!-- Popular Section -->
+				<div class="section container-fluid section-cards-container">
+					<h3 class="cards-title">Les plus populaires</h3>
 
-    <!-------------------------- SECTION "LES PLUS POPULAIRES" START -------------------------->
-    <section id="populaire"></section>
-    <div class="container">
-      <div class="row">
-        <!-------------------------- H3 Les plus populaires -------------------------->
-        <h3 class="text-center">Les plus populaires</h3>
-      </div>
-    </div>
+					<div class="section cards-container d-flex flex-wrap justify-content-center">
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="/assets/icons/icone-heart-outlined.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
+							</div>
 
-    <!-------------------------- 2 CARDS START -------------------------->
-    <!-------------------------- Cards -------------------------->
-    <div class="container-fluid d-flex">
-      <div class="row">
-        <article class="card col-6 d-flex flex-row">
-          <img class="card-img" src="assets/img/testcards.png" alt="">
-          <div class="d-flex flex-column card-body">
-            <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3 Juillet 14h00</time>
-            <div class="">
-              <h4>Titre activité</h4>
-              <h5>Localisation</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus
-                ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et
-                tincidunt. Amet sit ut proin et tincidunt.</p>
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
 
-              <div class="d-flex flex-row">
-                <div class="col-6 filtre">
-                  <img src="assets/icones/icone-pleinair.svg" alt="">
-                  <button class="btn btn-link">Plein Air</button>
-                </div>
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
 
-                <div class="col-9 d-flex justify-content-end iconeparticipants" style="position:relative">
-                  <img class="iconeparticipant1" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant2" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant3" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant4" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant5" src="assets/icones/icone-user.svg">
-                  <img class="icone-nombre-participant" src="assets/icones/icone-user.svg">
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/mountains_88302.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Plein air</div>
+											</button>
+										</div>
 
-        <!-------------------------- Cards -------------------------->
-        <article class="card col-6 d-flex flex-row">
-          <img class="card-img" src="assets/img/testcards.png" alt="">
-          <div class="d-flex flex-column card-body">
-            <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3 Juillet 14h00</time>
-            <div class="">
-              <h4>Titre activité</h4>
-              <h5>Localisation</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus
-                ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et
-                tincidunt. Amet sit ut proin et tincidunt.</p>
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="/assets/icons/icone-heart.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
+							</div>
 
-              <div class="d-flex flex-row">
-                <div class="col-6 filtre">
-                  <img src="assets/icones/icone-pleinair.svg" alt="">
-                  <button class="btn btn-link">Plein Air</button>
-                </div>
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
 
-                <div class="col-9 d-flex justify-content-end iconeparticipants" style="position:relative">
-                  <img class="iconeparticipant1" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant2" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant3" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant4" src="assets/icones/icone-user.svg">
-                  <img class="iconeparticipant5" src="assets/icones/icone-user.svg">
-                  <img class="icone-nombre-participant" src="assets/icones/icone-user.svg">
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
 
-    <!-------------------------- 2 CARDS END -------------------------->
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-sport.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Sport</div>
+											</button>
+										</div>
 
-    <!-------------------------- 2 CARDS START -------------------------->
-    <!-------------------------- Cards -------------------------->
-    <div class="container d-flex">
-      <div class="row">
-        <article class="cardactivite col-6 d-flex">
-          <div>
-            <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
-          </div>
-          <div>
-            <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
-            </p>
-            <h4>Canoë Kayak Le Poulot,</h4>
-            <h5>Conflans Sainte-Honorine</h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus ultrices
-              lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Amet sit
-              ut proin et tincidunt. </p>
-          </div>
-        </article>
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="/assets/icons/icone-heart.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
+							</div>
 
-        <!-------------------------- Cards -------------------------->
-        <article class="col-6 d-flex">
-          <div class="">
-            <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
-          </div>
-          <div class="">
-            <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
-            </p>
-            <div class="text-align-left">
-              <h4>Canoë Kayak Le Poulot,</h4>
-              <h5>Conflans Sainte-Honorine</h5>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
-                laborum
-                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
-              </p>
-            </div>
-          </div>
-      </div>
-      </article>
-    </div>
-    <!-------------------------- 2 CARDS END -------------------------->
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
 
-    <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
-    <div class="d-flex justify-content-center me-5" id="decouvrir">
-      <a href="#" class="btn btn-secondary">Voir plus</a>
-    </div>
-    </div>
-    </section>
-    <!-------------------------- SECTION "LES PLUS POPULAIRES" END -------------------------->
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
 
-    <!-------------------------- SECTION "A VENIR" START -------------------------->
-    <section id="populaire"></section>
-    <div class="container text-center">
-      <div class="row">
-        <!-------------------------- H3 A venir -------------------------->
-        <h3>A venir</h3>
-      </div>
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-music.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Musique</div>
+											</button>
+										</div>
 
-      <!-------------------------- 2 CARDS START -------------------------->
-      <!-------------------------- Cards -------------------------->
-      <div class="container d-flex">
-        <div class="row">
-          <article class="d-flex col-6">
-            <div>
-              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
-            </div>
-            <div>
-              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
-              </p>
-              <h4>Canoë Kayak Le Poulot,</h4>
-              <h5>Conflans Sainte-Honorine</h5>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius laborum
-                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
-              </p>
-            </div>
-          </article>
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="/assets/icons/icone-heart-outlined.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
+							</div>
 
-          <!-------------------------- Cards -------------------------->
-          <article class="col-6 d-flex border">
-            <div class="">
-              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
-            </div>
-            <div class="">
-              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
-              </p>
-              <div class="text-align-left">
-                <h4>Canoë Kayak Le Poulot,</h4>
-                <h5>Conflans Sainte-Honorine</h5>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
-                  laborum
-                  quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
-                </p>
-              </div>
-            </div>
-        </div>
-        </article>
-      </div>
-      <!-------------------------- 2 CARDS END -------------------------->
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
 
-      <!-------------------------- 2 CARDS START -------------------------->
-      <!-------------------------- Cards -------------------------->
-      <div class="container d-flex">
-        <div class="row">
-          <article class="col-6 d-flex border">
-            <div class="border">
-              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
-            </div>
-            <div class="border">
-              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
-              </p>
-              <h4>Canoë Kayak Le Poulot,</h4>
-              <h5>Conflans Sainte-Honorine</h5>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius laborum
-                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
-              </p>
-            </div>
-          </article>
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
 
-          <!-------------------------- Cards -------------------------->
-          <article class="col-6 d-flex border">
-            <div class="">
-              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
-            </div>
-            <div class="">
-              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
-              </p>
-              <div class="text-align-left">
-                <h4>Canoë Kayak Le Poulot,</h4>
-                <h5>Conflans Sainte-Honorine</h5>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
-                  laborum
-                  quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
-                </p>
-              </div>
-            </div>
-        </div>
-        </article>
-      </div>
-      <!-------------------------- 2 CARDS END -------------------------->
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-jeux.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Jeux</div>
+											</button>
+										</div>
 
-      <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
-      <div class="d-flex justify-content-center me-5" id="decouvrir">
-        <a href="#" class="btn btn-secondary">Voir plus</a>
-      </div>
-    </div>
-    </section>
-    <!-------------------------- SECTION "A VENIR" END -------------------------->
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+					<button class="see-more-btn">En savoir plus</button>
+				</div>
 
-    <!-------------------------- SECTION "QUELQUES PERSONNALITÉS" START -------------------------->
-    <section class="container">
-      <div class="row text-center">
-        <!-------------------------- H3 Les plus populaires -------------------------->
-        <h3>Quelques personnalités</h3>
-      </div>
+				<!-- Coming soon Section -->
+				<div class="section container-fluid section-cards-container">
+					<h3 class="cards-title">A venir</h3>
 
-      <!-------------------------- Card personnalités  -------------------------->
-      <div class="container">
-        <div class="row justify-content-center">
-          <!-------------------------- Card 01  -------------------------->
-          <div class="col-3 card justify-content-center mx-3">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
-                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
-            </div>
-          </div>
+					<div class="section cards-container d-flex flex-wrap justify-content-center">
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="/assets/icons/icone-heart.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
+							</div>
 
-          <!-------------------------- Card 02  -------------------------->
-          <div class="col-3 card justify-content-center mx-3">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
-                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
-            </div>
-          </div>
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
 
-          <!-------------------------- Card 03 -------------------------->
-          <div class="col-3 card justify-content-center mx-3">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
-                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
-            </div>
-          </div>
-        </div>
-      </div>
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
 
-      <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
-      <div class="d-flex justify-content-center me-5" id="decouvrir">
-        <a href="#" class="btn btn-secondary">Voir plus</a>
-      </div>
-    </section>
-    <!-------------------------- SECTION "PERSONNALITÉS" END -------------------------->
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-culture.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Culture</div>
+											</button>
+										</div>
 
-    <!-------------------------- SECTION "EQUIPE" START -------------------------->
-    <div class="row text-center mx-0">
-      <!-------------------------- H3 Notre Equipe -------------------------->
-      <h3>Notre Equipe</h3>
-    </div>
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="/assets/icons/icone-heart-outlined.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
+							</div>
 
-    <section class="container">
-      <div class="row">
-        <div class="col-6">
-          <img src="###" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
-            ipsa quae corrupti asperiore.</p>
-          <img src="###" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
-            ipsa quae corrupti asperiore.</p>
-        </div>
-        <div class="col-6">
-          <img src="###" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
-            ipsa quae corrupti asperiore.</p>
-          <img src="###" alt="">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
-            ipsa quae corrupti asperiore.</p>
-        </div>
-      </div>
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
 
-    </section>
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
 
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-apero.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Apéro</div>
+											</button>
+										</div>
 
-    <!-------------------------- SECTION "EQUIPE" START -------------------------->
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="/assets/icons/icone-heart-outlined.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
+							</div>
 
-  </main>
- 
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
 
-</body>
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
+
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-sport.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Sport</div>
+											</button>
+										</div>
+
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
+							</div>
+
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
+
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
+
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/mountains_88302.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Plein air</div>
+											</button>
+										</div>
+
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+					<button class="see-more-btn">En savoir plus</button>
+				</div>
+
+				<!-- Personnalities Section -->
+				<div class="section" id="personnalities-section-container">
+					<h3 class="personnalities-section-title">Quelques personnalités</h3>
+					<div class="personnalities-item-wrapper d-flex flex-wrap justify-content-center">
+						<div class="personnalities-item">
+								<img src="assets/img/02-sage.png" alt="">
+								<div class="personnalities-item-description-wrapper">
+									<div class="personnalities-item-title">Le sage</div>
+									<div class="personnalities-item-description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Deleniti illo itaque beatae delectus id repudiandae, corporis
+										debitis vel dolorum ea quaerat iure animi veniam? Nisi rerum repellendus repellat
+										cum quasi!
+									</div>
+								</div>
+						</div>
+						<div class="personnalities-item">
+								<img src="assets/img/05-createur.png" alt="">
+								<div class="personnalities-item-description-wrapper">
+									<div class="personnalities-item-title">Le sage</div>
+									<div class="personnalities-item-description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Deleniti illo itaque beatae delectus id repudiandae, corporis
+										debitis vel dolorum ea quaerat iure animi veniam? Nisi rerum repellendus repellat
+										cum quasi!
+									</div>
+								</div>
+						</div>
+						<div class="personnalities-item">
+								<img src="assets/img/11-populaire.png" alt="">
+								<div class="personnalities-item-description-wrapper">
+									<div class="personnalities-item-title">Le sage</div>
+									<div class="personnalities-item-description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Deleniti illo itaque beatae delectus id repudiandae, corporis
+										debitis vel dolorum ea quaerat iure animi veniam? Nisi rerum repellendus repellat
+										cum quasi!
+									</div>
+								</div>
+						</div>
+					</div>
+					<button class="see-more-btn">Voir plus</button>
+				</div>
+
+				<!-- Team Section -->
+				<div class="section" id="team-section-container">
+					<h3>Notre équipe</h3>
+					<div class="team-items-container d-flex flex-wrap justify-content-center">
+						<div class="team-item d-flex">
+							<img src="assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
+							<div class="team-item-description text-start p-2">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
+							</div>
+						</div>
+						<div class="team-item d-flex">
+							<img src="assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
+							<div class="team-item-description text-start p-2">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
+							</div>
+						</div>
+						<div class="team-item d-flex">
+							<img src="assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
+							<div class="team-item-description text-start p-2">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
+							</div>
+						</div>
+						<div class="team-item d-flex">
+							<img src="/assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
+							<div class="team-item-description text-start p-2">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
 {% endblock %}
 
 
