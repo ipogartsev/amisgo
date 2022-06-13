@@ -69,6 +69,56 @@ class Event
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $distance;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $niveau;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $estimated_time;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $address1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $address2;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $zipcode;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $country;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $title;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -229,6 +279,126 @@ class Event
                 $comment->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDistance(): ?int
+    {
+        return $this->distance;
+    }
+
+    public function setDistance(?int $distance): self
+    {
+        $this->distance = $distance;
+
+        return $this;
+    }
+
+    public function getNiveau(): ?string
+    {
+        return $this->niveau;
+    }
+
+    public function setNiveau(?string $niveau): self
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    public function getEstimatedTime(): ?string
+    {
+        return $this->estimated_time;
+    }
+
+    public function setEstimatedTime(?string $estimated_time): self
+    {
+        $this->estimated_time = $estimated_time;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?int $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getAddress1(): ?string
+    {
+        return $this->address1;
+    }
+
+    public function setAddress1(string $address1): self
+    {
+        $this->address1 = $address1;
+
+        return $this;
+    }
+
+    public function getAddress2(): ?string
+    {
+        return $this->address2;
+    }
+
+    public function setAddress2(?string $address2): self
+    {
+        $this->address2 = $address2;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?int
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(int $zipcode): self
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }
