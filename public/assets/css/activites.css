@@ -1,0 +1,73 @@
+
+#content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+
+#activites .section-top {
+    background-image: url(../img/heroshot-activites.jpg);
+    
+
+}
+
+
+
+.icon-background {
+    background-color: #fff;
+    padding: 3px;
+    border-radius: 20px;
+    max-width: 36px;
+    flex: 0 0 36px;
+}
+
+.icon-background img {
+    height: 30px;
+    max-width: 30px;
+}
+
+.activity-title {
+    max-width: calc(100% - 36px);
+    flex: 0 0 calc(100% - 36px);
+    padding-right: 36px;
+    font-size: 20px;
+}
+
+/* Cards Section */
+.section-cards-container {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.cards-container article {
+    flex: 0 0 570px;
+    max-width: 570px;
+}
+
+.card {
+    margin: 20px 0;
+    border-radius: 20px;
+    border: none;
+}
+
+.card-body {
+    border-radius: 20px;
+    margin-left: -30px;
+    background-color: burlywood;
+}
+
+.card-filter-btn {
+    width: 100px;
+    background-color: transparent;
+    border: none;
+}
+
+.see-more-btn {
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 50px;
+}

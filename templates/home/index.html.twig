@@ -7,7 +7,397 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+<body>
+
+  <!------------------------ MAIN START------------------------>
+  <main>
+    <section id="nos-activités">
+      <!-------------------------- H2 NOS ACTIVITES -------------------------->
+      <div class="container text-center">
+        <div class="row">
+          <h2>Nos Activités</h2>
+        </div>
+
+        <!-------------------------- BARRE DE RECHERCHE -------------------------->
+        <div class="row" id="rechercher">
+          <div class="input-group justify-content-center">
+            <!-------------------------- Localisation -------------------------->
+            <select class="col-2">
+              <option>
+                Ile de France
+              </option>
+            </select>
+            <!-------------------------- Input Recherche -------------------------->
+            <div class="col-5 form-outline">
+              <input id="search-input" type="search" id="Recherche" class="form-control"
+                placeholder="Recherche une activité" />
+            </div>
+
+            <!-------------------------- Bouton Recherche -------------------------->
+            <button id="search-button" type="button" class="col-2 btn btn-outline-primary">
+              <i class="fas fa-search me-3"></i>
+              Rechercher
+            </button>
+          </div>
+        </div>
+        <!-------------------------- FILTRES -------------------------->
+        <div class="row">
+          <div class="justify-content-center d-inline-flex">
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-sport.svg" alt="">
+              <p>Sport</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-pleinair.svg" alt="">
+              <p>Plein Air</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-musique.svg" alt="">
+              <p>Musique</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-danse.svg" alt="">
+              <p>Danse</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-cuisine.svg" alt="">
+              <p>Cuisine</p>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="justify-content-center d-inline-flex">
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-jeux.svg" alt="">
+              <p>Jeux</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-spectacle.svg" alt="">
+              <p>Spectacle</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-culture.svg" alt="">
+              <p>Culture</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-bienetre.svg" alt="">
+              <p>Bien Être</p>
+            </button>
+            <button class="btn btn-warning filtre d-flex flex-row"> <img src="assets/icones/icone-apero.svg" alt="">
+              <p>Apéro</p>
+            </button>
+          </div>
+        </div>
+
+    </section>
+
+    <!-------------------------- SECTION "LES PLUS POPULAIRES" START -------------------------->
+    <section id="populaire"></section>
+    <div class="container">
+      <div class="row">
+        <!-------------------------- H3 Les plus populaires -------------------------->
+        <h3 class="text-center">Les plus populaires</h3>
+      </div>
+    </div>
+
+    <!-------------------------- 2 CARDS START -------------------------->
+    <!-------------------------- Cards -------------------------->
+    <div class="container-fluid d-flex">
+      <div class="row">
+        <article class="card col-6 d-flex flex-row">
+          <img class="card-img" src="assets/img/testcards.png" alt="">
+          <div class="d-flex flex-column card-body">
+            <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3 Juillet 14h00</time>
+            <div class="">
+              <h4>Titre activité</h4>
+              <h5>Localisation</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus
+                ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et
+                tincidunt. Amet sit ut proin et tincidunt.</p>
+
+              <div class="d-flex flex-row">
+                <div class="col-6 filtre">
+                  <img src="assets/icones/icone-pleinair.svg" alt="">
+                  <button class="btn btn-link">Plein Air</button>
+                </div>
+
+                <div class="col-9 d-flex justify-content-end iconeparticipants" style="position:relative">
+                  <img class="iconeparticipant1" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant2" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant3" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant4" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant5" src="assets/icones/icone-user.svg">
+                  <img class="icone-nombre-participant" src="assets/icones/icone-user.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-------------------------- Cards -------------------------->
+        <article class="card col-6 d-flex flex-row">
+          <img class="card-img" src="assets/img/testcards.png" alt="">
+          <div class="d-flex flex-column card-body">
+            <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3 Juillet 14h00</time>
+            <div class="">
+              <h4>Titre activité</h4>
+              <h5>Localisation</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus
+                ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et
+                tincidunt. Amet sit ut proin et tincidunt.</p>
+
+              <div class="d-flex flex-row">
+                <div class="col-6 filtre">
+                  <img src="assets/icones/icone-pleinair.svg" alt="">
+                  <button class="btn btn-link">Plein Air</button>
+                </div>
+
+                <div class="col-9 d-flex justify-content-end iconeparticipants" style="position:relative">
+                  <img class="iconeparticipant1" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant2" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant3" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant4" src="assets/icones/icone-user.svg">
+                  <img class="iconeparticipant5" src="assets/icones/icone-user.svg">
+                  <img class="icone-nombre-participant" src="assets/icones/icone-user.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-------------------------- 2 CARDS END -------------------------->
+
+    <!-------------------------- 2 CARDS START -------------------------->
+    <!-------------------------- Cards -------------------------->
+    <div class="container d-flex">
+      <div class="row">
+        <article class="cardactivite col-6 d-flex">
+          <div>
+            <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
+          </div>
+          <div>
+            <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+            </p>
+            <h4>Canoë Kayak Le Poulot,</h4>
+            <h5>Conflans Sainte-Honorine</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Purus ultrices
+              lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sit ut proin et tincidunt. Amet sit
+              ut proin et tincidunt. </p>
+          </div>
+        </article>
+
+        <!-------------------------- Cards -------------------------->
+        <article class="col-6 d-flex">
+          <div class="">
+            <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
+          </div>
+          <div class="">
+            <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+            </p>
+            <div class="text-align-left">
+              <h4>Canoë Kayak Le Poulot,</h4>
+              <h5>Conflans Sainte-Honorine</h5>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
+                laborum
+                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+              </p>
+            </div>
+          </div>
+      </div>
+      </article>
+    </div>
+    <!-------------------------- 2 CARDS END -------------------------->
+
+    <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
+    <div class="d-flex justify-content-center me-5" id="decouvrir">
+      <a href="#" class="btn btn-secondary">Voir plus</a>
+    </div>
+    </div>
+    </section>
+    <!-------------------------- SECTION "LES PLUS POPULAIRES" END -------------------------->
+
+    <!-------------------------- SECTION "A VENIR" START -------------------------->
+    <section id="populaire"></section>
+    <div class="container text-center">
+      <div class="row">
+        <!-------------------------- H3 A venir -------------------------->
+        <h3>A venir</h3>
+      </div>
+
+      <!-------------------------- 2 CARDS START -------------------------->
+      <!-------------------------- Cards -------------------------->
+      <div class="container d-flex">
+        <div class="row">
+          <article class="d-flex col-6">
+            <div>
+              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div>
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <h4>Canoë Kayak Le Poulot,</h4>
+              <h5>Conflans Sainte-Honorine</h5>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius laborum
+                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+              </p>
+            </div>
+          </article>
+
+          <!-------------------------- Cards -------------------------->
+          <article class="col-6 d-flex border">
+            <div class="">
+              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div class="">
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <div class="text-align-left">
+                <h4>Canoë Kayak Le Poulot,</h4>
+                <h5>Conflans Sainte-Honorine</h5>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
+                  laborum
+                  quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+                </p>
+              </div>
+            </div>
+        </div>
+        </article>
+      </div>
+      <!-------------------------- 2 CARDS END -------------------------->
+
+      <!-------------------------- 2 CARDS START -------------------------->
+      <!-------------------------- Cards -------------------------->
+      <div class="container d-flex">
+        <div class="row">
+          <article class="col-6 d-flex border">
+            <div class="border">
+              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div class="border">
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <h4>Canoë Kayak Le Poulot,</h4>
+              <h5>Conflans Sainte-Honorine</h5>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius laborum
+                quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+              </p>
+            </div>
+          </article>
+
+          <!-------------------------- Cards -------------------------->
+          <article class="col-6 d-flex border">
+            <div class="">
+              <img src="assets/img/testcards.png" alt="Photo d'une personne faisant du canoë">
+            </div>
+            <div class="">
+              <p class="date d-flex justify-content-end"><time datetime="2022-06-03T17:00:00">3 Juin 2022 17h00</time>
+              </p>
+              <div class="text-align-left">
+                <h4>Canoë Kayak Le Poulot,</h4>
+                <h5>Conflans Sainte-Honorine</h5>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, porro ex, et provident eum eius
+                  laborum
+                  quos delectus placeat dolor sequi earum impedit est voluptatum omnis odit deleniti accusamus alias.
+                </p>
+              </div>
+            </div>
+        </div>
+        </article>
+      </div>
+      <!-------------------------- 2 CARDS END -------------------------->
+
+      <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
+      <div class="d-flex justify-content-center me-5" id="decouvrir">
+        <a href="#" class="btn btn-secondary">Voir plus</a>
+      </div>
+    </div>
+    </section>
+    <!-------------------------- SECTION "A VENIR" END -------------------------->
+
+    <!-------------------------- SECTION "QUELQUES PERSONNALITÉS" START -------------------------->
+    <section class="container">
+      <div class="row text-center">
+        <!-------------------------- H3 Les plus populaires -------------------------->
+        <h3>Quelques personnalités</h3>
+      </div>
+
+      <!-------------------------- Card personnalités  -------------------------->
+      <div class="container">
+        <div class="row justify-content-center">
+          <!-------------------------- Card 01  -------------------------->
+          <div class="col-3 card justify-content-center mx-3">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
+                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
+            </div>
+          </div>
+
+          <!-------------------------- Card 02  -------------------------->
+          <div class="col-3 card justify-content-center mx-3">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
+                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
+            </div>
+          </div>
+
+          <!-------------------------- Card 03 -------------------------->
+          <div class="col-3 card justify-content-center mx-3">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Lorem ipsum dolor sit a met, consectetur adipiscing elit. Ac nam eget eget pharetra
+                sit lacus. Augue feugiat odio at metus. Tortor in diam eget ut cursus dui nunc..</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-------------------------- BOUTON EN SAVOIR PLUS -------------------------->
+      <div class="d-flex justify-content-center me-5" id="decouvrir">
+        <a href="#" class="btn btn-secondary">Voir plus</a>
+      </div>
+    </section>
+    <!-------------------------- SECTION "PERSONNALITÉS" END -------------------------->
+
+    <!-------------------------- SECTION "EQUIPE" START -------------------------->
+    <div class="row text-center mx-0">
+      <!-------------------------- H3 Notre Equipe -------------------------->
+      <h3>Notre Equipe</h3>
+    </div>
+
+    <section class="container">
+      <div class="row">
+        <div class="col-6">
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+        </div>
+        <div class="col-6">
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+          <img src="###" alt="">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta cum nihil, natus consectetur repudiandae,
+            ipsa quae corrupti asperiore.</p>
+        </div>
+      </div>
+
+    </section>
 
 
+    <!-------------------------- SECTION "EQUIPE" START -------------------------->
 
+  </main>
+ 
+
+</body>
 {% endblock %}
+
+
+
