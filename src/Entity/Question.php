@@ -29,6 +29,11 @@ class Question
      */
     private $answers;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $question_set;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -77,6 +82,18 @@ class Question
                 $answer->setQuestion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getQuestionSet(): ?int
+    {
+        return $this->question_set;
+    }
+
+    public function setQuestionSet(int $question_set): self
+    {
+        $this->question_set = $question_set;
 
         return $this;
     }
