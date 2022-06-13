@@ -1,0 +1,119 @@
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.icon-btn {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+button {
+    height: 60px;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 5px 15px;
+    border: 1px solid black;
+    color: white;
+    background-color: grey;
+}
+
+/* Section top */
+.section-top {
+    background-image: url(../img/tree-climbing-activity.jpg);
+    background-size: cover;
+    background-position: bottom;
+    height: 620px;
+    margin-bottom: 0;
+}
+
+/* Activity Summary Section */
+.activity-participation-section {
+    padding: 50px 0;
+    background-color: blanchedalmond;
+}
+
+.activity-summary-container {
+    margin-bottom: 30px;
+}
+
+.activity-back {
+    width: 70px;
+}
+
+.activity-admin h5 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.activity-admin-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    border: 2px solid orange;
+    overflow: hidden;
+}
+
+.activity-admin-picture img {
+    width: auto;
+    height: 100%;
+}
+
+.activity-participation img {
+    width: 60px;
+}
+
+.activity-summary {
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+}
+
+.activity-informations-container {
+    margin: 50px 0;
+}
+
+.activity-information-item {
+    flex: 0 0 630px;
+    max-width: 630px;
+    padding: 40px;
+    margin: 0 20px;
+    background-color: blanchedalmond;
+    border-radius: 20px;
+}
+
+.activity-information-item p {
+    font-size: 20px;
+    font-weight: 900;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.activity-information-item span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.activity-information-item-description {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 40px;
+}
+
+.activity-information-item-description p {
+    text-align: center;
+    padding-left: 0;
+}
+
+.activity-price {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 40px;
+    width: 370px;
+}
+
+.activity-price .title {
+    font-weight: bold;
+}
