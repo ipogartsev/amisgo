@@ -1,0 +1,205 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activités{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{% block stylesheets %}
+            <link rel="stylesheet" href="/assets/css/design-system.css">
+<link rel="stylesheet" href="/assets/css/tree-climbing.css">
+        {% endblock %}
+
+        <body id="activites">
+	<!------------------------ HEADER START------------------------>
+	<header>
+		<div class="container mw-100 px-0">
+			
+
+
+
+			<div class="activity-participation-section">
+				<div class="activity-summary-container d-flex flex-wrap justify-content-around">
+					<div class="activity-back">
+						<img src="/assets/icons/icone-left-arrow.svg" alt="">
+					</div>
+					<div class="activity-admin d-flex flex-column align-items-center">
+						<div class="activity-admin-picture">
+							<img src="/assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
+						</div>
+						<h5>Admin</h5>
+					</div>
+					<div class="activity-summary text-center d-flex flex-column justify-content-center">
+						<h4>Evasion Verte, Paris 75000</h4>
+						<div>
+							Au coeur du Parc Floral de Paris et à 10 minutes de la porte de Bercy (accès possible en bus
+							ou métro), Evasion Verte vous propose une activité de parcours aventure dans les arbres dans
+							l’espace jeux.
+						</div>
+					</div>
+					<div class="activity-participation d-flex">
+						<button class="icon-btn">
+							<img src="/assets/icons/icone-heart-outlined-black.svg" alt="">
+						</button>
+						<button>Je participe !</button>
+					</div>
+				</div>
+				<div class="activity-summary-more d-flex flex-wrap justify-content-center">
+					<div class="activity-summary-more-desc col-4 text-center p-3">
+						Une fois équipé, vous suivrez une initiation avec nos opérateurs et vous pourrez profiter des
+						ateliers sur 4 parcours adaptés et équipés en ligne de vie continue.
+					</div>
+					<div class="activity-summary-more-desc col-4 text-center p-3">
+						Location de matériel pour une excursion d'une journée entière au coeur du Parc de l’Evasion
+						Verte et de ses arbres en fleurs. Idéal pour les groupes d'amis, familles et sportifs.
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!------------------------ HEADER END------------------------>
+	<!------------------------ MAIN START------------------------>
+	<main>
+		<div class="container text-center 
+		d-flex flex-wrap justify-content-center 
+		activity-informations-container">
+			<div class="activity-information-item">
+				<h4>Informations sur l'activité</h4>
+				<p>Adresse : <span>Parc floral de Paris - 75012 PARIS</span></p>
+				<p>Parcours : <span>Escapade entre aventurier</span></p>
+				<p>Distance de parcours : <span>2 Km</span></p>
+				<p>Niveau : <span>Confirmé</span></p>
+				<p>Horaire de départ : <span>10h00</span></p>
+				<p>Temps estimé de l'activité : <span>4h00</span></p>
+
+				<div class="activity-information-item-description">
+					<p>Tout le matériel d’accrobranche vous est fourni</p>
+					<div>
+						Notre matériel est régulièrement contrôlé. Une partie du stock est renouvelé chaque année pour
+						répondre à toutes les normes de sécurité.
+					</div>
+				</div>
+
+				<div class="activity-information-item-description">
+					<p>Que dois-je emporter pour mon activité ?</p>
+					<div>
+						Le devis imprimé ou le billet électronique reçu lors de votre réservation, pour avoir accès
+						gratuitement
+						au Parc Floral.
+						Pensez à emporter un petit pique-nique pour la pause a midi. Si jamais vous voulez vous
+						faciliter la vie, il y a des restaurants disponibles et qui serez ravis de vous accueillir tout
+						autour du complexe.
+					</div>
+				</div>
+			</div>
+			<div class="activity-information-item d-flex justify-content-center flex-wrap">
+				<h4>Informations utiles</h4>
+				<div class="activity-information-item-description">
+						Au coeur du Parc Floral de Paris et à 10 minutes de la porte de Bercy (accès possible en bus ou
+						métro), Evasion Verte vous propose une activité de parcours aventure dans les arbres dans
+						l’espace jeux.
+
+						<br>
+
+						* Afin de vous permettre de passer un moment ludique et sportif agréable en toute sécurité, nous
+						vous
+						rappelons qu’évoluer d’arbres en arbres, à plusieurs mètres du sol - de façon totalement
+						autonome,
+						c’est-à-dire sans encadrement - constitue une activité à risque qui implique le strict respect
+						d’un
+						certain nombre d’obligations et de consignes impératives décrites ci-dessous.
+				</div>
+
+				<div class="activity-information-item-description">
+					<p>En cas de mauvais temps</p>
+					<div>
+						Vous avez réservé un moment d’accrobranche mais le temps n’est pas au rendez-vous ? Nous vous
+						proposons un autre rendez-vous.
+					</div>
+				</div>
+
+				<div class="activity-information-item-description">
+					<p>Qui sont-ils?</p>
+					<div>
+						Moniteurs diplômés d’accrobranche, depuis 2014 l’équipe d’Evasion Verte accueille tout au long
+						de l’année des familles et des passionnés de nature et de sport en plein air, venus de toute la
+						France et de l’étranger.
+					</div>
+				</div>
+
+				<div class="activity-price d-flex justify-content-center">
+					<div class="title">Tarifs&nbsp;</div>
+					<div class="price">&nbsp;35€ TTC</div>
+				</div>
+			</div>
+		</div>
+	</main>
+    <!------------------------ FOOTER START------------------------>
+	<footer>
+		<!-------------------------- CATEGORIES -------------------------->
+		<div class="bs-docs-footer" id="footer">
+			<div class="container">
+				<div class="row ms-5">
+					<!-------------------------- About section -------------------------->
+					<div class="col-4">
+						<h4 class="mt-3">A propos</h4>
+						<div id="a-propos">
+							<ul class="list-unstyled">
+								<li class=""><a href="#">Notre histoire</a></li>
+								<li class=""><a href="#">Notre équipe</a></li>
+								<li class=""><a href="#">Deviens organisateur</a></li>
+								<li class=""><a href="#">Nos valeurs</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-------------------------- Links section -------------------------->
+					<div class="col-4">
+						<h4 class="mt-3">Liens utiles</h4>
+						<div id="utiles">
+							<ul class="list-unstyled">
+								<li class=""><a href="#">Accessibilité</a></li>
+								<li class=""><a href="#">Mentions légales</a></li>
+								<li class=""><a href="#">CGU</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-------------------------- Follow section -------------------------->
+					<div class="col-4">
+						<h4 class="mt-3">Nous suivre</h4>
+						<div id="suivre">
+							<ul class="list-unstyled">
+								<li class=""><i class="fab fa-facebook-f me-3" alt="logo facebook"></i>Facebook
+								</li>
+								<li class=""><i class="fab fa-instagram me-3" alt="logo instagram"></i>Instagram
+								</li>
+								<li class=""><i class="fab fa-twitter me-3" alt="logo twitter"></i>Twitter
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+			<!-------------------------- COPYRIGHT SECTION -------------------------->
+			<div class="row">
+				<div class="col text-center">
+					&copy; AmisGO, 2022
+				</div>
+			</div>
+
+	</footer>
+	<!------------------------ FOOTER END------------------------>
+	
+</body>
+
+</html>
+
+    {% endblock %}
+
+
