@@ -10,974 +10,83 @@
 <!--------------------- Recommandations Section -------------------->
                 <div class="section container-fluid section-cards-container">
                     <h3 class="cards-title">Recommandés pour vous</h3>
+                    <h3>{{ messageUser }}</h3>
 
                     <div class="section cards-container d-flex flex-wrap justify-content-between">
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
+                    {% set i = 0 %}
+                    {% for suggestedEvent in suggestedEvents %}
+                    {% if i < 4 %}
+                      <article class="col-6 card-item d-flex flex-row">
+                        <div class="card-item-img-wrapper">
+								          <div class="card-item-like-icon">
+									          <button><img src="/assets/icons/icone-{{ suggestedEvent.category}}.svg" alt=""></button>
+								          </div>
+								        <img class="card-item-img" src="assets/img/{{ suggestedEvent.eventPicture }}" alt="">
+							      </div>
 
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
+                    <div class="d-flex flex-column card-item-body">
+                      <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ suggestedEvent.dateOfEvent|date("d F y H:m")}}</time>
+                      <div class="card-item-body-container">
+                        <h4 class="text-start">{{ suggestedEvent.title }}</h4>
+                        <h5 class="text-start">{{ suggestedEvent.city }}</h5>
+                        <p class="text-start lh-1 p-3">{{ suggestedEvent.description }}</p>
+                        <div class="d-flex flex-row justify-content-between">
+                          <div class="filtre">
+                            <button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+                              <div class="icon-background">
+                                <img src="assets/icons/icone-pleinair.svg" alt="">
+                              </div>
+                              <div class="card-activity-title mx-2">{{ suggestedEvent.typeOfEvent}}</div>
+                                </button>
+                              </div>
 
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-pleinair.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Plein air</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
+                              <div class="d-flex justify-content-end iconeparticipants align-items-center">
+                                  <div class="icon-wrapper icons-position icon-position-1"><img
+                                          class="icon-participants" src="assets/icons/icone-user.svg"></div>
+                                  <div class="icon-wrapper icons-position icon-position-2"><img
+                                          class="icon-participants" src="assets/icons/icone-user.svg"></div>
+                                  <div class="icon-wrapper icons-position icon-position-3"><img
+                                          class="icon-participants" src="assets/icons/icone-user.svg"></div>
+                                  <div class="icon-wrapper icons-position icon-position-4"><img
+                                          class="icon-participants" src="assets/icons/icone-user.svg"></div>
+                                  <div class="icon-wrapper icons-position icon-position-5"><img
+                                          class="icon-participants" src="assets/icons/icone-user.svg"></div>
+                                  <div class="icon-wrapper icons-position icon-position-6">{{ suggestedEvent.participantsRegistered}}/{{ suggestedEvent.participantsMax }}</div>
                             </div>
-                        </article>
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
-
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-bienetre.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Bien-être</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
-
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-sport.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Sport</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
-
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-cuisine.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Cuisine</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                        {% endif %}
+                        {% set i = i + 1 %}
+                        {% endfor %}
                     </div>
-                    <button class="see-more-btn">En voir plus</button>
-                </div>
-
-                <!--------------------- Popular Section -------------------->
-                <div class="section container-fluid section-cards-container">
-					<h3 class="cards-title">Les plus populaires</h3>
-
-					<div class="section cards-container d-flex flex-wrap justify-content-between">
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/mountains_88302.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Plein air</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-sport.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Sport</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-music.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Musique</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-jeux.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Jeux</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-					<button class="see-more-btn">En savoir plus</button>
-				</div>
-
-
-                <!--------------------- Coming soon Section -------------------->
-                <div class="section container-fluid section-cards-container">
-					<h3 class="cards-title">A venir</h3>
-
-					<div class="section cards-container d-flex flex-wrap justify-content-between">
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-culture.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Culture</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-apero.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Apéro</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-sport.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Sport</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/mountains_88302.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Plein air</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-					</div>
-					<button class="see-more-btn">En savoir plus</button>
-				</div>
-            </div>
-
-        </div>
-
-    </main>
-
-<div>
-<!--------------------- Recommandations Section -------------------->
-                <div class="section container-fluid section-cards-container">
-                    <h3 class="cards-title">Recommandés pour vous</h3>
-
-                    <div class="section cards-container d-flex flex-wrap justify-content-between">
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
-
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-pleinair.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Plein air</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
-
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-bienetre.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Bien-être</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
-
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-sport.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Sport</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-6 card-item d-flex flex-row">
-                            <div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-                            <div class="d-flex flex-column card-item-body">
-                                <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-                                    Juillet
-                                    14h00</time>
-                                <div class="card-item-body-container">
-
-                                    <h4 class="text-start">Titre activité</h4>
-                                    <h5 class="text-start">Localisation</h5>
-                                    <p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.
-                                        Amet
-                                        sit ut proin et tincidunt.
-                                        Purus
-                                        ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Amet sit ut
-                                        proin et
-                                        tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-                                        sdgsd gsgdsg ds gdsg
-                                    </p>
-
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <div class="filtre">
-                                            <button
-                                                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-                                                <div class="icon-background">
-                                                    <img src="assets/icons/icone-cuisine.svg" alt="">
-                                                </div>
-                                                <div class="card-activity-title mx-2">Cuisine</div>
-                                            </button>
-                                        </div>
-
-                                        <div class="d-flex justify-content-end iconeparticipants align-items-center">
-                                            <div class="icon-wrapper icons-position icon-position-1"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-2"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-3"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-4"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-5"><img
-                                                    class="icon-participants" src="assets/icons/icone-user.svg"></div>
-                                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                      <button class="see-more-btn">En voir plus</button>
                     </div>
-                    <button class="see-more-btn">En voir plus</button>
-                </div>
 
-                <!--------------------- Popular Section -------------------->
+<!--------------------- Popular Section -------------------->
                 <div class="section container-fluid section-cards-container">
-					<h3 class="cards-title">Les plus populaires</h3>
-
+                  <h3 class="cards-title">Les plus populaires</h3>
+                  <h3>{{ message }}</h3>
 					<div class="section cards-container d-flex flex-wrap justify-content-between">
+            {% set i = 0 %}
+                  {% for popularEvent in popularEvents %}
+                  {% if i < 4 %}
 						<article class="col-6 card-item d-flex flex-row">
 							<div class="card-item-img-wrapper">
 								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
+									<button><img src="assets/icons/icone-{{ popularEvent.category }}.svg" alt=""></button>
 								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
+								<img class="card-item-img" src="assets/img/{{ popularEvent.eventPicture }}" alt="">
 							</div>
 
 							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ popularEvent.dateOfEvent|date("d F y H:m")}}</time>
 								<div class="card-item-body-container">
 
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
+									<h4 class="text-start">{{ popularEvent.title }}</h4>
+									<h5 class="text-start">{{ popularEvent.city }}</h5>
+									<p class="text-start lh-1 p-3">{{ popularEvent.description }}</p>
 
 									<div class="d-flex flex-row justify-content-between">
 										<div class="filtre">
@@ -986,7 +95,7 @@
 												<div class="icon-background">
 													<img src="assets/icons/mountains_88302.svg" alt="">
 												</div>
-												<div class="card-activity-title mx-2">Plein air</div>
+												<div class="card-activity-title mx-2">{{ popularEvent.typeOfEvent }}</div>
 											</button>
 										</div>
 
@@ -1001,226 +110,53 @@
 													class="icon-participants" src="assets/icons/icone-user.svg"></div>
 											<div class="icon-wrapper icons-position icon-position-5"><img
 													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+											<div class="icon-wrapper icons-position icon-position-6">{{ popularEvent.participantsRegistered}}/{{ popularEvent.participantsMax }}</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
+            {% endif %}
+            {% set i = i + 1 %}
+            {% endfor %}
 
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-sport.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Sport</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-music.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Musique</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-jeux.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Jeux</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
 					</div>
-					<button class="see-more-btn">En savoir plus</button>
-				</div>
+					  <button class="see-more-btn">En savoir plus</button>
+				  </div>
 
 
-                <!--------------------- Coming soon Section -------------------->
-                <div class="section container-fluid section-cards-container">
+<!--------------------- Coming soon Section -------------------->
+        <div class="section container-fluid section-cards-container">
 					<h3 class="cards-title">A venir</h3>
-
+          <h3>{{ message }}</h3>
 					<div class="section cards-container d-flex flex-wrap justify-content-between">
+           {% set i = 0 %}
+          {% for futureEvent in futureEvents %}
+          {% if i < 4 %}
 						<article class="col-6 card-item d-flex flex-row">
 							<div class="card-item-img-wrapper">
 								<div class="card-item-like-icon">
 									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
 								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
+								<img class="card-item-img" src="assets/img/{{ futureEvent.eventPicture }}" alt="">
 							</div>
 
 							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{futureEvent.dateOfEvent|date("d F y H:m")}}</time>
 								<div class="card-item-body-container">
 
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
+									<h4 class="text-start">{{ futureEvent.title }}</h4>
+									<h5 class="text-start">{{ futureEvent.city }}</h5>
+									<p class="text-start lh-1 p-3">{{ futureEvent.description }}</p>
 
 									<div class="d-flex flex-row justify-content-between">
 										<div class="filtre">
 											<button
 												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
 												<div class="icon-background">
-													<img src="assets/icons/icone-culture.svg" alt="">
+													<img src="assets/icons/icone-{{ futureEvent.category }}.svg" alt="">
 												</div>
-												<div class="card-activity-title mx-2">Culture</div>
+												<div class="card-activity-title mx-2">{{ futureEvent.typeOfEvent }}</div>
 											</button>
 										</div>
 
@@ -1235,188 +171,16 @@
 													class="icon-participants" src="assets/icons/icone-user.svg"></div>
 											<div class="icon-wrapper icons-position icon-position-5"><img
 													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+											<div class="icon-wrapper icons-position icon-position-6">{{ futureEvent.participantsRegistered}}/{{ futureEvent.participantsMax }}</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-apero.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Apéro</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-sport.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Sport</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
-									Juillet
-									14h00</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">Titre activité</h4>
-									<h5 class="text-start">Localisation</h5>
-									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.
-										Amet
-										sit ut proin et tincidunt.
-										Purus
-										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Amet sit ut
-										proin et
-										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
-										sdgsd gsgdsg ds gdsg
-									</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button
-												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/mountains_88302.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">Plein air</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img
-													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
+            {% endif %}
+            {% set i = i + 1 %}
+            {% endfor %}
 					</div>
-					<button class="see-more-btn">En savoir plus</button>
-				</div>
-            </div>
-
-        </div>
-
-    </main>
-
-</div>
+					  <button class="see-more-btn">En savoir plus</button>
+  				</div>
 {% endblock %}

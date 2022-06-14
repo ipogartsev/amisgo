@@ -25,7 +25,7 @@ class EventController extends AbstractController
       $today = date("Y-m-d H:i:s");
       // Recuperer User pour créer les recommendations
       $userId = $this->getUser();
- 
+  
       // Création des tableaux à redre par controlleur
       $suggestedEvents =[];
       $popularEvents = [];
@@ -59,8 +59,8 @@ class EventController extends AbstractController
           }
 
           // Selectionner les evenements recommandés
-          if($userId !== 'null'){
-            // Vérifier si user a participé aux evenements0
+          if($userId !== null){
+            // Vérifier si user a participé aux evenements
             $userEvents = $userId->getEvent();
             // Si user a participé
             if($userEvents){
@@ -83,7 +83,7 @@ class EventController extends AbstractController
               $suggestedEvents = $futureEvents[rand(0, count($futureEvents)-1)];
             }
           } else{
-            $messageUser = 'Connectez-vous pour voir les evenements recommandé pour vous ! ';
+            $messageUser = 'Connectez-vous pour voir les evenements recommandés pour vous ! ';
           }
        }
       }
