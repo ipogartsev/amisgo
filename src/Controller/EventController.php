@@ -66,6 +66,7 @@ class EventController extends AbstractController
             if($userEvents){
               // Créer le tableau d'evenements à recommandé par type d'evenement
               $suggestedEvents = [];
+              $typeEvents = [];
               foreach($userEvents as $event){
                 $typeEvents[] = $event->getTypeOfEvent();
               };
