@@ -18,6 +18,7 @@ class HomeController extends AbstractController
     public function index(EventRepository $eventRepository, PersonalityRepository $personalityRepository): Response { 
       // message en cas d'absence des evenements
       $message = '';
+      // Création des tableaux vides
       $popularEvents = [];
       $futureEvents = [];
       $events = $eventRepository->findAll();
