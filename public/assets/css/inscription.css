@@ -1,0 +1,16 @@
+body{
+    background-image: url(../img/img-inscription.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signup-section{
+    background-color: var(--blanc);
+    border-radius: 2rem;
+    padding-top: 1rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem;
+    align-items: center;
+    margin: auto;
+}

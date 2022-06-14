@@ -1,0 +1,213 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnalités!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+   
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/Users/angelina/Documents/Cours la passerelle/PROJET_AMIGOS/webapp_amisgo/src/Controller/PersonalityController.php'|file_link(0) }}">src/Controller/PersonalityController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/Users/angelina/Documents/Cours la passerelle/PROJET_AMIGOS/webapp_amisgo/templates/personality/index.html.twig'|file_link(0) }}">templates/personality/index.html.twig</a></code></li>
+    </ul>
+</div>
+ <!------------------------ MAIN START------------------------>
+    <main>
+      <!-------------------------- Meneurs section-------------------------->
+      <section class="container">
+        <div class="row text-center">
+          <!-------------------------- section Title -------------------------->
+          <h3>Les Meneurs</h3>
+        </div>
+
+        <!-------------------------- Cards section  -------------------------->
+        <div class="container">
+          <div class="row justify-content-center">
+            <!-------------------------- Card 01  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/04-protecteur.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Protecteur</h4>
+                <p class="card-text">Celui qui cherche à tout prix à aider les autres quitte à se sacrifier. Le
+                  protecteur est généreux, honorable et fiable. Il est tellement au service des autres qu’il manque
+                  parfois d’ambition ou de leadership.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 02  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/06-meneur.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Leader</h4>
+                <p class="card-text">Celui qui veut la puissance et le contrôle sur les autres. Le leader prône avant
+                  tout l’excellence, la dignité et la responsabilité. Certains imposent leurs lois avec douceurs tandis
+                  que d’autres tendent vers la dictature.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 03 -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/05-createur.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Créateur</h4>
+                <p class="card-text">Celui qui fait des choses. Le créateur est un visionnaire un peu solitaire,
+                  débordant d’excitation et d’imagination. Il est prêt à tout pour réaliser sa vision.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><br />
+
+      <!-------------------------- Eclaireurs section-------------------------->
+      <section class="container">
+        <div class="row text-center">
+          <!-------------------------- section Title -------------------------->
+          <h3>Les éclaireurs</h3>
+        </div>
+
+        <!-------------------------- Cards section  -------------------------->
+        <div class="container">
+          <div class="row justify-content-center">
+            <!-------------------------- Card 01  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/03-innoncent.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">L’ Innocent</h4>
+                <p class="card-text">Celui qui cherche le bonheur — tout simplement. L’innocent est bon, respectueux de
+                  la morale, optimiste et inspire fiabilité et confiance. Un brin naïf, il voit la beauté dans ce qui
+                  est pur et simple.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 02  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/02-sage.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Sage</h4>
+                <p class="card-text">Celui qui passe son temps dans les livres. Le sage est une force tranquille,
+                  souvent un mentor, un expert, en quête de vérité. Il pense que c’est grâce à l’intelligence et
+                  l’analyse que l’on comprend le monde.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 03 -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/01-explorateur.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">L’ Explorateur</h4>
+                <p class="card-text">Celui qui est en quête de nouvelles expériences. L’explorateur est curieux,
+                  indépendant, courageux et ouvert d’esprit. Il cherche à repousser les limites de la découverte de soi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><br />
+  
+      <!-------------------------- émancipateurs section-------------------------->
+      <section class="container">
+        <div class="row text-center">
+          <!-------------------------- section Title -------------------------->
+          <h3>Les émancipateurs</h3>
+        </div>
+
+        <!-------------------------- Cards section  -------------------------->
+        <div class="container">
+          <div class="row justify-content-center">
+            <!-------------------------- Card 01  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/08-rebelle.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Rebelle</h4>
+                <p class="card-text">Celui qui ne se plie pas aux règles de la société. Le rebelle est parfois le méchant, mais pas toujours. Il est indépendant d’esprit, sceptique, avec une tendance à provoquer pour faire changer les choses.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 02  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/07-mystique.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Mystique</h4>
+                <p class="card-text">Celui qui cherche à maîtriser les lois de l’univers pour influencer les gens. Le mystique est omniscient, charismatique et stratégique. C’est un révolutionnaire qui pousse les autres à regarder vers l’avenir.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 03 -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/09-heros.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Héros</h4>
+                <p class="card-text">Celui qui se lève pour sauver le monde. Le héros est courageux, persévérant et prouve sa valeur par des actes honorables. Il est à la recherche du dépassement de soi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><br />
+
+      <!-------------------------- Intermédiaires section-------------------------->
+      <section class="container">
+        <div class="row text-center">
+          <!-------------------------- section Title -------------------------->
+          <h3>Les Intermédiaires</h3>
+        </div>
+
+        <!-------------------------- Cards section  -------------------------->
+        <div class="container">
+          <div class="row justify-content-center">
+            <!-------------------------- Card 01  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/11-populaire.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Populaire</h4>
+                <p class="card-text">Celui qui est guidé par ses émotions. Le populaire cherche à créer des connexions profondes avec les autres et craint d’être un mauvais ami. Il est passionné, humaniste et séducteur. </p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 02  -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/11-comique.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Comique</h4>
+                <p class="card-text">Celui qui rappelle que la vie est trop courte pour qu’on se prenne la tête. Un brin rêveur, un brin farceur, il est surtout un vrai amoureux de la vie. Le comique est drôle, mais aussi lucide et capable de sortir des vérités importantes.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 03 -------------------------->
+            <div class="col-3 card justify-content-center mx-3">
+              <img class="card-img-top" src="assets/img/09-pragmatique.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Pragmatique</h4>
+                <p class="card-text">Celui qui ne pète pas plus haut que son cul. Le pragmatique est accessible, gentil, terre-à-terre et authentique. Il cherche à appartenir à un groupe et se retrouve souvent non préparé face aux événements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><br />
+
+        <!-------------------------- Bottom section -------------------------->
+        <section class="container-fluid">
+          <div class="row" style="background-color: grey;">
+            <div class="col-sm col-md-4 col-xxl-6">
+              <h3>Et toi ? <br /> Quel type d'AmisGO es-tu ?</h3>
+            </div>
+
+            <div class="col-sm col-md-4 col-xxl-6">
+              <img src="" alt="">
+            </div>
+
+          </div>
+        </section>
+
+    </main>
+    <!------------------------ MAIN END------------------------>
+
+
+{% endblock %}
