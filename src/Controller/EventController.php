@@ -96,13 +96,13 @@ class EventController extends AbstractController
     /**
      * @Route("events/{title}", name="app_event_details")
      */
-    // page d'ffichage d'une activité
+    // page d'affichage d'une activité
     public function eventDetails(EventRepository $eventRepository, string $title): Response
     { 
       //Recuperer les details d'evenement
       $event = $eventRepository ->findOneBy(['title' => $title]); 
       //  
-      return $this->render('personality/activite.html.twig', [ 'event' => $event ]); 
+      return $this->render('event/activite.html.twig', [ 'event' => $event ]); 
     }
     
 }

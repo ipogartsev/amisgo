@@ -32,29 +32,24 @@
 						<h5>Admin</h5>
 					</div>
 					<div class="activity-summary text-center d-flex flex-column justify-content-center">
-						<h4>Evasion Verte, Paris 75000</h4>
+						<h4>{{event.typeOfEvent}}</h4>
 						<div>
-							Au coeur du Parc Floral de Paris et à 10 minutes de la porte de Bercy (accès possible en bus
-							ou métro), Evasion Verte vous propose une activité de parcours aventure dans les arbres dans
-							l’espace jeux.
+							{{event.description}}
 						</div>
 					</div>
-					<div class="activity-participation d-flex">
+					<div class="activity-participation d-flex justify-content-around">
 						<button class="icon-btn">
 							<img src="/assets/icons/icone-heart-outlined-black.svg" alt="">
 						</button>
 						<button>Je participe !</button>
+						<button id="c"> complet !</button>
 					</div>
 				</div>
 				<div class="activity-summary-more d-flex flex-wrap justify-content-center">
 					<div class="activity-summary-more-desc col-4 text-center p-3">
-						Une fois équipé, vous suivrez une initiation avec nos opérateurs et vous pourrez profiter des
-						ateliers sur 4 parcours adaptés et équipés en ligne de vie continue.
-					</div>
-					<div class="activity-summary-more-desc col-4 text-center p-3">
-						Location de matériel pour une excursion d'une journée entière au coeur du Parc de l’Evasion
-						Verte et de ses arbres en fleurs. Idéal pour les groupes d'amis, familles et sportifs.
-					</div>
+					  lorem
+			      
+		
 				</div>
 			</div>
 		</div>
@@ -66,16 +61,16 @@
 		d-flex flex-wrap justify-content-center 
 		activity-informations-container">
 			<div class="activity-information-item">
-				<h4>Informations sur l'activité</h4>
-				<p>Adresse : <span>Parc floral de Paris - 75012 PARIS</span></p>
+				<h4>information sur l'activité</h4>
+				<p>Adresse : <span>{{event.address1}}</span></p>
 				<p>Parcours : <span>Escapade entre aventurier</span></p>
-				<p>Distance de parcours : <span>2 Km</span></p>
-				<p>Niveau : <span>Confirmé</span></p>
+				<p>Distance de parcours : <span>{{event.distance}}</span></p>
+				<p>Niveau : <span>{{event.niveau}}</span></p>
 				<p>Horaire de départ : <span>10h00</span></p>
-				<p>Temps estimé de l'activité : <span>4h00</span></p>
+				<p>Temps estimé de l'activité : <span>{{event.estimatedTime}}</span></p>
 
 				<div class="activity-information-item-description">
-					<p>Tout le matériel d’accrobranche vous est fourni</p>
+					<p>Tout le matériel vous est fourni</p>
 					<div>
 						Notre matériel est régulièrement contrôlé. Une partie du stock est renouvelé chaque année pour
 						répondre à toutes les normes de sécurité.
@@ -97,19 +92,11 @@
 			<div class="activity-information-item d-flex justify-content-center flex-wrap">
 				<h4>Informations utiles</h4>
 				<div class="activity-information-item-description">
-						Au coeur du Parc Floral de Paris et à 10 minutes de la porte de Bercy (accès possible en bus ou
-						métro), Evasion Verte vous propose une activité de parcours aventure dans les arbres dans
-						l’espace jeux.
+						{{event.description}}
 
 						<br>
 
-						* Afin de vous permettre de passer un moment ludique et sportif agréable en toute sécurité, nous
-						vous
-						rappelons qu’évoluer d’arbres en arbres, à plusieurs mètres du sol - de façon totalement
-						autonome,
-						c’est-à-dire sans encadrement - constitue une activité à risque qui implique le strict respect
-						d’un
-						certain nombre d’obligations et de consignes impératives décrites ci-dessous.
+						
 				</div>
 
 				<div class="activity-information-item-description">
@@ -131,7 +118,7 @@
 
 				<div class="activity-price d-flex justify-content-center">
 					<div class="title">Tarifs&nbsp;</div>
-					<div class="price">&nbsp;35€ TTC</div>
+					<div class="price">&nbsp;{{event.price}}</div>
 				</div>
 			</div>
 		</div>
