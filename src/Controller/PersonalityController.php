@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PersonalityRepository;
 
+
 class PersonalityController extends AbstractController
 {
     /**
@@ -34,5 +35,8 @@ class PersonalityController extends AbstractController
       // Recuperer 3 personnalités à afficher sur page accueil 
       return $this->render('personality/persona.html.twig', [ 'person' => $person ]); 
     }
+   
+    
+    
 }
 
