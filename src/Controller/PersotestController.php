@@ -34,7 +34,7 @@ class PersotestController extends AbstractController
     {
         // dd($request);
 
-        $tab = [];
+        $tabCategory = [];
         // on récupère la série de question 0 grâce à la méthode findBy().
         $firstSetOfQuestions = $questionRepository->findBy(['question_set' => 0]);
         //on créé une boucle qui va récupérer pour chaque réponses de l'utilisateur, la catégorie à laquelle elles appartiennent.
@@ -43,20 +43,20 @@ class PersotestController extends AbstractController
             $param = $request->get('flexRadioDefault' . $row->getId());
             // l'id_category correspond aux catégories de personnalités (il y en a 4 qui contiennent chacune 3 personnalités)
             // on vérifie si la catégorie est déjà présente dans le tableau $tab. Si ça n'est pas le cas on l'ajoute
-            if (!isset($tab[$param])) {
-                $tab[$param] = 1;
+            if (!isset($tabCategory[$param])) {
+                $tabCategory[$param] = 1;
             } else {
-                $tab[$param] = $tab[$param] + 1;
+                $tabCategory[$param] = $tabCategory[$param] + 1;
             }
         }
 
-        //trie le tableau en ordre décroissant ce qui permet d'avoir en premier element du tableau, la catégorie avec le plus grand nombre de réponses
-        arsort($tab);
+        //trie le tableau en ordre décroissant ce qui permet d'avoir en premier élement du tableau, la catégorie avec le plus grand nombre de réponses
+        arsort($tabCategory);
 
         //sachant que la première valeur du tableau est la plus grande on fait une boucle pour vérifier si les valeurs suivantes sont identiques à la première valeur
         $equaltab = [];
         $max = 0;
-        foreach ($tab as $key => $value) {
+        foreach ($tabCategory as $key => $value) {
             if ($max == 0) {
                 $max = $value;
             }
@@ -65,7 +65,7 @@ class PersotestController extends AbstractController
             }
         }
 
-        // on fait un "random" pour trouver un index aléatoire qui ne dépasse pas la longueur du tableau contenant les catégories avec des égalités
+        // on fait un "random" pour trouver un index aléatoire qui ne dépasse pas la longueur du tableau contenant les catégories avec des égalités.
         $indexCat = random_int(0, count($equaltab) - 1);
 
         $cat = $equaltab[$indexCat];
@@ -85,30 +85,31 @@ class PersotestController extends AbstractController
      */
     public function getTestResult(Request $request, QuestionRepository $questionRepository, PersonalityRepository $personalityRepository)
     {
-        $tab = [];
-        //on récupère la catégorie dans le champs caché de la deuxième page twig du formulaire
+        $tabPerso = [];
+        //on récupère la catégorie dans la 2ème page twig du formulaire via un champs caché "<input type="hidden" name="serie" value="{{ cat }}">".
         $cat = $request->get('serie');
-
+        //la série de question correspond à la catégorie de personnalité 
         $secondSetOfQuestions = $questionRepository->findBy(['question_set' => $cat]);
 
+        // le foreach permet de parcourir le tableau de personnalités des réponses de l'utilisateur ($tabPerso)
         foreach ($secondSetOfQuestions as $row) {
-
+            // on récupère les id de personnalité des réponses
             $param = $request->get('flexRadioDefault' . $row->getId());
-            // on vérifie si la personnalité est déjà présente dans le tableau $tab. Si ça n'est pas le cas on l'ajoute
-            if (!isset($tab[$param])) {
-                $tab[$param] = 1;
+            // on vérifie si la personnalité est déjà présente dans le tableau $tabPerso. Si ça n'est pas le cas on l'ajoute
+            if (!isset($tabPerso[$param])) {
+                $tabPerso[$param] = 1;
             } else {
-                $tab[$param] = $tab[$param] + 1;
+                $tabPerso[$param] = $tabPerso[$param] + 1;
             }
         }
-        arsort($tab);
-
+        //trie le tableau en ordre décroissant ce qui permet d'avoir en premier élement du tableau, l'id personnalité avec le plus grand nombre de réponses
+        arsort($tabPerso);
 
 
         //sachant que la première valeur du tableau est la plus grande on fait une boucle pour vérifier si les valeurs suivantes sont identiques à la première valeur
         $equaltab = [];
         $max = 0;
-        foreach ($tab as $key => $value) {
+        foreach ($tabPerso as $key => $value) {
             if ($max == 0) {
                 $max = $value;
             }
@@ -116,6 +117,8 @@ class PersotestController extends AbstractController
                 $equaltab[] = $key;
             }
         }
+        //on fait un random quelque soit la taille du tableau de personnalité car s'il n'y a qu'une seule id personnalité dans le tableau le resultat sera forcément l'index de l'id 
+        //le random permet également d'obtenir un id aléatoire entre les id avec égalité présentes dans le tableau
         $indexPerso = random_int(0, count($equaltab) - 1);
 
 
