@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseJSON;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\EventRepository;
 use App\Repository\UserRepository;
@@ -94,15 +96,35 @@ class EventController extends AbstractController
     }
 
     /**
-     * @Route("events/{title}", name="app_event_details")
+     * @Route("events/{id}", name="app_event_details")
      */
-    // page d'affichage d'une activité
-    public function eventDetails(EventRepository $eventRepository, string $title): Response
+    // page d'ffichage d'une activité
+    public function eventDetails(Event $event,EventRepository $eventRepository, string $id): Response
     { 
       //Recuperer les details d'evenement
-      $event = $eventRepository ->findOneBy(['title' => $title]); 
+      $event = $eventRepository ->findOneBy(['id' => $id]); 
+      $result = $event->isClosed();
+      var_dump($result);
       //  
-      return $this->render('event/activite.html.twig', [ 'event' => $event ]); 
+      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result ]); 
     }
     
+
+//     /**
+//      * @Route("events/{id}/participe", name="app_event_participe")
+//      */
+//     public function eventParticipation(EventRepository $eventRepository, UserRepository $userRepository, $id): ResponseJSON
+//     {
+//       $event= $eventRepository ->findOneBy(['id'=> $id]);
+//       $user= $userRepository ->findOneBy(['id'=>$this->getUser()->getId()]);
+
+//       //enregistrer les relation manytomany si elle n'existe pas deja
+      
+//       //mettre a jour la valeur dans la table event 'set register_participant
+      
+//       //verifier si il est full ou pas
+
+//       $response = new JsonResponse(json_encode(array("result" => "ok", "full" => true, "not registered" => true)));
+//       return $response;
+//     }
 }
