@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\Answers;
+
+use App\Repository\PersonalityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\QuestionRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\Length;
+
 
 class PersotestController extends AbstractController
 {
@@ -49,9 +50,9 @@ class PersotestController extends AbstractController
             }
         }
 
-        //trie le tableau en ordre décroissant permet de connaître la catégorie avec le plus grand nombre de réponse
+        //trie le tableau en ordre décroissant ce qui permet d'avoir en premier element du tableau, la catégorie avec le plus grand nombre de réponses
         arsort($tab);
-        // dd($tab);
+
         //sachant que la première valeur du tableau est la plus grande on fait une boucle pour vérifier si les valeurs suivantes sont identiques à la première valeur
         $equaltab = [];
         $max = 0;
@@ -63,17 +64,70 @@ class PersotestController extends AbstractController
                 $equaltab[] = $key;
             }
         }
-        // dd($equaltab);
+
         // on fait un "random" pour trouver un index aléatoire qui ne dépasse pas la longueur du tableau contenant les catégories avec des égalités
         $indexCat = random_int(0, count($equaltab) - 1);
 
         $cat = $equaltab[$indexCat];
         $secondSetOfQuestions = $questionRepository->findBy(['question_set' => $cat]);
-        //dd($cat);
+
 
         return $this->render(
             'persotest/index_page2.html.twig',
-            ['questions' => $secondSetOfQuestions]
+            ['questions' => $secondSetOfQuestions, 'cat' => $cat]
+        );
+    }
+
+
+
+    /**
+     * @Route("/persotest/result", name="app_result")
+     */
+    public function getTestResult(Request $request, QuestionRepository $questionRepository, PersonalityRepository $personalityRepository)
+    {
+        $tab = [];
+        //on récupère la catégorie dans le champs caché de la deuxième page twig du formulaire
+        $cat = $request->get('serie');
+
+        $secondSetOfQuestions = $questionRepository->findBy(['question_set' => $cat]);
+
+        foreach ($secondSetOfQuestions as $row) {
+
+            $param = $request->get('flexRadioDefault' . $row->getId());
+            // on vérifie si la personnalité est déjà présente dans le tableau $tab. Si ça n'est pas le cas on l'ajoute
+            if (!isset($tab[$param])) {
+                $tab[$param] = 1;
+            } else {
+                $tab[$param] = $tab[$param] + 1;
+            }
+        }
+        arsort($tab);
+
+
+
+        //sachant que la première valeur du tableau est la plus grande on fait une boucle pour vérifier si les valeurs suivantes sont identiques à la première valeur
+        $equaltab = [];
+        $max = 0;
+        foreach ($tab as $key => $value) {
+            if ($max == 0) {
+                $max = $value;
+            }
+            if ($value == $max) {
+                $equaltab[] = $key;
+            }
+        }
+        $indexPerso = random_int(0, count($equaltab) - 1);
+
+
+        $perso = $equaltab[$indexPerso];
+
+        $result = $personalityRepository->findOneById($perso);
+
+        return $this->render(
+            'persotest/index_page_result.html.twig',
+            [
+                'personality' => $result,
+            ]
         );
     }
 }

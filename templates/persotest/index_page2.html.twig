@@ -16,6 +16,9 @@
 						<!--Form section-->
 						<form
 							action="/persotest/result" method="post">
+							<!--on ajoute un champs caché à l'affichage de la page ("hidden") pour récupérer la valeur de la catégorie de personnalité-->
+							<!-- les numéros de catégories de personnalité équivalent aux numéros de séries de questions. -->
+							<input type="hidden" name="serie" value="{{ cat }}">
 							<!--Question section-->
 							<div
 								class="">
@@ -29,7 +32,7 @@
 									<!--boucle réponse-->
 									{% for answer in question.answers %}
 										<div class="form-check">
-											<input class="form-check-input" type="radio" name="flexRadioDefault{{ question.id }}" id="flexRadioDefault1" value="{{answer.idCategory}}">
+											<input class="form-check-input" type="radio" name="flexRadioDefault{{ question.id }}" id="flexRadioDefault1" value="{{answer.personality.id}}">
 											<label class="form-check-label" for="flexRadioDefault1">
 												{{answer.text}}
 											</label>
