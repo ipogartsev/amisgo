@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Activités{% endblock %}
+{% block title %}Activité{% endblock %}
 
 {% block body %}
 <style>
@@ -41,8 +41,17 @@
 						<button class="icon-btn">
 							<img src="/assets/icons/icone-heart-outlined-black.svg" alt="">
 						</button>
-						<button>Je participe !</button>
-						<button id="c"> complet !</button>
+            {% if app.user %}
+              {% if closed == true %}
+                <button> complet !</button>
+              {% elseif participed == true %}
+                  <a href="{{path("app_events")}}"><p>Vous êtes déjà inscrit</p></a>
+                {% else %}
+                  <button id="participe" data-rejoins="active" data-id={{ event.id }} >Je participe !</button>
+              {% endif %}
+            {% else %}
+              <a href="{{path("app_login")}}"><p>connectez vous pour participer</p></a>
+            {% endif %}
 					</div>
 				</div>
 				<div class="activity-summary-more d-flex flex-wrap justify-content-center">
@@ -123,11 +132,9 @@
 			</div>
 		</div>
 	</main>
-    			
-</body>
-
-</html>
-
+ 
+  <script src="/javascript/event.js"></script>
+  
     {% endblock %}
 
 

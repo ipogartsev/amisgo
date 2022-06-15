@@ -24,9 +24,7 @@
         <link rel="stylesheet" href="assets/css/design-system.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        
     </head>
     <body>
           <!------------------------ HEADER START------------------------>
@@ -89,7 +87,6 @@
         </header>
         {% block body %}
         {% endblock %}
-     </body>
 
      <footer>
      
@@ -151,6 +148,10 @@
 {% block footer %}
   {% endblock %}
   </footer>
+  </body>
 
 
 </html>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}

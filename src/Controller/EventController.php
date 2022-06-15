@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ResponseJSON;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\EventRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Validator\Constraints\Length;
 
 class EventController extends AbstractController
@@ -103,28 +106,58 @@ class EventController extends AbstractController
     { 
       //Recuperer les details d'evenement
       $event = $eventRepository ->findOneBy(['id' => $id]); 
+      // Vérifier si il est complet
       $result = $event->isClosed();
-      var_dump($result);
-      //  
-      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result ]); 
+
+      // recuperer l'id d'un user
+      $userId=$this->getUser();
+      $isParticipe = false;
+      // recuperer les evenements auxquels il participe
+      if($userId){
+        $userEvents = $userId->getEvent();
+        // création d'une variable initialiser a false 
+        
+        // boucle sur la liste d'evenements lié a l'user
+        foreach($userEvents as $row){
+          // si l'id d'un event se trouve dans le tableau la variable isparticipe passe en true
+          if($row->getId() == $id){
+            $isParticipe = true;
+            break;
+          }
+      }
+       
+      }
+
+      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe ]); 
     }
     
 
-//     /**
-//      * @Route("events/{id}/participe", name="app_event_participe")
-//      */
-//     public function eventParticipation(EventRepository $eventRepository, UserRepository $userRepository, $id): ResponseJSON
-//     {
-//       $event= $eventRepository ->findOneBy(['id'=> $id]);
-//       $user= $userRepository ->findOneBy(['id'=>$this->getUser()->getId()]);
+    /**
+     * @Route("events/participe/{id}", name="app_event_participe")
+     */
+    public function eventParticipation(EventRepository $eventRepository,EntityManagerInterface $entityManager, $id): JsonResponse
+    {
+      $event= $eventRepository ->findOneBy(['id'=> $id]);
+      $user= $this->getUser()->getId();
 
-//       //enregistrer les relation manytomany si elle n'existe pas deja
-      
-//       //mettre a jour la valeur dans la table event 'set register_participant
-      
-//       //verifier si il est full ou pas
+      //enregistrer les relation manytomany si elle n'existe pas deja
+      $event->addUser($this->getUser());
 
-//       $response = new JsonResponse(json_encode(array("result" => "ok", "full" => true, "not registered" => true)));
-//       return $response;
-//     }
+      $entityManager->persist($event);
+      $entityManager->flush();
+
+      //mettre a jour la valeur dans la table event 'set register_participant
+      $eventCurrentParticipants= $event->getParticipantsRegistered();
+      $event->setParticipantsRegistered($eventCurrentParticipants+1);
+      $entityManager->persist($event);
+      $entityManager->flush();
+
+      //verifier si il est full ou pas
+
+      $response = new JsonResponse(json_encode(
+        array(
+          "result" => true
+        )));
+      return $response;
+    }
 }

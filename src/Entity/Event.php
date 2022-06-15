@@ -205,7 +205,7 @@ class Event
     /**
      * isClosed() vérifie si le nombre de participants maximum est atteint
      *
-     * @return boolean
+     * @return boolean //true si l'évènement est complet 
      */
     public function isClosed()
     {
@@ -213,7 +213,7 @@ class Event
       $current = $this->getParticipantsRegistered();
       return($max == $current);
     }
-
+    
     public function getCategory(): ?string
     {
         return $this->category;
