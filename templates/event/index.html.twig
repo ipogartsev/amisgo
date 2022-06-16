@@ -2,6 +2,10 @@
 
 {% block title %}Activités{% endblock %}
 
+{% block stylesheets %}
+        <link rel="stylesheet" href="assets/css/activites.css">
+        {% endblock %}
+
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -171,7 +175,165 @@
 													class="icon-participants" src="assets/icons/icone-user.svg"></div>
 											<div class="icon-wrapper icons-position icon-position-5"><img
 													class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">{{ futureEvent.participantsRegistered}}/{{ futureEvent.participantsMax }}</div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
+							</div>
+
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
+
+									<h4 class="text-start">{{ futureEvent.title }}</h4>
+									<h5 class="text-start">{{ futureEvent.city }}</h5>
+									<p class="text-start1 lh-1 p-3">{{ futureEvent.description }}</p>
+
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button
+												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-apero.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Apéro</div>
+											</button>
+										</div>
+
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
+							</div>
+
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
+
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
+
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button
+												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/icone-sport.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Sport</div>
+											</button>
+										</div>
+
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<article class="col-6 card-item d-flex flex-row">
+							<div class="card-item-img-wrapper">
+								<div class="card-item-like-icon">
+									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
+								</div>
+								<img class="card-item-img" src="assets/img/kayak-activite.jpg" alt="">
+							</div>
+
+							<div class="d-flex flex-column card-item-body">
+								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">3
+									Juillet
+									14h00</time>
+								<div class="card-item-body-container">
+
+									<h4 class="text-start">Titre activité</h4>
+									<h5 class="text-start">Localisation</h5>
+									<p class="text-start lh-1 p-3">Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit.
+										Amet
+										sit ut proin et tincidunt.
+										Purus
+										ultrices lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Amet sit ut
+										proin et
+										tincidunt. Amet sit ut proin et tincidunt.gsdgsd sqedgt desg tsedgtsd gsdgsdgds
+										sdgsd gsgdsg ds gdsg
+									</p>
+
+									<div class="d-flex flex-row justify-content-between">
+										<div class="filtre">
+											<button
+												class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+												<div class="icon-background">
+													<img src="assets/icons/mountains_88302.svg" alt="">
+												</div>
+												<div class="card-activity-title mx-2">Plein air</div>
+											</button>
+										</div>
+
+										<div class="d-flex justify-content-end iconeparticipants align-items-center">
+											<div class="icon-wrapper icons-position icon-position-1"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-2"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-3"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-4"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-5"><img
+													class="icon-participants" src="assets/icons/icone-user.svg"></div>
+											<div class="icon-wrapper icons-position icon-position-6">5/10</div>
 										</div>
 									</div>
 								</div>

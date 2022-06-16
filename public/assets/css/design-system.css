@@ -134,7 +134,10 @@ p {
 .iconeparticipant2{
     margin-left: -1.1rem;
 }
-
+.text-start1{
+    overflow-y: scroll;
+    height: 185px;
+}
 .iconeparticipant3{
     margin-left: -1.1rem;
 }
