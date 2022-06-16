@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Test de Personnalités!
-{% endblock %}
+{% extends "base.html.twig" %}
+
+{% block header %}{% endblock %}
 
 {% block body %}
+	{% block stylesheets %}
+		<link rel="stylesheet" href="/assets/css/design-system.css">
+		<link rel="stylesheet" href="/assets/css/questionnaire.css">
+	{% endblock %}
 
-	<body>
+	<body id="test01">
 		<main>
 			<div class="container ">
 				<div class="row">
@@ -13,6 +17,10 @@
 						<div class="page-number d-flex justify-content-end">
 							<p class="page-counter">1 sur 2</p>
 						</div>
+						<!--Title -->
+						<div class="text-center">
+							<h3>Quel amigo es-tu ?</h3>
+						</div><br/>
 						<!--Form section-->
 						<form
 							action="/persotest/page2" method="post">

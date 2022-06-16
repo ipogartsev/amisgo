@@ -1,10 +1,19 @@
-body{
-    background-image: url(../img/img-inscription.jpg);
+#test01 {
+    background-image: url(../img/test-bg01.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
+    background-position: center;
 }
 
-.signup-section{
+#test02 {
+    background-image: url(../img/test-bg02.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+
+.signup-section {
     background-color: var(--blanc);
     border-radius: 2rem;
     padding-top: 1rem;
@@ -14,29 +23,35 @@ body{
     margin: auto;
 }
 
-.page-counter{
+.page-counter {
     font-family: 'Karla';
-    font-size: 1.1rem;
+    font-size: .8rem;
     font-weight: normal;
 
 }
 
-.question-title{
+.question-title {
     font-family: 'Montserrat';
-    font-size: 1.2rem;
-    font-weight: normal;
+    font-style: medium;
+    font-size: .9rem;
+    margin-bottom: .6rem;
 
 }
 
-label{
+label {
     font-family: 'Karla';
     font-size: 1rem;
     font-weight: normal;
+    margin-bottom: .3rem;
 
 }
 
-.btn{
-    background-color: red;
-    border-radius: 1rem;
-
+.btn {
+    background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    border-radius: 1.2rem;
+    border: none;
+    color: var(--blanc);
+    justify-content: center;
+    align-items: center;
+    padding: .8rem 3rem;
 }

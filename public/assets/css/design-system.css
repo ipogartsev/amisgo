@@ -18,7 +18,7 @@ html {
 /********************* STYLES *****************************/
 h1 {
     font-family: 'Montserrat';
-    font-size: 6.0rem;
+    font-size: 5.0rem;
     font-weight: bold;
 }
 
@@ -26,18 +26,27 @@ h2 {
     font-family: 'Montserrat';
     font-size: 3.4rem;
     font-weight: bold;
+    color: var(--corail);
 }
 
 h3 {
     font-family: 'Montserrat';
     font-size: 2.7rem;
     font-weight: bold;
+    color: var(--corail);
 }
 
 h4 {
     font-family: 'Montserrat';
     font-size: 1.8rem;
     font-weight: bold;
+}
+
+h5{
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-weight: medium;
+
 }
 
 button {
@@ -65,17 +74,26 @@ p {
     font-weight: normal;
 }
 
+.navbar a{
+    font-family: 'Karla';
+    font-size: 1.2rem;
+    font-weight: medium;
+    color: var(--blanc);
+}
+
 /******************************** COLORS *******************************/
 :root {
     --noir: #0E101C;
     --gris: #AEB6D5;
-    --grisclair: #DEE1EE;
+    --grisclair: #F2F5FF;
     --blanc: #F2F3F8;
-
+    --bleufonce:#3b425b;
+    --bleunuit: #2C334A;
     --jaunesable: #F9C041;
     --corail: #FC7073;
     --degradeinverse: linear-gradient(90deg, #F6AA00 0%, #FC7073 82%);
     --degrade: linear-gradient(90deg, #FC6B76 0%, #F9C041 82%);
+    --degrade1:linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
 }
 
 /******************************** BUTTONS *******************************/
@@ -95,57 +113,119 @@ p {
 }
 
 .btn-heroshot {
-    background-color: var(--blanc);
 
-    border-radius: 1.3rem;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: auto;   
+    background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    border-radius: 18px;
     border: none;
+    color: var(--blanc);
+    text-align: center;
 
 }
 
 .btn-heroshot a {
-    color: var(--corail);
-
-}
-
-.btn-heroshot :hover{
-    background-color: var(--corail);
-}
-
-.btn-heroshot a:hover{
     color: var(--blanc);
-    background-color: var(--corail);
+    text-decoration: none;
+   /*  padding-left: 2rem;
+    padding-right: 2rem; */
+    background-color: var(--degrade1);
+    border-radius: 1.3rem;
+
+
 }
 
 
-.btn-warning:hover{
+
+/* .btn-warning:hover{
     Text-Decoration: None !important; 
+} */
+.see-more-btn {
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: auto;   
+    background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    border-radius: 18px;
+    border: none;
+    color: var(--blanc)
 }
-
 /******************************** CARDS *******************************/
-.card-img {
-    border-radius: 2rem 0rem 0rem 2rem;
-    width: 28, 3rem;
-    height: 31, 7rem;
-}
-.iconeparticipant1{
-    margin-left: 0rem;
-}
-
-.iconeparticipant2{
-    margin-left: -1.1rem;
+/* On met les wrapper des icônes en position relative
+pour pouvoir utiliser le z-index sur les icônes.
+Le height 100% permet au wrapper d'avoir une hauteur de 100% de la place disponible */
+.iconeparticipants {
+    position: relative;
+    height: 100%;  
+  
 }
 
-.iconeparticipant3{
-    margin-left: -1.1rem;
+
+/* Cette classe donne une taille fixe aux icônes (32px),
+d'avoir un background blanc et une bordure */
+.icon-wrapper {
+    width: 32px;
+    height: 32px;
+    /* padding: 2px; */
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--jaunesable);
+    overflow: hidden; 
+   
+   
 }
-.iconeparticipant4{
-    margin-left: -1.1rem;
+.profil-participants img {
+    width: 32px;
+    height: 100%;
 }
-.iconeparticipant5{
-    margin-left: -1.1rem;
+/* Cette classe donne une position fixée en haut à droite de son wrapper aux icônes */
+.icons-position {
+    position: absolute;
+    top: 0;
 }
-.icone-nombre-participant{
-    margin-left: -1.1rem;
+
+/* Pour les classe icon-position 1 à 6,
+on déplace les icônes à partir de la droite avec la propriété right
+Le z-index permet de mettre les icônes l'un par dessus l'autre. 
+Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage */
+.icon-position-1 {
+    right: 16px;
+    z-index: 5;
+}
+
+.icon-position-2 {
+    right: 32px;
+    z-index: 4;
+}
+
+.icon-position-3 {
+    right: 48px;
+    z-index: 3;
+}
+
+.icon-position-4 {
+    right: 64px;
+    z-index: 2;
+}
+
+.icon-position-5 {
+    right: 80px;
+    z-index: 1;
+}
+
+.icon-position-6 {
+    right: 0;
+    z-index: 6;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--jaunesable);
 }
 
 .card-body {
@@ -157,12 +237,24 @@ p {
     justify-content: flex-end;
 }
 
-/*************NAV START*********/
+/*************NAV BAR*********/
+
+.container {
+    overflow: hidden;
+}
+
 
 .navbar{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    background: linear-gradient(90deg, #FC6B76 0%, #F9C041 82%);
+    background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    /* margin-bottom: -80px; */
+
+
+
+}
+
+.nav-bg {
+    margin-bottom: -100px;
+    width: 100%;
 }
 
 .navbar-brand{
@@ -171,6 +263,7 @@ p {
 }
 .nav-link{
     color: rgb(0, 0, 0);
+
 }
 
 #login{
@@ -187,11 +280,8 @@ p {
     padding: 10rem;
     padding-left: 25rem;
     color: white;
-    text-shadow: -.2rem .1rem .5rem rgb(73, 66, 66);
     margin-bottom: 3rem;
 }
-
-/*************NAV FIN*********/
 
 /*************SEARCH BAR*********/
 .search-bar{
@@ -229,8 +319,28 @@ p {
 
 /*************FOOTER DEBUT*********/
 #footer {
-    background-color: #D9D9D9;
-    color: rgb(0, 0, 0);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #3b425b;
 }
 
+footer h4{
+    color: var(--corail);
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+footer a:hover{
+    color: var(--jaunesable);
+}
+#suivre{
+    color: white;
+}
+
+.copyright{
+    margin-top: 2rem;
+    color: white;
+}
 /*************FOOTER FIN*********/
