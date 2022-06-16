@@ -7,6 +7,24 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+	<! Filter Button Section ----->
+          
+					<div class="d-flex flex-wrap justify-content-around section" id="filter-button-wrapper">
+          
+          {% for box in filtre %}
+          
+					<button id="{{box}}" class="filter-button d-flex btn btn-warning align-items-center p-2">
+							<div class="icon-background">
+								<img src="assets/icons/icone-sport.svg" alt="">
+							</div>
+							<div class="activity-title">{{box}}</div>
+						</button>
+          
+          {% endfor %}
+          
+				  </div>
+   
+
 <!--------------------- Recommandations Section -------------------->
                 <div class="section container-fluid section-cards-container">
                     <h3 class="cards-title">Recommandés pour vous</h3>
@@ -15,8 +33,11 @@
                     <div class="section cards-container d-flex flex-wrap justify-content-between">
                     {% set i = 0 %}
                     {% for suggestedEvent in suggestedEvents %}
-                    {% if i < 4 %}
-                      <article class="col-6 card-item d-flex flex-row">
+                    {% set display = 'block' %}
+                      {% if i > 3 %}
+                      {% set display = 'none' %}
+                      {% endif %}
+                      <article class="col-6 card-item d-flex flex-row" style="{{display}}">
                         <div class="card-item-img-wrapper">
 								          <div class="card-item-like-icon">
 									          <button><img src="/assets/icons/icone-{{ suggestedEvent.category}}.svg" alt=""></button>
@@ -57,7 +78,7 @@
                         </div>
                       </div>
                     </article>
-                        {% endif %}
+                        
                         {% set i = i + 1 %}
                         {% endfor %}
                     </div>
@@ -132,8 +153,11 @@
 					<div class="section cards-container d-flex flex-wrap justify-content-between">
            {% set i = 0 %}
           {% for futureEvent in futureEvents %}
-          {% if i < 4 %}
-						<article class="col-6 card-item d-flex flex-row">
+          {% set display = 'block' %}
+                    {% if i > 3 %}
+                    {% set display = 'none !important' %}
+                    {% endif %}
+						<article class="col-6 card-item d-flex flex-row data {{futureEvent.category}}" style="display:{{display}}">
 							<div class="card-item-img-wrapper">
 								<div class="card-item-like-icon">
 									<button><img src="assets/icons/icone-heart.svg" alt=""></button>
@@ -177,10 +201,16 @@
 								</div>
 							</div>
 						</article>
-            {% endif %}
             {% set i = i + 1 %}
             {% endfor %}
 					</div>
 					  <button class="see-more-btn">En savoir plus</button>
   				</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/javascript/filtre.js"></script>
+    <script>
+    
+    </script>
 {% endblock %}
