@@ -1,11 +1,32 @@
-{% block title %}Test de Personnalités!{% endblock %}
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<!DOCTYPE html>
+<html lang="fr">
 
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+
+    <!-- Fontawesome Library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!--Typography-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla&family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+    </style>
+
+    <!--Link CSS-->
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/questionnaire.css">
+
+</head>
+
+<body id="test01">
     <main>
         <div class="container ">
             <div class="row">
@@ -26,14 +47,15 @@
                         <!--Question section-->
                         <div class="">
                             <label for="">
-                                <h5 class="question-title">1- Question</h5>
+                                <h5 class="question-title">1 - Pour toi qu’est-ce qui est le plus important dans la vie
+                                    ?</h5>
                             </label><br />
 
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    Default radio
+                                    Pouvoir faire ce que tu veux
                                 </label>
                             </div>
 
@@ -41,7 +63,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Profiter des petits plaisirs simples
                                 </label>
                             </div>
 
@@ -49,7 +71,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    S’ouvrir aux autres
                                 </label>
                             </div>
 
@@ -57,7 +79,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Être en paix avec soi-même
                                 </label>
                             </div>
                         </div><br />
@@ -65,14 +87,14 @@
                         <!--Question section-->
                         <div class="">
                             <label for="">
-                                <h5 class="question-title">1- Question</h5>
+                                <h5 class="question-title">2 - Quel est ton pire défaut ?</h5>
                             </label><br />
 
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    Default radio
+                                    Ta naïveté
                                 </label>
                             </div>
 
@@ -80,7 +102,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Ton côté indécis
                                 </label>
                             </div>
 
@@ -88,7 +110,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Ton impulsivité
                                 </label>
                             </div>
 
@@ -96,7 +118,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Ton égoïsme
                                 </label>
                             </div>
                         </div><br />
@@ -104,14 +126,14 @@
                         <!--Question section-->
                         <div>
                             <label for="">
-                                <h5 class="question-title">1- Question</h5>
+                                <h5 class="question-title">3 - Dans ta bande de pote tu es :</h5>
                             </label><br />
 
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    Default radio
+                                    Le leader, tu donnes l’énergie au groupe
                                 </label>
                             </div>
 
@@ -119,7 +141,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Le comique, tu aimes faire rire les gens
                                 </label>
                             </div>
 
@@ -127,7 +149,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Le/la timide, tu n’oses rien dire
                                 </label>
                             </div>
 
@@ -135,7 +157,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    L’intello, tu as soif de connaissances
                                 </label>
                             </div>
                         </div><br />
@@ -143,14 +165,14 @@
                         <!--Question section-->
                         <div class="">
                             <label for="">
-                                <h5 class="question-title">1- Question</h5>
+                                <h5 class="question-title">4 - A l’école ou au travail, tu es :</h5>
                             </label><br />
 
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    Default radio
+                                    Imperturbable ! tu es concentré(e) et tu es là pour bosser
                                 </label>
                             </div>
 
@@ -158,7 +180,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Dans les nuages, tu penses à autre choses
                                 </label>
                             </div>
 
@@ -166,7 +188,7 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Présent, et c’est déjà bien
                                 </label>
                             </div>
 
@@ -174,7 +196,46 @@
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                    Default checked radio
+                                    Plongé(e) dans les bouquins, tu as soif d’apprendre
+                                </label>
+                            </div>
+                        </div><br />
+
+                        <!--Question section-->
+                        <div class="">
+                            <label for="">
+                                <h5 class="question-title">4 - A l’école ou au travail, tu es :</h5>
+                            </label><br />
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Imperturbable ! tu es concentré(e) et tu es là pour bosser
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Dans les nuages, tu penses à autre choses
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Présent, et c’est déjà bien
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Plongé(e) dans les bouquins, tu as soif d’apprendre
                                 </label>
                             </div>
                         </div><br />
@@ -195,8 +256,11 @@
 
 
     </main>
+    <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 
 </html>
-{% endblock %}

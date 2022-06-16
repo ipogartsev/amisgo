@@ -39,14 +39,15 @@ ce qui permet sur grand écran d'avoir de l'espace sur les côtés */
 .section-cards-container {
     text-align: center;
     margin: 50px 0;
+    
 }
-
 /* Ici on fixe la taille des cartes à 570 de largeur
  et 320 de hauteur pour permettre un espace entre 2 cartes */
 .cards-container article {
     flex: 0 0 570px;
     max-width: 570px;
     height: 320px;
+    
 }
 
 .card-item {
@@ -54,6 +55,15 @@ ce qui permet sur grand écran d'avoir de l'espace sur les côtés */
     border-radius: 20px;
     border: none;
     position: relative;
+    
+    }
+
+.text-start1 {
+    overflow-y:scroll ;
+    
+    height: 185px;
+   
+   
 }
 
 .card-item h4 {
@@ -72,7 +82,9 @@ ce qui permet sur grand écran d'avoir de l'espace sur les côtés */
 .card-item p {
     font-size: 1rem;
     margin: 0;
-}
+    
+    }
+
 
 .card-item button {
     width: 150px;
@@ -83,6 +95,7 @@ soit plus de 40% pour que la partie desciption puisse chevaucher l'image*/
 .card-item-img-wrapper {
     max-width: 45%;
     flex: 0 0 45%;
+    
 }
 
 .card-item-like-icon {
