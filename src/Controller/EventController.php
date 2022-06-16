@@ -160,4 +160,5 @@ class EventController extends AbstractController
         )));
       return $response;
     }
+
 }
