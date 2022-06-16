@@ -33,7 +33,7 @@
       <nav class="navbar navbar-light px-5" class="navbar navbar-expand-xs" style="background-color: #e3f2fd;">
 
         <!-------------------------- Logo -------------------------->
-        <a class="navbar-brand" href="index.html"><img src="/assets/img/Logo.svg"></a>
+        <a class="navbar-brand" href="{{ path('app_home') }}"><img src="/assets/img/Logo.svg"></a>
 
         <!-------------------------- Menus -------------------------->
         <div id="navbarNav">
@@ -77,7 +77,7 @@
 							Molestias, in magnam. At corrupti nemo molestias!
 						</p>
 						<div class="d-flex justify-content-end me-5" id="decouvrir">
-							<button type="button" class="btn btn-heroshot"><a href="#">Faire le test !</a></button>
+							<button type="button" class="btn btn-heroshot"><a href="{{ path('app_persotest') }}">Faire le test !</a></button>
 
 						</div>
 					</div>
@@ -126,9 +126,9 @@
             <h4 class="mt-3">Nous suivre</h4>
             <div id="suivre">
               <ul class="list-unstyled">
-                <li class=""><i class="fab fa-facebook-f me-3" alt="logo facebook"></i>Facebook</li>
-                <li class=""><i class="fab fa-instagram me-3" alt="logo instagram"></i>Instagram</li>
-                <li class=""><i class="fab fa-twitter me-3" alt="logo twitter"></i>Twitter</li>
+                <li class=""><a href="https://www.facebook.com/LaPasserelleSchool"><i class="fab fa-facebook-f me-3" alt="logo facebook"></i>Facebook</a></li>
+                <li class=""><a href="https://www.instagram.com/lapasserelle.school/?hl=fr"><i class="fab fa-instagram me-3" alt="logo instagram"></i>Instagram</a></li>
+                <li class=""><a href=""><i class="fab fa-twitter me-3" alt="logo twitter"></i>Twitter</a></li>
               </ul>
             </div>
           </div>
