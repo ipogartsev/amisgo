@@ -1,11 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}Test de Personnalités!
-{% endblock %}
+{% block header %}{% endblock %}
+
 
 {% block body %}
+	{% block stylesheets %}
+		<link rel="stylesheet" href="/assets/css/design-system.css">
+		<link rel="stylesheet" href="/assets/css/questionnaire.css">
+	{% endblock %}
 
-	<body>
+	<body id="test02">
 		<main>
 			<div class="container ">
 				<div class="row">
@@ -13,13 +17,15 @@
 						<div class="page-number d-flex justify-content-end">
 							<p class="page-counter">2 sur 2</p>
 						</div>
+						<div class="text-center">
+							<h3>Quel amigo es-tu ?</h3>
+						</div><br/>
 						<!--Form section-->
-						<form
-							action="/persotest/result" method="post">
+						<form action="/persotest/result" method="post">
 							<!--on ajoute un champs caché à l'affichage de la page ("hidden") pour récupérer la valeur de la catégorie de personnalité-->
 							<!-- les numéros de catégories de personnalité équivalent aux numéros de séries de questions. -->
-							<input type="hidden" name="serie" value="{{ cat }}">
-							<!--Question section-->
+							<input
+							type="hidden" name="serie" value="{{ cat }}"> <!--Question section-->
 							<div
 								class="">
 								<!--boucle question-->

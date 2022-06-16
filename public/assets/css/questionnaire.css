@@ -12,10 +12,6 @@
     background-position: center;
 }
 
-.container {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
 
 .signup-section {
     background-color: var(--blanc);
@@ -53,6 +49,7 @@ label {
 .btn {
     background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
     border-radius: 1.2rem;
+    border: none;
     color: var(--blanc);
     justify-content: center;
     align-items: center;
