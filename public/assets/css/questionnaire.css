@@ -1,8 +1,8 @@
-#test01 {
+.container_quiz{
     background-image: url(../img/test-bg01.jpg);
     background-repeat: no-repeat;
     background-size: auto;
-    background-position: center;
+    background-position: top center;
 }
 
 #test02 {
