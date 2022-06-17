@@ -168,7 +168,7 @@ class EventController extends AbstractController
     {
 
       // Dans l'eventRepository, grâce à la méthode FindAll, on va chercher les évents.
-        $events = $eventRepository->findAll($searchTxt);
+        $events = $eventRepository->findBy(['title' => $searchTxt]);
 
         /* on initialise un tableau vide et on boucle sur events afin de récupérer les éléments 
         qui nous intéressent. Grâce au push, on insère ces éléments dans ce tableau */

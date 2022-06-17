@@ -10,34 +10,33 @@ function Searchbar() {
     function changeText(event){
       setSearchTxt(event.currentTarget.value);
     }
-  
 
-    const url = '/data/' + searchTxt;
+    const url = '/data';
 
     useEffect(() => {
-        fetch(url)
+      if(searchTxt != ""){
+        fetch(url+'/'+searchTxt)
           .then(httpResponse => {
             return httpResponse.json()
           })
           .then(body => {
-          // on utilise le JSON.parse pour forcer le "truc"
+            // on utilise le JSON.parse pour forcer le "truc"
+            if(contentBdd != "[]"){
               setContentBdd(JSON.parse(body));
-
-              if(body == null){
-                  setContentBdd = [];
-              }
-              
-              // console.log(body)
+            }else{
+              setContentBdd("");
+            }              
           })
+        }
         }, [searchTxt])
 
-        // if le body = 0 alors le setContentBdd est = []
 
         return (
             <>
                 
-                <div class="form-group">
-                    <input onChange={changeText} value={searchTxt} class ="form-control border border-danger shadow p-3 mb-5 bg-white rounded" placeholder="Rechercher un évènement" />
+                <div className="form-group">
+                  dfgsdfgd
+                    <input onChange={changeText} value={searchTxt} className ="form-control border border-danger shadow p-3 mb-5 bg-white rounded" placeholder="Rechercher un évènement" />
                 </div>
                 
               <br />
@@ -45,9 +44,11 @@ function Searchbar() {
               {/* Mon évènement recherché est : {searchTxt} */}
               <section >
                 {
+                  
                   contentBdd.map((element, i) => {
                     return <Card key={i} data={element} />
                   })
+                  
                 }
               </section>
             </>
