@@ -37,7 +37,7 @@
                       {% if i > 3 %}
                       {% set display = 'none' %}
                       {% endif %}
-                      <article class="col-6 card-item d-flex flex-row" style="{{display}}">
+                      <article class="col-6 card-item d-flex flex-row" data-category="{{suggestedEvent.category}}" style="display:{{display}}">
                         <div class="card-item-img-wrapper">
 								          <div class="card-item-like-icon">
 									          <button><img src="/assets/icons/icone-{{ suggestedEvent.category}}.svg" alt=""></button>
@@ -91,9 +91,12 @@
                   <h3>{{ message }}</h3>
 					<div class="section  cards-container d-flex flex-wrap justify-content-between">
             {% set i = 0 %}
-                  {% for popularEvent in popularEvents %}
-                  {% if i < 4 %}
-						<article class="col-6 card-item d-flex flex-row">
+            {% for popularEvent in popularEvents %}
+				  	{% set display = 'block' %}
+                  	{% if i > 3 %}
+				    {% set display = 'none !important' %}
+					{% endif %}
+						<article class="col-6 card-item d-flex flex-row" data-category="{{popularEvent.category}}" style="display:{{display}}">
 							<div class="card-item-img-wrapper">
 								<div class="card-item-like-icon">
 									<button><img src="assets/icons/icone-{{ popularEvent.category }}.svg" alt=""></button>
@@ -137,7 +140,7 @@
 								</div>
 							</div>
 						</article>
-            {% endif %}
+          
             {% set i = i + 1 %}
             {% endfor %}
 
@@ -151,13 +154,13 @@
 					<h3 class="cards-title">A venir</h3>
           <h3>{{ message }}</h3>
 					<div class="section cards-container d-flex flex-wrap justify-content-between">
-           {% set i = 0 %}
-          {% for futureEvent in futureEvents %}
-          {% set display = 'block' %}
+        	{% set i = 0 %}
+            {% for futureEvent in futureEvents %}
+            {% set display = 'block' %}
                     {% if i > 3 %}
                     {% set display = 'none !important' %}
                     {% endif %}
-						<article class="col-6 card-item d-flex flex-row data {{futureEvent.category}}" style="display:{{display}}">
+						<article class="col-6 card-item d-flex flex-row" data-category="{{futureEvent.category}}" style="display:{{display}}">
 							<div class="card-item-img-wrapper">
 								<div class="card-item-like-icon">
 									<button><img src="assets/icons/icone-heart.svg" alt=""></button>

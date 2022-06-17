@@ -23,7 +23,7 @@ class EventController extends AbstractController
     public function index(EventRepository $eventRepository, UserRepository $userRepository): Response
     {
       //Création d'un tableau regroupant les checkbox 
-      $filtre = ['Sport','Plein air', 'Musique', 'Danse', 'Cuisine', 'Jeux', 'Spectacle', 'Culture', 'Bien-être', 'Apéro'];
+      $filtre = ['sport','Plein air', 'musique', 'danse', 'cuisine', 'jeux', 'spectacle', 'culture', 'bien-etre', 'apéro'];
       // Message  à afficher en cas d'absence des evenements
       $message = '';
       //Message si User n'est pas connecté
