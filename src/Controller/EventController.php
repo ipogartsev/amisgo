@@ -163,4 +163,34 @@ class EventController extends AbstractController
       return $response;
     }
 
+    /**
+     * @Route("/data/{searchTxt}", name="app_data")
+     */
+    public function getData(EventRepository $eventRepository, $searchTxt): JsonResponse
+    {
+
+      // Dans l'eventRepository, grâce à la méthode FindAll, on va chercher les évents.
+        $events = $eventRepository->createQueryBuilder('o')
+        ->where('o.title LIKE :searchText')
+        ->setParameter('searchText', '%'.$searchTxt.'%')
+        ->getQuery()
+        ->getResult();
+
+        /* on initialise un tableau vide et on boucle sur events afin de récupérer les éléments 
+        qui nous intéressent. Grâce au push, on insère ces éléments dans ce tableau */
+
+        $tab = [];
+        foreach($events as $row){
+          array_push($tab, 
+          [
+            'id' => $row->getId(),
+            'type_of_event'=>$row->getTypeOfEvent(),
+            'date_of_event'=>$row->getDateOfEvent(),
+            'description'=>$row->getDescription(),
+            'title'=>$row->getTitle(),
+          ]);
+        }
+
+        return new JsonResponse(json_encode($tab));
+    }
 }

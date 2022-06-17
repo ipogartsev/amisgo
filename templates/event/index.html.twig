@@ -3,30 +3,16 @@
 {% block title %}Activités{% endblock %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="assets/css/activites.css">
+	<link rel="stylesheet" href="assets/styles/searchbar.css"/> 
 {% endblock %}
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-	<! Filter Button Section ----->
-          
-					<div class="d-flex flex-wrap justify-content-around section" id="filter-button-wrapper">
-          
-          {% for box in filtre %}
-          
-					<button id="{{box}}" class="filter-button d-flex btn btn-warning align-items-center p-2">
-							<div class="icon-background">
-								<img src="assets/icons/icone-sport.svg" alt="">
-							</div>
-							<div class="activity-title">{{box}}</div>
-						</button>
-          
-          {% endfor %}
-          
-				  </div>
-   
 
+<!--------------------- IMPORTANT METTRE le div root à l'endroit où l'on souhaite qu'il soit affiché sur la page -------------------->
+<div class="container w-75" id="root"></div>
 <!--------------------- Recommandations Section -------------------->
                 <div class="section container-fluid section-cards-container">
                     <h3 class="cards-title">Recommandés pour vous</h3>

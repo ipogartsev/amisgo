@@ -55,4 +55,8 @@ class HomeController extends AbstractController
 
       return $this->render('home/index.html.twig', ['popularEvents' => $popularEvents, 'futureEvents' => $futureEvents, 'persons' => $persons, 'message' => $message] ); 
     }
+
+    
 }
+
+
