@@ -4,7 +4,7 @@ function Card(props){
 
     return (
 
-        <div className="d-flex flex-column card-item-body">
+        <div className="d-flex flex-column card-item-body" style={{'margin-left':"0px"}}>
             <time className="d-flex justify-content-end">{props.data.dateOfEvent}</time>
                 <div className="cad-item-body-container">
                     <h4 className="text-start">{props.data.title}</h4>
