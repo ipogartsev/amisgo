@@ -21,12 +21,10 @@ function Searchbar() {
           })
           .then(body => {
             // on utilise le JSON.parse pour forcer le "truc"
-            if(contentBdd != "[]"){
-              setContentBdd(JSON.parse(body));
-            }else{
-              setContentBdd("");
-            }              
+            setContentBdd(JSON.parse(body));            
           })
+        }else{
+          setContentBdd([]);
         }
         }, [searchTxt])
 
@@ -35,7 +33,6 @@ function Searchbar() {
             <>
                 
                 <div className="form-group">
-                  dfgsdfgd
                     <input onChange={changeText} value={searchTxt} className ="form-control border border-danger shadow p-3 mb-5 bg-white rounded" placeholder="Rechercher un évènement" />
                 </div>
                 
