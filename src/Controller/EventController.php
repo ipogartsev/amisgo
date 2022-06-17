@@ -22,6 +22,8 @@ class EventController extends AbstractController
     // Affichage des evenements sur la page     
     public function index(EventRepository $eventRepository, UserRepository $userRepository): Response
     {
+      //Création d'un tableau regroupant les checkbox 
+      $filtre = ['sport','Plein air', 'musique', 'danse', 'cuisine', 'jeux', 'spectacle', 'culture', 'bien-etre', 'apéro'];
       // Message  à afficher en cas d'absence des evenements
       $message = '';
       //Message si User n'est pas connecté
@@ -94,7 +96,7 @@ class EventController extends AbstractController
       }
 
         return $this->render('event/index.html.twig', [
-            'futureEvents' => $futureEvents, 'suggestedEvents' => $suggestedEvents, 'popularEvents' => $popularEvents, 'message' => $message, 'messageUser' => $messageUser         
+            'futureEvents' => $futureEvents, 'suggestedEvents' => $suggestedEvents, 'popularEvents' => $popularEvents, 'message' => $message, 'messageUser' => $messageUser , 'filtre' => $filtre        
         ]);
     }
 
