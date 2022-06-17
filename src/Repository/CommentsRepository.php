@@ -42,17 +42,19 @@ class CommentsRepository extends ServiceEntityRepository
 //    /**
 //     * @return Comments[] Returns an array of Comments objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   public function findByEventId($value): array
+   {
+       return $this->createQueryBuilder('c')
+            ->select('c.text, c.date, u.name')
+            ->innerJoin('c.user','u')
+           ->andWhere('c.event = :val')
+           ->setParameter('val', $value)
+           ->orderBy('c.id', 'ASC')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Comments
 //    {

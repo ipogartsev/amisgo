@@ -12,6 +12,8 @@
 {% block stylesheets %}
             <link rel="stylesheet" href="/assets/css/design-system.css">
 <link rel="stylesheet" href="/assets/css/tree-climbing.css">
+	<link rel="stylesheet" href="assets/styles/comments.css"/> 
+
 {# link vers une api pour afficher la map #}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
 {# script lié a une api pour afficher la map #}
@@ -143,6 +145,8 @@
 				</div>
 			</div>
       <div id="map" class="py-2" style="width:600px; height:400px;"></div>
+	<div class="container w-75" id="root"></div>
+
 		</div>
 	</main>
     {% endblock %}
@@ -151,6 +155,7 @@
 {% block javascripts %}
   <script src="/javascript/map.js"></script>
   <script src="/javascript/event.js"></script>
+    {{ encore_entry_script_tags('comments') }}
   <script>
     //recuperation des champs liés a l'adresse d'un evenement dans notre base de données
     addMarkerFromAdress('{{event.address1}} {{event.zipcode}} {{event.city}}');

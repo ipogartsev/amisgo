@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\EventRepository;
 use App\Repository\UserRepository;
+use App\Repository\CommentsRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -192,5 +193,15 @@ class EventController extends AbstractController
         }
 
         return new JsonResponse(json_encode($tab));
+    }
+
+    /**
+     * @Route("/comments/{id}", name="app_comments")
+     */
+    public function getCommentsByIdEvent(CommentsRepository $commentRepository,$id):JsonResponse
+    {
+      $comments= $commentRepository ->findByEventId($id);
+      
+      return new JsonResponse(json_encode($comments));
     }
 }
