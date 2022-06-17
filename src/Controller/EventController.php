@@ -22,6 +22,8 @@ class EventController extends AbstractController
     // Affichage des evenements sur la page     
     public function index(EventRepository $eventRepository, UserRepository $userRepository): Response
     {
+      //Création d'un tableau regroupant les checkbox 
+      $filtre = ['sport','Plein air', 'musique', 'danse', 'cuisine', 'jeux', 'spectacle', 'culture', 'bien-etre', 'apéro'];
       // Message  à afficher en cas d'absence des evenements
       $message = '';
       //Message si User n'est pas connecté
@@ -94,7 +96,7 @@ class EventController extends AbstractController
       }
 
         return $this->render('event/index.html.twig', [
-            'futureEvents' => $futureEvents, 'suggestedEvents' => $suggestedEvents, 'popularEvents' => $popularEvents, 'message' => $message, 'messageUser' => $messageUser         
+            'futureEvents' => $futureEvents, 'suggestedEvents' => $suggestedEvents, 'popularEvents' => $popularEvents, 'message' => $message, 'messageUser' => $messageUser , 'filtre' => $filtre        
         ]);
     }
 
@@ -161,4 +163,34 @@ class EventController extends AbstractController
       return $response;
     }
 
+    /**
+     * @Route("/data/{searchTxt}", name="app_data")
+     */
+    public function getData(EventRepository $eventRepository, $searchTxt): JsonResponse
+    {
+
+      // Dans l'eventRepository, grâce à la méthode FindAll, on va chercher les évents.
+        $events = $eventRepository->createQueryBuilder('o')
+        ->where('o.title LIKE :searchText')
+        ->setParameter('searchText', '%'.$searchTxt.'%')
+        ->getQuery()
+        ->getResult();
+
+        /* on initialise un tableau vide et on boucle sur events afin de récupérer les éléments 
+        qui nous intéressent. Grâce au push, on insère ces éléments dans ce tableau */
+
+        $tab = [];
+        foreach($events as $row){
+          array_push($tab, 
+          [
+            'id' => $row->getId(),
+            'type_of_event'=>$row->getTypeOfEvent(),
+            'date_of_event'=>$row->getDateOfEvent(),
+            'description'=>$row->getDescription(),
+            'title'=>$row->getTitle(),
+          ]);
+        }
+
+        return new JsonResponse(json_encode($tab));
+    }
 }
