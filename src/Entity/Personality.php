@@ -39,6 +39,56 @@ class Personality
      */
     private $answers;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $descrip2_title;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $descrip2_text;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $quality_1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $quality_2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $quality_3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $quote;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $descrip3_title;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $descrip3_text;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $personality_picture_2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $slogan;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -111,6 +161,126 @@ class Personality
                 $answer->setPersonality(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescrip2Title(): ?string
+    {
+        return $this->descrip2_title;
+    }
+
+    public function setDescrip2Title(?string $descrip2_title): self
+    {
+        $this->descrip2_title = $descrip2_title;
+
+        return $this;
+    }
+
+    public function getDescrip2Text(): ?string
+    {
+        return $this->descrip2_text;
+    }
+
+    public function setDescrip2Text(?string $descrip2_text): self
+    {
+        $this->descrip2_text = $descrip2_text;
+
+        return $this;
+    }
+
+    public function getQuality1(): ?string
+    {
+        return $this->quality_1;
+    }
+
+    public function setQuality1(?string $quality_1): self
+    {
+        $this->quality_1 = $quality_1;
+
+        return $this;
+    }
+
+    public function getQuality2(): ?string
+    {
+        return $this->quality_2;
+    }
+
+    public function setQuality2(?string $quality_2): self
+    {
+        $this->quality_2 = $quality_2;
+
+        return $this;
+    }
+
+    public function getQuality3(): ?string
+    {
+        return $this->quality_3;
+    }
+
+    public function setQuality3(?string $quality_3): self
+    {
+        $this->quality_3 = $quality_3;
+
+        return $this;
+    }
+
+    public function getQuote(): ?string
+    {
+        return $this->quote;
+    }
+
+    public function setQuote(?string $quote): self
+    {
+        $this->quote = $quote;
+
+        return $this;
+    }
+
+    public function getDescrip3Title(): ?string
+    {
+        return $this->descrip3_title;
+    }
+
+    public function setDescrip3Title(?string $descrip3_title): self
+    {
+        $this->descrip3_title = $descrip3_title;
+
+        return $this;
+    }
+
+    public function getDescrip3Text(): ?string
+    {
+        return $this->descrip3_text;
+    }
+
+    public function setDescrip3Text(?string $descrip3_text): self
+    {
+        $this->descrip3_text = $descrip3_text;
+
+        return $this;
+    }
+
+    public function getPersonalityPicture2(): ?string
+    {
+        return $this->personality_picture_2;
+    }
+
+    public function setPersonalityPicture2(?string $personality_picture_2): self
+    {
+        $this->personality_picture_2 = $personality_picture_2;
+
+        return $this;
+    }
+
+    public function getSlogan(): ?string
+    {
+        return $this->slogan;
+    }
+
+    public function setSlogan(?string $slogan): self
+    {
+        $this->slogan = $slogan;
 
         return $this;
     }
