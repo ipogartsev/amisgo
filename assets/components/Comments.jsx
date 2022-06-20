@@ -34,12 +34,11 @@ function Comments() {
       XHR.onload = function () {
         
             console.log(XHR.responseText);
-            showComments();
+            getComments();
       };
    }
   
-    function showComments(){ 
-        
+    function getComments(){       
       fetch(url)
       .then(httpResponse => {
         return httpResponse.json()
@@ -52,7 +51,7 @@ function Comments() {
 
     // fetch pour récuper les donnés qu'il y a déjà dans la BDD
       useEffect(() => {
-        showComments();
+        getComments();
       }, [])
 
           return (
