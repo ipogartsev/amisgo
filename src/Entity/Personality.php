@@ -94,6 +94,11 @@ class Personality
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $id_category;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
@@ -317,6 +322,18 @@ class Personality
                 $user->setPersonality(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIdCategory(): ?int
+    {
+        return $this->id_category;
+    }
+
+    public function setIdCategory(int $id_category): self
+    {
+        $this->id_category = $id_category;
 
         return $this;
     }
