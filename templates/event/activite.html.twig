@@ -147,7 +147,7 @@
       
       <div id="map" class="py-2" style="width:600px; height:400px;"></div>
 	<div class="container w-75" id="root" 
-  {% if app.user is defined %} 
+  {% if app.user %} 
   data-user = {{app.user.id}} 
   {% else %} 
   data-user = "" 
