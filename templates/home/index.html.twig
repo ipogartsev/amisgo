@@ -1,211 +1,126 @@
 {% extends 'base.html.twig' %}
+{% block header %}{% endblock %}
 
-{% block title %}Amisgo{% endblock %}
+			{% block title %}Amisgo{% endblock %}
 
-{% block body %}
-<div class="container text-center">
-			<div class="row">
-				<h2>Nos Activités</h2>
-			</div>
-			<!-- Content container -->
-			<div class="d-flex flex-wrap" id="content-container">
-
-				<!-- Search Section -->
-				<div class="d-flex flex-wrap section justify-content-center">
-					<div class="input-group justify-content-center search-bar">
-						<!-- Localisation -->
-						<select class="col-2 search-location">
-							<option>
-								Ile de France
-							</option>
-						</select>
-						<!-- Input Search -->
-						<div class="col-5 form-outline">
-							<input type="search" id="Recherche" class="form-control" placeholder="Recherche une activité">
-						</div>
-
-						<!-- Button Search -->
-						<button type="button" class="col-2 btn btn-outline-primary search-button">
-							<i class="fas fa-search me-3"></i>
-							Rechercher
-						</button>
-					</div>
-
+				{% block body %}
+				{% block stylesheet%}
+				<link rel="stylesheet" href="assets/css/design-system.css">
+  				<link rel="stylesheet" href="assets/css/style.css">
+ 	 			<link rel="stylesheet" href="assets/css/personnalites.css">
+ 				 {% endblock %}
+				 
+				<div class="container text-center">
+				<a href="{{ path('app_events') }}"><button class="see-more-btn"> en savoir plus</button></a>
+				<div class="row">
+				
+				</div>
+			
+				</div>
+				<!-------------------------- BUTTON hero shot-------------------------->
+             <div class="d-flex justify-content-end me-5" id="decouvrir">
+              <button type="button" class="btn btn-heroshot"><a href="#">Faire le test !</a></button>
+            </div>
 				
 				<!-- Popular Section -->
 				<div class="section container-fluid section-cards-container">
-					<h3 class="cards-title">Les plus populaires</h3>
-					<h3 class="cards-title">{{ message }}</h3>
+				
+				<h3 class="cards-title">{{ message }}</h3>
 
-					<div class="section cards-container d-flex flex-wrap justify-content-center">
-          {% for popularEvent in popularEvents %}
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="/assets/icons/icone-heart-outlined.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="{{ popularEvent.eventPicture }}" alt="">
-							</div>
+				<div class="section cards-container d-flex flex-wrap justify-content-center">
+         		 {% for popularEvent in popularEvents %}
+				<article class="col-6 card-item d-flex flex-row">
+				<div class="card-item-img-wrapper">
+				<div class="card-item-like-icon">
+				<button><img src="/assets/icons/icone-heart-outlined.svg" alt=""></button>
+				</div>
+				<img class="card-item-img" src="{{ popularEvent.eventPicture }}" alt="">
+				</div>
 
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ popularEvent.dateOfEvent|date("d F y H:m")}}</time>
-								<div class="card-item-body-container">
+				<div class="d-flex flex-column card-item-body">
+				<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ popularEvent.dateOfEvent|date("d F y H:m")}}</time>
+				<div class="card-item-body-container">
 
-									<h4 class="text-start">{{ popularEvent.title }}</h4>
-									<h5 class="text-start">{{ popularEvent.city }}</h5>
-									<p class="text-start lh-1 p-3">{{ popularEvent.description }}</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/mountains_88302.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">{{ popularEvent.typeOfEvent}}</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">{{ popularEvent.participantsRegistered}}/{{ popularEvent.participantsMax }}</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
+				<h4 class="text-start">{{ popularEvent.title }}</h4>
+				<h5 class="text-start">{{ popularEvent.city }}</h5>
+				<p class="text-start lh-1 p-3">{{ popularEvent.description }}</p>
+				<div class="d-flex flex-row justify-content-between filter-wrapper">
+                <div class="filtre">
+                <button
+                class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+                 <div class="icon-background">
+                 <img src="assets/icons/icone-jeux.svg" alt="">
+                </div>
+                <div class="card-activity-title mx-2">Jeux</div>
+                </button>
+                </div>
+          
+                <div
+            	 class="profil-participants d-flex justify-content-end iconeparticipants align-items-center">
+                <div class="icon-wrapper icons-position icon-position-1"><img
+                class="icon-participants" src="assets/img/icon-face01.jpg"></div>
+                <div class="icon-wrapper icons-position icon-position-2"><img
+                 class="icon-participants" src="assets/img/icon-face02.jpg"></div>
+                <div class="icon-wrapper icons-position icon-position-3"><img
+                 class="icon-participants" src="assets/img/icon-face03.jpg"></div>
+                <div class="icon-wrapper icons-position icon-position-4"><img
+                 class="icon-participants" src="assets/img/icon-face04.jpg"></div>
+                 <div class="icon-wrapper icons-position icon-position-5"><img
+                 class="icon-participants" src="assets/img/icon-face05.jpg"></div>
+                 <div class="icon-wrapper icons-position icon-position-6">14/20</div>
+                </div>
+                 </div>
+				</div>
+				</div>
+				</article>
                 {% endfor %}
 						
 									
 					
-					</div>
-					<a href="{{ path('app_events') }}"><button class="see-more-btn">A savoir plus</button></a>
-				  </div>
+				
 
-				<!-- Coming soon Section -->
-				<div class="section container-fluid section-cards-container">
-					<h3 class="cards-title">A venir</h3>
-          <h3 class="cards-title">{{ message }}</h3>
-          
-					<div class="section cards-container d-flex flex-wrap justify-content-center">
-          {% for futureEvent in futureEvents %}
-						<article class="col-6 card-item d-flex flex-row">
-							<div class="card-item-img-wrapper">
-								<div class="card-item-like-icon">
-									<button><img src="/assets/icons/icone-heart.svg" alt=""></button>
-								</div>
-								<img class="card-item-img" src="/assets/img/kayak-activite.jpg" alt="">
-							</div>
-
-							<div class="d-flex flex-column card-item-body">
-								<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{futureEvent.dateOfEvent|date("d F y H:m")}}</time>
-								<div class="card-item-body-container">
-
-									<h4 class="text-start">{{ futureEvent.title }}</h4>
-									<h5 class="text-start">{{ futureEvent.city }}</h5>
-									<p class="text-start1 lh-1 p-3">{{futureEvent.description }}</p>
-
-									<div class="d-flex flex-row justify-content-between">
-										<div class="filtre">
-											<button class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
-												<div class="icon-background">
-													<img src="assets/icons/icone-culture.svg" alt="">
-												</div>
-												<div class="card-activity-title mx-2">{{ futureEvent.typeOfEvent }}</div>
-											</button>
-										</div>
-
-										<div class="d-flex justify-content-end iconeparticipants align-items-center">
-											<div class="icon-wrapper icons-position icon-position-1"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-2"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="assets/icons/icone-user.svg"></div>
-											<div class="icon-wrapper icons-position icon-position-6">{{ futureEvent.participantsRegistered}}/{{ futureEvent.participantsMax }}</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-          {% endfor %}
-				  </div>
-					<a href="{{ path('app_events') }}"><button class="see-more-btn">A savoir plus</button></a>
-				  </div>
-
-				<!-- Personnalities Section -->
-				<div class="section" id="personnalities-section-container">
-					<h3 class="personnalities-section-title">Quelques personnalités</h3>
-					<div class="personnalities-item-wrapper d-flex flex-wrap justify-content-center">
-						<div class="personnalities-item">
-								<img src="assets/img/02-sage.png" alt="">
-								<div class="personnalities-item-description-wrapper">
-									<div class="personnalities-item-title">Le sage</div>
-									<div class="personnalities-item-description">
-										Lorem ipsum dolor sit amet consectetur
-										adipisicing elit. Deleniti illo itaque beatae delectus id repudiandae, corporis
-										debitis vel dolorum ea quaerat iure animi veniam? Nisi rerum repellendus repellat
-										cum quasi!
-									</div>
-								</div>
-						</div>
-						<div class="personnalities-item">
-								<img src="assets/img/05-createur.png" alt="">
-								<div class="personnalities-item-description-wrapper">
-									<div class="personnalities-item-title">Le sage</div>
-									<div class="personnalities-item-description">
-										Lorem ipsum dolor sit amet consectetur
-										adipisicing elit. Deleniti illo itaque beatae delectus id repudiandae, corporis
-										debitis vel dolorum ea quaerat iure animi veniam? Nisi rerum repellendus repellat
-										cum quasi!
-									</div>
-								</div>
-						</div>
-						<div class="personnalities-item">
-								<img src="assets/img/12-populaire.png" alt="">
-								<div class="personnalities-item-description-wrapper">
-									<div class="personnalities-item-title">Le sage</div>
-									<div class="personnalities-item-description">
-										Lorem ipsum dolor sit amet consectetur
-										adipisicing elit. Deleniti illo itaque beatae delectus id repudiandae, corporis
-										debitis vel dolorum ea quaerat iure animi veniam? Nisi rerum repellendus repellat
-										cum quasi!
-									</div>
-								</div>
-						</div>
-					</div>
-					<button class="see-more-btn">Voir plus</button>
+				
 				</div>
+				<!-------------------------- Personnalités section-------------------------->
+      <section class="container-fluid meneurs-section">
+        <div class="row text-center">
+<!-------------------------- Cards section  -------------------------->
+        <div class="container">
+          <div class="row justify-content-center">
+            <!-------------------------- Card 01  -------------------------->
+            <div class="col-12 col-xl-3 card justify-content-center mx-3">
+              <a href=""><img class="card-img-top" src="assets/img/04-protecteur.png" alt="Card image cap"></a>
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Protecteur</h4>
+                <p class="card-text">Celui qui cherche à tout prix à aider les autres quitte à se sacrifier. Le
+                  protecteur est généreux, honorable et fiable. Il est tellement au service des autres qu’il manque
+                  parfois d’ambition ou de leadership.</p>
+              </div>
+            </div>
 
-				<!-- Team Section -->
-				<div class="section" id="team-section-container">
-					<h3>Notre équipe</h3>
-					<div class="team-items-container d-flex flex-wrap justify-content-center">
-						<div class="team-item d-flex">
-							<img src="assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
-							<div class="team-item-description text-start p-2">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
-							</div>
-						</div>
-						<div class="team-item d-flex">
-							<img src="assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
-							<div class="team-item-description text-start p-2">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
-							</div>
-						</div>
-						<div class="team-item d-flex">
-							<img src="assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
-							<div class="team-item-description text-start p-2">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
-							</div>
-						</div>
-						<div class="team-item d-flex">
-							<img src="/assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
-							<div class="team-item-description text-start p-2">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est sequi, officiis sed dignissimos cumque quisquam?
-							</div>
+            <!-------------------------- Card 02  -------------------------->
+            <div class="col-12 col-xl-3 card justify-content-center mx-3">
+              <a href=""></a>
+              <img class="card-img-top" src="assets/img/06-meneur.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Leader</h4>
+                <p class="card-text">Celui qui veut la puissance et le contrôle sur les autres. Le leader prône avant
+                  tout l’excellence, la dignité et la responsabilité. Certains imposent leurs lois avec douceurs tandis
+                  que d’autres tendent vers la dictature.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 03 -------------------------->
+            <div class="col-12 col-xl-3 card justify-content-center mx-3">
+              <a href=""><img class="card-img-top" src="assets/img/05-createur.png" alt="Card image cap"></a>
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Créateur</h4>
+                <p class="card-text">Celui qui fait des choses. Le créateur est un visionnaire un peu solitaire,
+                  débordant d’excitation et d’imagination. Il est prêt à tout pour réaliser sa vision.</p>
+              </div>
+				
+
+				
 						</div>
 					</div>
 				</div>
