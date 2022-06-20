@@ -144,8 +144,15 @@
 					<div class="price">&nbsp;{{event.price}}</div>
 				</div>
 			</div>
+      
       <div id="map" class="py-2" style="width:600px; height:400px;"></div>
-	<div class="container w-75" id="root"></div>
+	<div class="container w-75" id="root" 
+  {% if app.user is defined %} 
+  data-user = {{app.user.id}} 
+  {% else %} 
+  data-user = "" 
+  {% endif %}>
+  </div>
 
 		</div>
 	</main>

@@ -7,52 +7,80 @@ function Comments() {
     // récuperer les commentaires existants pour les afficher ensuite
     const [contentBdd, setContentBdd] = useState([]);
 
-    // attend un nouveau commentaire
-    const [commentTxt, setCommentTxt] = useState("");
-
     let Url= document.location.pathname;
     let id=(Url.slice(Url.lastIndexOf("/")+1));
-    console.log(id);
+    let userId;
 
-    function changeText(event){
-      setCommentTxt(event.currentTarget.value);
-    }
+    userId = document.getElementById("root").dataset.user;
 
     const url = '/comments/'+ id;
 
-    // fetch pour récuper les donnés qu'il y a déjà dans la BDD
-    useEffect(() => {
+    function sendData(){
+
+      const XHR = new XMLHttpRequest();
+      let FD = new FormData();
       
+      var myForm = document.getElementById('comment');
+
+      //push data into object
+      FD.append('comment',  myForm.value);
+      FD.append('user',  userId);
+      
+
+      //Set up request
+      XHR.open('POST', '/comments/'+ id + '/post');
+      XHR.send(FD);
+
+      XHR.onload = function () {
+        
+            console.log(XHR.responseText);
+            showComments();
+      };
+   }
+  
+    function showComments(){ 
+        
       fetch(url)
-        .then(httpResponse => {
-          return httpResponse.json()
-        })
-        .then(body => {
-          // on utilise le JSON.parse pour forcer le "truc"
-          setContentBdd(JSON.parse(body));   
-        })   
-    }, [])
+      .then(httpResponse => {
+        return httpResponse.json()
+      })
+      .then(body => {
+        // on utilise le JSON.parse pour forcer le "truc"
+        setContentBdd(JSON.parse(body));   
+      })  
+     }
 
-        return (
-            <>            
-                {/* <div className="form-group">
-                    <input onChange={changeText}  className ="form-control border border-danger shadow p-3 mb-5 bg-white rounded" placeholder="Rechercher un évènement" />
-                </div> */}
-                
-              <br />
+    // fetch pour récuper les donnés qu'il y a déjà dans la BDD
+      useEffect(() => {
+        showComments();
+      }, [])
 
-              {/* Mon évènement recherché est : {searchTxt} */}
-              <section >
-                {
-                  
-                  contentBdd.map((element, i) => {
-                    return <CommentCard key={i} data={element} />
-                  })
-                  
-                }
-              </section>
-            </>
-          );
+          return (
+              <>            
+                <section >
+                  {
+                    
+                    contentBdd.map((element, i) => {
+                      return <CommentCard key={i} data={element} />
+                    })
+                    
+                  }
+                  {userId && 
+                    <form method = "post" >
+                      <div className="form-group">
+                        <label for="comment">Ecrire un nouveau commentaire :</label>
+                        <input type= "textarea" className="form-control" id="comment" rows="3"></input>
+                        <button type='button' onClick={sendData} id='post'>Envoyer</button>
+                      </div>
+                    </form>
+      }
+                </section>
+              </>
+            );
+        
+
         }
+        
+        
 
 export default Comments;
