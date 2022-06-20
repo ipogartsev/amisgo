@@ -15,10 +15,13 @@ function displayChoice(e){
 
    let allElements = document.querySelectorAll('[data-category]');
    
+    let filtre = {'sport': 'Sport', 'pleinair' : 'Plein air', 'musique': 'Musique', 'danse' : 'Danse', 'cuisine' : 'Cuisine', 'jeux' : 'Jeux', 'spectacle' : 'Spectacle', 'culture' : 'Culture', 'bienetre': 'Bien-être', 'apero':'Apéro'};
+  let target = "";
    console.log(allElements);
    allElements.forEach(element => {
     console.log(element.dataset.category);
-    if(element.dataset.category!==e.currentTarget.id){
+    target = filtre[e.currentTarget.id];
+    if(element.dataset.category!==target){
       element.style = "display:none !important";
     
    }else{

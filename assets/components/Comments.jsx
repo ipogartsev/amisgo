@@ -4,27 +4,21 @@ import CommentCard from './CommentCard';
 
 function Comments() {
 
-    // const [contentBdd, setContentBdd] = useState([]);
-    // const [searchTxt, setSearchTxt] = useState("");
-
     // récuperer les commentaires existants pour les afficher ensuite
     const [contentBdd, setContentBdd] = useState([]);
 
     // attend un nouveau commentaire
     const [commentTxt, setCommentTxt] = useState("");
 
-
     let Url= document.location.pathname;
     let id=(Url.slice(Url.lastIndexOf("/")+1));
     console.log(id);
-
 
     function changeText(event){
       setCommentTxt(event.currentTarget.value);
     }
 
-    const url = '/comments/'+id;
-
+    const url = '/comments/'+ id;
 
     // fetch pour récuper les donnés qu'il y a déjà dans la BDD
     useEffect(() => {
@@ -36,14 +30,11 @@ function Comments() {
         .then(body => {
           // on utilise le JSON.parse pour forcer le "truc"
           setContentBdd(JSON.parse(body));   
-        })
-      
+        })   
     }, [])
 
-
         return (
-            <>
-                
+            <>            
                 {/* <div className="form-group">
                     <input onChange={changeText}  className ="form-control border border-danger shadow p-3 mb-5 bg-white rounded" placeholder="Rechercher un évènement" />
                 </div> */}
