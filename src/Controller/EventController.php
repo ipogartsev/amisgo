@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\Comments;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,9 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\EventRepository;
 use App\Repository\UserRepository;
 use App\Repository\CommentsRepository;
+use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\Length;
 
 class EventController extends AbstractController
@@ -131,7 +134,7 @@ class EventController extends AbstractController
        
       }
 
-      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe ]); 
+      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe  ]); 
     }
     
 
@@ -205,5 +208,34 @@ class EventController extends AbstractController
       $comments= $commentRepository ->findByEventId($id);
       
       return new JsonResponse(json_encode($comments));
+    }
+    /**
+     * @Route("/comments/{id}/post", name="app_comments_post")
+     */
+    public function setCommentByIdEvent(EventRepository $eventRepository, UserRepository $userRepository, Request $request, $id, EntityManagerInterface $entityManager):JsonResponse
+    {
+      // on initialise la variable comment avec les functions du repository comment
+      $comment = new Comments();
+
+      // récupération des données des requetes provenants du formulaire html
+      $text = $request->get('comment');
+      $userId = $request->get('user');
+      $event = $eventRepository->findOneById($id);
+      $user = $userRepository->findOneById($userId);
+
+      // on affecte des données pour remplir la base de données (contenu de l'input du form + informations liés a l'expéditeur)
+      $comment->setText($text);
+      $comment->setUser($user);
+      $comment->setdate(new DateTime('now'));
+      $comment->setEvent($event);
+
+      // injection des données dans la BDD
+      $entityManager->persist($comment);
+      $entityManager->flush();
+      
+
+
+
+      return new JsonResponse(json_encode("ok"));
     }
 }
