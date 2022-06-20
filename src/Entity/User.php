@@ -94,6 +94,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Personality::class, inversedBy="users")
+     */
+    private $personality;
+
     public function __construct()
     {
         $this->event = new ArrayCollection();
@@ -347,6 +352,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPersonality(): ?Personality
+    {
+        return $this->personality;
+    }
+
+    public function setPersonality(?Personality $personality): self
+    {
+        $this->personality = $personality;
 
         return $this;
     }
