@@ -70,7 +70,7 @@
             </label>
             </div>
 
-                    <!--Gender select section-->
+                    {# <!--Gender select section-->
         <div class="gender-section text-center">
          <h5 class="section-title">Genre</h5>
 
@@ -95,7 +95,7 @@
         </div>
 
         </div>
-         </div>
+         </div> #}
 
 
 
@@ -120,10 +120,8 @@
 
             <!--Send section-->
             
-            <div class="submit-section text-center">
-            <input type="submit" value="Faire le questionnaire" class="btn">
-             </div>
-            <button type="submit" class="btn">Register</button>
+        
+            <button type="submit" class="btn"><a href="{{ path('app_home') }}">Register</a></button>
             {{ form_end(registrationForm) }}
             
 

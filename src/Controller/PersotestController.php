@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\QuestionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -83,7 +84,7 @@ class PersotestController extends AbstractController
     /**
      * @Route("/persotest/result", name="app_result")
      */
-    public function getTestResult(Request $request, QuestionRepository $questionRepository, PersonalityRepository $personalityRepository)
+    public function getTestResult(Request $request, QuestionRepository $questionRepository, PersonalityRepository $personalityRepository, EntityManagerInterface $entityManager)
     {
         $tabPerso = [];
         //on récupère la catégorie dans la 2ème page twig du formulaire via un champs caché "<input type="hidden" name="serie" value="{{ cat }}">".
@@ -125,6 +126,13 @@ class PersotestController extends AbstractController
         $perso = $equaltab[$indexPerso];
 
         $result = $personalityRepository->findOneById($perso);
+
+        $user = $this->getUser();
+        $user->setPersonality($result);
+
+
+        $entityManager->persist($user);
+        $entityManager->flush();
 
         return $this->render(
             'persotest/index_page_result.html.twig',

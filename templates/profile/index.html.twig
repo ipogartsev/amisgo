@@ -9,13 +9,14 @@
 		<link rel="stylesheet" href="/assets/css/profil.css">
 	{% endblock %}
 
+	{% set age = date("now").diff(date(userData.birthdate)).y %}
 	<main>
 
 		<div class="profil-container d-flex flex-wrap justify-content-center">
 
 
 			<div class="profil-img-wrapper">
-				<img src="/assets/img/pp-romane.jpg" alt="">
+				<img src="/assets/img/{{userData.profilePicture}}"  alt="">
 			</div>
 
 			<!---------------------- Profil Summary ------------------------>
@@ -23,12 +24,12 @@
 				<div class="profil-summary-top d-flex justify-content-between align-items-center">
 					<div class="profil-summary-top-left d-flex align-items-center">
 						<a href="">
-							<img src="assets/img/01-explorateur.png" alt="">
+							<img src="/assets/img/{{ personality.personalityPicture }}" alt="">
 						</a>
 
 						<div class="profil-summary-top-left-title-wrapper">
 							<h5 class="profil-summary-top-left-title-1 fw-bold">Explorateur</h5>
-							<div class="profil-summary-top-left-title-2">Les Eclaireurs</div>
+							<div class="profil-summary-top-left-title-2">{{ personality.typeOfPersonality }}</div>
 						</div>
 					</div>
 					<div class="profil-summary-top-right">
@@ -41,17 +42,18 @@
 				</div>
 				<div class="profil-summary-description-container d-flex flex-wrap justify-content-center text-center text-dark">
 					<div class="section profil-summary-description-title mb-0">
-						<h4>Romane Mileto</h4>
+						<h4>{{userData.firstname}} {{userData.name}} </h4>
 					</div>
 					<div class="profil-summary-description">
-						Je déteste rester la maison à rien faire, j’adore partir en voyage à l’improviste que ce soit
+						{{userData.description}} 
 																																																						                        seule ou en groupe :), je suis nouvelle sur ce site c’est pourquoi je cherche des Amisgo pour
 																																																						                        réaliser ma première expérience !
 					</div>
 				</div>
 				<div class="profil-summary-badge-container d-flex justify-content-center">
-					<span class="badge  btn-profil p-2">27 ans</span>
-					<span class="badge btn-profil p-2">Paris</span>
+					<span class="badge  btn-profil p-2"> {{ age }}
+ans</span>
+					<span class="badge btn-profil p-2">{{userData.city}} </span>
 				</div>
 			</div>
 

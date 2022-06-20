@@ -89,9 +89,15 @@ class Personality
      */
     private $slogan;
 
+    /**
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="personality")
+     */
+    private $users;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -281,6 +287,36 @@ class Personality
     public function setSlogan(?string $slogan): self
     {
         $this->slogan = $slogan;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->setPersonality($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getPersonality() === $this) {
+                $user->setPersonality(null);
+            }
+        }
 
         return $this;
     }
