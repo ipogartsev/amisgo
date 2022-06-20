@@ -1,3 +1,9 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
 /********************* TYPOGRAPHIE *****************************/
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
@@ -42,7 +48,7 @@ h4 {
     font-weight: bold;
 }
 
-h5{
+h5 {
     font-family: 'Montserrat';
     font-size: 1rem;
     font-weight: medium;
@@ -61,11 +67,11 @@ p {
     font-weight: normal;
 }
 
-.txt-heroshot{
+.txt-heroshot {
     font-family: 'Montserrat';
-    font-size: 3.4rem;
+    font-size: 1rem;
     font-weight: bold;
-    
+
 }
 
 .date {
@@ -74,26 +80,28 @@ p {
     font-weight: normal;
 }
 
-.navbar a{
+.navbar a {
     font-family: 'Karla';
     font-size: 1.2rem;
     font-weight: medium;
     color: var(--blanc);
 }
-
+.nav-item {
+    color: white;
+}
 /******************************** COLORS *******************************/
 :root {
     --noir: #0E101C;
     --gris: #AEB6D5;
     --grisclair: #F2F5FF;
     --blanc: #F2F3F8;
-    --bleufonce:#3b425b;
+    --bleufonce: #3b425b;
     --bleunuit: #2C334A;
     --jaunesable: #F9C041;
     --corail: #FC7073;
     --degradeinverse: linear-gradient(90deg, #F6AA00 0%, #FC7073 82%);
     --degrade: linear-gradient(90deg, #FC6B76 0%, #F9C041 82%);
-    --degrade1:linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    --degrade1: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
 }
 
 /******************************** BUTTONS *******************************/
@@ -103,11 +111,11 @@ p {
     background: var(--jaunesable);
     width: 205px;
     border-radius: 1.3rem;
-    margin: 20px 0;
+    margin: 20px;
 }
 
 
-.filtre p{
+.filtre p {
     text-align: center;
     margin: auto;
 }
@@ -118,7 +126,7 @@ p {
     height: 40px;
     font-size: 18px;
     margin-top: 50px;
-    padding: auto;   
+    padding: auto;
     background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
     border-radius: 18px;
     border: none;
@@ -130,7 +138,7 @@ p {
 .btn-heroshot a {
     color: var(--blanc);
     text-decoration: none;
-   /*  padding-left: 2rem;
+    /*  padding-left: 2rem;
     padding-right: 2rem; */
     background-color: var(--degrade1);
     border-radius: 1.3rem;
@@ -145,23 +153,25 @@ p {
 } */
 .see-more-btn {
     width: 200px;
-    height: 40px;
-    font-size: 18px;
-    margin-top: 50px;
-    padding: auto;   
+    height: 80px;
+    font-size: 50Px;
+    margin-top: 60px;
+    padding: auto;
     background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
-    border-radius: 18px;
+    border-radius: 20px;
     border: none;
     color: var(--blanc)
+    
 }
+
 /******************************** CARDS *******************************/
 /* On met les wrapper des icônes en position relative
 pour pouvoir utiliser le z-index sur les icônes.
 Le height 100% permet au wrapper d'avoir une hauteur de 100% de la place disponible */
 .iconeparticipants {
     position: relative;
-    height: 100%;  
-  
+    height: 100%;
+
 }
 
 
@@ -175,14 +185,16 @@ d'avoir un background blanc et une bordure */
     border-radius: 20px;
     text-align: center;
     border: 1px solid var(--jaunesable);
-    overflow: hidden; 
-   
-   
+    overflow: hidden;
+
+
 }
+
 .profil-participants img {
     width: 32px;
     height: 100%;
 }
+
 /* Cette classe donne une position fixée en haut à droite de son wrapper aux icônes */
 .icons-position {
     position: absolute;
@@ -244,12 +256,14 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
 }
 
 
-.navbar{
+.navbar {
     background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
     /* margin-bottom: -80px; */
+}
 
-
-
+.nav-main{
+    margin-left: 5rem;
+    justify-content: center;
 }
 
 .nav-bg {
@@ -257,38 +271,47 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
     width: 100%;
 }
 
-.navbar-brand{
-    margin-left: 10rem;
-
-}
-.nav-link{
-    color: rgb(0, 0, 0);
+.navbar-brand {
+    margin-left: 5rem;
 
 }
 
-#login{
+.nav-main .nav-link {
+    color: rgb(255, 255, 255);
+    margin-left: 2rem;
+}
+
+.nav-link:hover{
+    color: var(--jaunesable);
+}
+
+#login {
     margin-right: 10rem;
 
 }
 
 
 /********************Section top******************/
-.section-top{
+.section-top {
     background-color: rgba(117, 190, 218, 0.0);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 10rem;
-    padding-left: 25rem;
+    padding: 4rem;
     color: white;
     margin-bottom: 3rem;
 }
 
+.section-top h1 {
+    font-family: 'Montserrat';
+    font-size: 1.9rem;
+    font-weight: bold;
+}
 /*************SEARCH BAR*********/
-.search-bar{
+.search-bar {
     margin-bottom: 3rem;
 }
 
-.search-location{
+.search-location {
     background-color: var(--grisclair);
     border: none;
     border-top-left-radius: .8rem;
@@ -296,18 +319,18 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
     padding: 1.2rem;
 }
 
-.form-control{
+.form-control {
     background-color: var(--blanc);
     border: none;
     padding: 1.2rem;
 }
 
-.form-outline ::placeholder{
+.form-outline ::placeholder {
     color: grey;
 
 }
 
-.search-button{ 
+.search-button {
     text-transform: uppercase;
     background-color: var(--grisclair);
     color: var(--noir);
@@ -324,23 +347,105 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
     background: #3b425b;
 }
 
-footer h4{
+footer h4 {
     color: var(--corail);
 }
 
-footer a{
+footer a {
     color: white;
     text-decoration: none;
 }
-footer a:hover{
+
+footer a:hover {
     color: var(--jaunesable);
 }
-#suivre{
+
+#suivre {
     color: white;
 }
 
-.copyright{
+.copyright {
+    width: 100%;
     margin-top: 2rem;
     color: white;
 }
+
+@media screen and (max-width: 768px) {
+    #footer {
+        text-align: center;
+    }
+}
+
 /*************FOOTER FIN*********/
+
+/* X-Small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap
+ */
+
+/*  // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .section-top h1 {
+        font-family: 'Montserrat';
+        font-size: 2.0rem;
+        font-weight: bold;
+    }
+    
+    .section-top {
+        padding-left: 5rem;
+    
+    }
+
+    .txt-heroshot {
+        font-size: 1.4rem;
+    }
+}
+
+
+
+/* 
+// Medium devices (tablets, 768px and up) 
+@media (min-width: 768px) {
+    ...
+}
+
+Large devices (desktops, 992px and up) 
+@media (min-width: 992px) {
+    ...
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .navbar-brand {
+        margin-left: 10rem;
+    
+    }
+
+    .section-top h1 {
+        font-family: 'Montserrat';
+        font-size: 5.0rem;
+        font-weight: bold;
+    }
+
+    .section-top {
+        background-color: rgba(117, 190, 218, 0.0);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 10rem;
+        padding-left: 25rem;
+        color: white;
+        margin-bottom: 3rem;
+    }
+
+    .txt-heroshot {
+        font-family: 'Montserrat';
+        font-size: 3.4rem;
+        font-weight: bold;
+    
+    }
+
+
+}
+    
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+/* @media (min-width: 1400px) {} */
