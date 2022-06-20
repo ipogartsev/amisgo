@@ -20,7 +20,7 @@ function Searchbar() {
             return httpResponse.json()
           })
           .then(body => {
-            // on utilise le JSON.parse pour forcer le "truc"
+            // on utilise le JSON.parse pour forcer et lui dire que c'est du JSON.
             setContentBdd(JSON.parse(body));            
           })
         }else{
