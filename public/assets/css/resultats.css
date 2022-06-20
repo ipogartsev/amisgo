@@ -1,0 +1,164 @@
+h4 {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.6rem;
+    line-height: 58px;
+}
+
+p {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 35px;
+    color: #2B0000;
+}
+
+q {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 73px;
+    text-align: center;
+    color: #F2A801;
+}
+
+body{
+    background-image: url(../img/Vecteur-BG-resultats.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.resultats-card{
+    margin-top: 3rem;
+}
+
+.resultats-img{
+    padding-left: 10rem;
+
+}
+
+
+.resultats-txt h2, h3{
+    color: #F2A801;
+}
+
+.resultats-txt p{
+    font-weight: bold;
+    color: #54421B;
+}
+.description-section {
+    margin-top: 7rem;
+    margin-left: 10rem;
+    padding-right: 3rem;
+    padding-left: 5rem;
+}
+
+.points-forts-container{
+    background-image: url(../img/vecteurs-points-forts.svg);
+    background-repeat: no-repeat;
+    background-position: 75%;
+    background-size: contain;
+    margin-top: -3rem;
+
+}
+
+.points-forts-list{
+
+    padding-top: 11rem;
+    padding-bottom: 10rem;
+    padding-left: 5rem;
+}
+
+.points-forts-list h4 {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+
+
+}
+
+.artist-section {
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+    margin-left: 10rem;
+    padding-right: 3rem;
+}
+
+.artist-txt{
+    padding-right: 15rem;
+    padding-left: 15rem;
+
+}
+
+.quote-section {
+    background-image: url(../img/vecteur-citation.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+
+}
+
+.sociable-section{
+    margin-top: 7rem;
+    margin-bottom: 12rem;
+    margin-right: 9rem;
+    margin-left: 2rem;
+}
+
+.sociable-txt{
+    padding-right: 10rem;
+    padding-left: 10rem;
+}
+
+.match-section-container{
+    margin-bottom: 7rem;
+
+}
+
+.card-body{
+    background: none;
+    text-align: center;
+}
+
+.calltoaction-section {
+    margin-top: 2rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+}
+
+.calltoaction-section h3 {
+    font-family: 'Karla';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #342B2B;
+
+}
+
+.calltoaction-txt{
+    padding-left: 20rem;
+    padding-right: 20rem;
+
+}
+
+.see-more-btn {
+    width: 17rem;
+    padding-top: .5rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.card-match {
+    flex: 0 0 350px;
+    max-width: 350px;
+    border: none;
+    padding: 20px;
+    background-color: transparent;
+}
