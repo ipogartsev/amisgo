@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+      <!-- Fontawesome Library-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<!--Polices de caractères-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Karla&family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+  </style>
+
+  <!--Link CSS-->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/personnalites.css">
+
+ </head>
+
+ <body>
+<!------------------------ HEADER START------------------------>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#"><img src="assets/img/Logo.svg"></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-cente nav-main" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" aria-current="page" href="#">Personnalités</a>
+          <a class="nav-link" href="#">Activités</a>
+          <a class="nav-link" href="#">Fil d'Actualités</a>
+          <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+        </div>
+      </div>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+        <div class="navbar-nav d-flex flex-row">
+          <div class="text-center">
+            <a class="" href="#"><img src="assets/icons/icone-login.svg"></a>
+            <div class="d-flex text-center">
+              <a class="nav-item nav-link px-1" aria-current="page" href="#">S'identifier</a>
+              <a class="nav-item nav-link px-1" aria-current="page" href="#">Se connecter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!------------------------ HEADER END------------------------>
+ 
+<!------------------------ MAIN START------------------------>
+       <main>
+             <!-------------------------- BUTTON hero shot-------------------------->
+             <div class="d-flex justify-content-end me-5" id="decouvrir">
+              <button type="button" class="btn btn-heroshot"><a href="#">Faire le test !</a></button>
+            </div>
+
+              <!-------------------------- BUTTON see more -------------------------->
+              <div class="row justify-content-center"><button class="see-more-btn">En savoir plus</button></div>
+
+
+              <!-------------------------- Card section -------------------------->
+              <div class="section cards-container d-flex flex-wrap justify-content-center">
+                <div class="row card-row d-flex flex-wrap justify-content-center">
+                  <article class="col-12 col-xl-6 card-item d-flex flex-row justify-content-center">
+                    <div class="card-item-img-wrapper">
+                      <div class="card-item-like-icon">
+                        <button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
+                      </div>
+                      <a href="">
+                        <img class="card-item-img" src="assets/img/kayak-activity.jpg" alt="">
+                      </a>
+                      
+                    </div>
+          
+                    <div class="d-flex flex-column card-item-body">
+                      <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">09
+                        Juillet 2022
+                        &nbsp;10:00</time>
+                      <div class="card-item-body-container">
+          
+                        <h4 class="text-start">Canoë Kayak Le Poulot,</h4>
+                        <h5 class="text-start">Conflans-Sainte-Honorine</h5>
+                        <p class="text-start lh-1 p-3">Partez à l’aventure en canoë-kayak à moins d’une
+                          heure de Paris ! Canoë 77 vous propose 2 parcours exceptionnels en canoë en
+                          Seine-et-Marne . Au départ de Pommeuse, louez une embarcation et pagayez le
+                          long des plus beaux cours d’ea...
+          
+                        </p>
+          
+                        <div class="d-flex flex-row justify-content-between filter-wrapper">
+                          <div class="filtre">
+                            <button
+                              class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+                              <div class="icon-background">
+                                <img src="assets/icons/icone-pleinair.svg" alt="">
+                              </div>
+                              <div class="card-activity-title mx-2">Plein air</div>
+                            </button>
+                          </div>
+          
+                          <div
+                            class="profil-participants d-flex justify-content-end iconeparticipants align-items-center">
+                            <div class="icon-wrapper icons-position icon-position-1"><img
+                                class="icon-participants" src="assets/img/icon-face01.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-2"><img
+                                class="icon-participants" src="assets/img/icon-face02.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-3"><img
+                                class="icon-participants" src="assets/img/icon-face03.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-4"><img
+                                class="icon-participants" src="assets/img/icon-face04.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-5"><img
+                                class="icon-participants" src="assets/img/icon-face05.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-6">9/12</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="col-12 col-xl-6 card-item d-flex flex-row justify-content-center">
+                    <div class="card-item-img-wrapper">
+                      <div class="card-item-like-icon">
+                        <button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
+                      </div>
+                      <a href="">
+                        <img class="card-item-img" src="assets/img/wall-climbing-activity.jpg" alt="">
+                      </a>
+                      
+                    </div>
+          
+                    <div class="d-flex flex-column card-item-body">
+                      <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">13
+                        Juillet 2022
+                        &nbsp;14:00</time>
+                      <div class="card-item-body-container">
+          
+                        <h4 class="text-start">Escalade Climb up,</h4>
+                        <h5 class="text-start">Aubervilliers</h5>
+                        <p class="text-start lh-1 p-3">Climb up est une association loi 1901, gérée par des
+                          bénévoles,le club compte
+                          chaque année plus de 400 adhérents encadrés par 4 moniteurs salariés par le
+                          club. Un objectif : Faire découvrir la grimpe au plus grand nombre, que ce soit
+                          sur...
+                        </p>
+          
+                        <div class="d-flex flex-row justify-content-between filter-wrapper">
+                          <div class="filtre">
+                            <button
+                              class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+                              <div class="icon-background">
+                                <img src="assets/icons/icone-sport.svg" alt="">
+                              </div>
+                              <div class="card-activity-title mx-2">Sport</div>
+                            </button>
+                          </div>
+          
+                          <div
+                            class="profil-participants d-flex justify-content-end iconeparticipants align-items-center">
+                            <div class="icon-wrapper icons-position icon-position-1"><img
+                                class="icon-participants" src="assets/img/icon-face01.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-2"><img
+                                class="icon-participants" src="assets/img/icon-face02.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-3"><img
+                                class="icon-participants" src="assets/img/icon-face03.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-4"><img
+                                class="icon-participants" src="assets/img/icon-face04.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-5"><img
+                                class="icon-participants" src="assets/img/icon-face05.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-6">5/10</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="col-12 col-xl-6 card-item d-flex flex-row justify-content-center">
+                    <div class="card-item-img-wrapper">
+                      <div class="card-item-like-icon">
+                        <button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
+                      </div>
+                      <a href="">
+                        <img class="card-item-img" src="assets/img/concert-activity.jpg" alt="">
+                      </a>
+                      
+                    </div>
+          
+                    <div class="d-flex flex-column card-item-body">
+                      <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">05
+                        Juillet 2022
+                        &nbsp;18:00</time>
+                      <div class="card-item-body-container">
+          
+                        <h4 class="text-start">Concert Wejdene</h4>
+                        <h5 class="text-start">Stade de France,Saint-Denis</h5>
+                        <p class="text-start lh-1 p-3">Wejdene est la révélation pop de ces dernières
+                          années. Née à Saint-Denis et d'origine tunisienne, elle grandit dans une
+                          famille de quatre enfants et chante avec son père depuis son plus jeune âge.
+                          Autodidacte, elle écrit ses propres textes...
+                        </p>
+          
+                        <div class="d-flex flex-row justify-content-between filter-wrapper">
+                          <div class="filtre">
+                            <button
+                              class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+                              <div class="icon-background">
+                                <img src="assets/icons/icone-spectacle.svg" alt="">
+                              </div>
+                              <div class="card-activity-title mx-2">Spectacle</div>
+                            </button>
+                          </div>
+          
+                          <div
+                            class="profil-participants d-flex justify-content-end iconeparticipants align-items-center">
+                            <div class="icon-wrapper icons-position icon-position-1"><img
+                                class="icon-participants" src="assets/img/icon-face01.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-2"><img
+                                class="icon-participants" src="assets/img/icon-face02.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-3"><img
+                                class="icon-participants" src="assets/img/icon-face03.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-4"><img
+                                class="icon-participants" src="assets/img/icon-face04.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-5"><img
+                                class="icon-participants" src="assets/img/icon-face05.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-6">8/15</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="col-12 col-xl-6 card-item d-flex flex-row justify-content-center">
+                    <div class="card-item-img-wrapper">
+                      <div class="card-item-like-icon">
+                        <button><img src="assets/icons/icone-heart-outlined.svg" alt=""></button>
+                      </div>
+                      <a href="">
+                        <img class="card-item-img" src="assets/img/vr-activity.jpg" alt="">
+                      </a>
+                      
+                    </div>
+          
+                    <div class="d-flex flex-column card-item-body">
+                      <time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">27
+                        Juillet 2022
+                        &nbsp;11:00</time>
+                      <div class="card-item-body-container">
+          
+                        <h4 class="text-start">VR Expérience Vrandcompany</h4>
+                        <h5 class="text-start">Conflans-Sainte-Honorine</h5>
+                        <p class="text-start lh-1 p-3">Virtual Room, 1ère salle de réalité virtuelle
+                          collaborative à Paris, propose des expériences originales et accessibles à
+                          tous en équipe de 2 à 4 joueurs
+                          À la croisée des chemins entre l’escape game et le cinéma, embarquez pour
+                          une a...
+                        </p>
+          
+                        <div class="d-flex flex-row justify-content-between filter-wrapper">
+                          <div class="filtre">
+                            <button
+                              class="d-flex btn card-filter-btn btn-warning align-items-center justify-content-start p-0">
+                              <div class="icon-background">
+                                <img src="assets/icons/icone-jeux.svg" alt="">
+                              </div>
+                              <div class="card-activity-title mx-2">Jeux</div>
+                            </button>
+                          </div>
+          
+                          <div
+                            class="profil-participants d-flex justify-content-end iconeparticipants align-items-center">
+                            <div class="icon-wrapper icons-position icon-position-1"><img
+                                class="icon-participants" src="assets/img/icon-face01.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-2"><img
+                                class="icon-participants" src="assets/img/icon-face02.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-3"><img
+                                class="icon-participants" src="assets/img/icon-face03.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-4"><img
+                                class="icon-participants" src="assets/img/icon-face04.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-5"><img
+                                class="icon-participants" src="assets/img/icon-face05.jpg"></div>
+                            <div class="icon-wrapper icons-position icon-position-6">14/20</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+          
+              </div>
+
+              <!-------------------------- Personnalités section-------------------------->
+      <section class="container-fluid meneurs-section">
+        <div class="row text-center">
+          <!-------------------------- section Title -------------------------->
+          <h3>Les Meneurs</h3>
+        </div>
+
+        <!-------------------------- Cards section  -------------------------->
+        <div class="container">
+          <div class="row justify-content-center">
+            <!-------------------------- Card 01  -------------------------->
+            <div class="col-12 col-xl-3 card justify-content-center mx-3">
+              <a href=""><img class="card-img-top" src="assets/img/04-protecteur.png" alt="Card image cap"></a>
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Protecteur</h4>
+                <p class="card-text">Celui qui cherche à tout prix à aider les autres quitte à se sacrifier. Le
+                  protecteur est généreux, honorable et fiable. Il est tellement au service des autres qu’il manque
+                  parfois d’ambition ou de leadership.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 02  -------------------------->
+            <div class="col-12 col-xl-3 card justify-content-center mx-3">
+              <a href=""></a>
+              <img class="card-img-top" src="assets/img/06-meneur.png" alt="Card image cap">
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Leader</h4>
+                <p class="card-text">Celui qui veut la puissance et le contrôle sur les autres. Le leader prône avant
+                  tout l’excellence, la dignité et la responsabilité. Certains imposent leurs lois avec douceurs tandis
+                  que d’autres tendent vers la dictature.</p>
+              </div>
+            </div>
+
+            <!-------------------------- Card 03 -------------------------->
+            <div class="col-12 col-xl-3 card justify-content-center mx-3">
+              <a href=""><img class="card-img-top" src="assets/img/05-createur.png" alt="Card image cap"></a>
+              <div class="card-personnality-body">
+                <h4 class="card-title">Le Créateur</h4>
+                <p class="card-text">Celui qui fait des choses. Le créateur est un visionnaire un peu solitaire,
+                  débordant d’excitation et d’imagination. Il est prêt à tout pour réaliser sa vision.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+       </main>
+<!------------------------ MAIN END------------------------>
+
+ 	<!------------------------ FOOTER START------------------------>
+   <footer>
+		<!-------------------------- CATEGORIES -------------------------->
+		<div class="bs-docs-footer" id="footer">
+			<div class="container">
+				<div class="row ms-md-5">
+					<!-------------------------- About section -------------------------->
+					<div class="col-12 col-md-4">
+						<h4 class="mt-3">A propos</h4>
+						<div id="a-propos">
+							<ul class="list-unstyled">
+								<li class=""><a href="#">Notre histoire</a></li>
+								<li class=""><a href="#">Notre équipe</a></li>
+								<li class=""><a href="#">Deviens organisateur</a></li>
+								<li class=""><a href="#">Nos valeurs</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-------------------------- Links section -------------------------->
+					<div class="col-12 col-md-4">
+						<h4 class="mt-3">Liens utiles</h4>
+						<div id="utiles">
+							<ul class="list-unstyled">
+								<li class=""><a href="#">Accessibilité</a></li>
+								<li class=""><a href="#">Mentions légales</a></li>
+								<li class=""><a href="#">CGU</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-------------------------- Follow section -------------------------->
+					<div class="col-12 col-md-4">
+						<h4 class="mt-3">Nous suivre</h4>
+						<div id="suivre">
+							<ul class="list-unstyled">
+								<li class=""><i class="fab fa-facebook-f me-3" alt="logo facebook"></i>Facebook
+								</li>
+								<li class=""><i class="fab fa-instagram me-3" alt="logo instagram"></i>Instagram
+								</li>
+								<li class=""><i class="fab fa-twitter me-3" alt="logo twitter"></i>Twitter
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+			<!-------------------------- COPYRIGHT SECTION -------------------------->
+			<div class="row copyright">
+				<div class="col text-center">
+					&copy; AmisGO, 2022
+				</div>
+			</div>
+
+	</footer>
+
+<!-- Optional JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
