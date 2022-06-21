@@ -2,9 +2,9 @@
 
 {% block header %}{% endblock %}
 {% block body %}
-{% block stylesheets %}
-	<link rel="stylesheet" href="/assets/css/resultats.css">
-{% endblock %}
+	{% block stylesheets %}
+		<link rel="stylesheet" href="/assets/css/resultats.css">
+	{% endblock %}
 
 	<main
 		id="resultats">
@@ -130,7 +130,7 @@
 				<div class="col-6 text-end">
 					<img src="/assets/img/img-match.png" alt="">
 				</div>
-				
+
 			</div>
 		</section>
 
@@ -141,8 +141,13 @@
 					{{personality.slogan}}
 				</h3>
 
-				<div class="col-12 text-center">
-					<button class="see-more-btn">C'est parti !</button>
+				<div class="col-12 text-center ">
+					<button class="see-more-btn  btn btn-heroshot">
+						<a href="{{ path('app_events') }}">
+							C'est parti !
+						</a>
+					</button>
+
 				</div>
 			</div>
 		</section>
