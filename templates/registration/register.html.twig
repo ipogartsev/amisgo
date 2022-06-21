@@ -34,6 +34,7 @@
             {% endblock %}
                     <!--Form section-->
             {{ form_start (registrationForm, {'attr': {'class': 'form-container'}}) }}
+            {{ form_widget(registrationForm._token) }}
             <div class="input-section">
              <div class="d-flex inline-block input-name">
             
@@ -70,7 +71,7 @@
             </label>
             </div>
 
-                    {# <!--Gender select section-->
+            <!--Gender select section-->
         <div class="gender-section text-center">
          <h5 class="section-title">Genre</h5>
 
@@ -95,7 +96,7 @@
         </div>
 
         </div>
-         </div> #}
+         </div>
 
 
 
@@ -119,9 +120,10 @@
 
 
             <!--Send section-->
-            
         
-            <button type="submit" class="btn"><a href="{{ path('app_home') }}">Register</a></button>
+
+            <button type="submit" class="btn">Register</button>
+
             {{ form_end(registrationForm) }}
             
 
