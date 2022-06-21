@@ -14,6 +14,7 @@ class PersonalityController extends AbstractController
      * @Route("/perso", name="app_personality")
      * 
      */
+   
     public function index(PersonalityRepository $personalityRepository): Response
     {
 
