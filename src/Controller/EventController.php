@@ -166,7 +166,39 @@ class EventController extends AbstractController
       $entityManager->persist($event);
       $entityManager->flush();
 
-      //verifier si il est full ou pas
+      $response = new JsonResponse(json_encode(
+        array(
+          "result" => true
+        )));
+      return $response;
+    }
+
+
+    /**
+     * @Route("events/delete/{id}", name="app_event_delete")
+     */
+    public function eventDeleteUser(EventRepository $eventRepository,EntityManagerInterface $entityManager, $id): JsonResponse
+    {
+      // Recuperer id de l'evenement
+      $event= $eventRepository ->findOneBy(['id'=> $id]);
+
+      // Recuperer id de User 
+      $user= $this->getUser()->getId();
+
+      // Retirer user de la table des evenements
+      $event->removeUser($this->getUser());
+      // Enregistrer les modifications dans la base de données
+      $entityManager->persist($event);
+      $entityManager->flush();
+      
+      //mettre a jour la valeur dans la table event 'set register_participant'
+      $eventCurrentParticipants= $event->getParticipantsRegistered();
+
+      $event->setParticipantsRegistered($eventCurrentParticipants-1);
+      // Enregistrer les modifications dans la base de données
+      $entityManager->persist($event);
+      $entityManager->flush();
+
 
       $response = new JsonResponse(json_encode(
         array(
@@ -174,6 +206,7 @@ class EventController extends AbstractController
         )));
       return $response;
     }
+
 
     /**
      * @Route("/data/{searchTxt}", name="app_data")
