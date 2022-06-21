@@ -4,7 +4,7 @@
 {% endblock %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="assets/css/activites.css">
-	<link rel="stylesheet" href="assets/styles/searchbar.css"/>
+	
 {% endblock %}
 {% block body %}
 	<style>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<!--------------------- IMPORTANT METTRE le div root à l'endroit où l'on souhaite qu'il soit affiché sur la page -------------------->
-	<div class="container w-75" id="root"></div>
+	<div class="container w-75 " id="root"></div>
 
 
 	<!-- Filter Button Section -->
@@ -59,7 +59,7 @@
 		<h3 class="cards-title">Recommandés pour vous</h3>
 		<h3>{{ messageUser }}</h3>
 
-		<div class="section cards-container d-flex flex-wrap justify-content-between">
+		<div class="section cards-container d-flex justify-content-around">
 			{% set i = 0 %}
 			{% for suggestedEvent in suggestedEvents %}
 				{% set display = 'block' %}
@@ -113,7 +113,7 @@
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">Les plus populaires</h3>
 		<h3>{{ message }}</h3>
-		<div class="section  cards-container d-flex flex-wrap justify-content-between">
+		<div class="section  cards-container d-flex justify-content-around">
 			{% set i = 0 %}
 			{% for popularEvent in popularEvents %}
 				{% set display = 'block' %}
@@ -171,7 +171,7 @@
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">A venir</h3>
 		<h3>{{ message }}</h3>
-		<div class="section cards-container d-flex flex-wrap justify-content-between">
+		<div class="section cards-container d-flex justify-content-around">
 			{% set i = 0 %}
 			{% for futureEvent in futureEvents %}
 				{% set display = 'block' %}
