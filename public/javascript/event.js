@@ -23,4 +23,3 @@ function registerUserToEvent(e){
 
 btn.addEventListener('click', registerUserToEvent);
 
-
