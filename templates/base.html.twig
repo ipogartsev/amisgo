@@ -1,16 +1,18 @@
 {# templates/base.html.twig #}
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<title>
 			{% block title %}Amisgo
 			{% endblock %}
 		</title>
-		<!-- Bibliothèque fontawesome-->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+		<!-- Fontawesome Library-->
+		<link
+		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+		<!-- élément dont je ne suis pas sûre que l'on ait encore besoin - Angélina-->
 		<link
 		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -18,170 +20,157 @@
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
+
 		<!-- Bootstrap CSS -->
 		<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-		<!-- Link -->
+		<!--Polices de caractères-->
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Karla &family=Montserrat:ital, wght@0, 400;0, 500;0, 700;1, 400;1, 500;1, 700&display=swap');
+		</style>
+
+		<!--Link CSS-->
 		<link rel="stylesheet" href="/assets/css/design-system.css">
 		<link rel="stylesheet" href="/assets/css/style.css">
-
+		<link rel="stylesheet" href="/assets/css/personnalites.css">
 
 	</head>
+
 	<body>
 		<!------------------------ HEADER START------------------------>
 		<header>
-			<div class="container mw-100 px-0">
-				<nav
-					class="navbar navbar-light px-5" class="navbar navbar-expand-xs" style="background-color: #e3f2fd;">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div
+					class="container-fluid">
 
 					<!-------------------------- Logo -------------------------->
+
 					<a class="navbar-brand" href="{{ path('app_home') }}"><img src="/assets/img/Logo.svg"></a>
 
 					<!-------------------------- Menus -------------------------->
-					<div id="navbarNav">
-						<ul class="navbar-nav ms-auto d-flex flex-row">
-							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="{{ path('app_personality') }}">Personnalités</a>
-							</li>
-							<li class="nav-item mx-5">
-								<a class="nav-link" href="{{ path('app_events') }}">Activités</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Fil d'Actualités</a>
-							</li>
-						</ul>
-					</div>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-					<!-------------------------- Login -------------------------->
-					<div id="login">
-						<a class="navbar-brand d-flex justify-content-center" href="#"><img src="/assets/icons/icone-login.svg"></a>
-						<div class="d-flex text-center">
-
-							{% if app.user %}
-								<a class="nav-link active px-1" aria-current="page" display="none" href="{{ path('app_logout')}}">Connecté(e)</a>
-							{% else %}
-								<a class="nav-link active px-1" aria-current="page" href="#">S'identifier</a>
-								<a class="nav-link active px-1" aria-current="page" href="#">Se connecter</a>
-							{% endif %}
+					<div class="collapse navbar-collapse justify-content-cente nav-main" id="navbarNavAltMarkup">
+						<div class="navbar-nav">
+							<a class="nav-link" aria-current="page" href="{{ path('app_personality') }}">Personnalités</a>
+							<a class="nav-link" href="{{ path('app_events') }}">Activités</a>
+							<a class="nav-link" href="#">Fil d'Actualités</a>
+							<!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
 						</div>
 					</div>
 
-				</nav>
-				{% block header %}
-					<div class="container-fluid section-top">
-						<div class="row">
-							<div class="col-sm-2 col-lg-4 col-xxl-8">
-								<h1>Ready ? Amis ? Go ?</h1>
-								<p class="ms-5">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum natus itaque totam nam modi
-																eum,
-																velit
-																nostrum quasi quaerat similique, molestiae facere incidunt.
-																Molestias, in magnam. At corrupti nemo molestias!
-								</p>
-								<div class="d-flex justify-content-end me-5" id="decouvrir">
-									<button type="button" class="btn btn-heroshot">
-										<a href="{{ path('app_persotest') }}">Faire le test !</a>
-									</button>
-
+					<div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+						<div class="navbar-nav d-flex flex-row">
+							<div class="text-center">
+								<a class="" href="{{ path('app_login') }}"><img src="/assets/icons/icone-login.svg"></a>
+								<div class="d-flex text-center">
+									{% if app.user %}
+										<a class="nav-link active px-1" aria-current="page" display="none" href="{{ path('app_logout')}}">Connecté(e)</a>
+									{% else %}
+										<a class="nav-link active px-1" aria-current="page" href="{{ path('app_register') }}">S'inscrire | </a>
+										<a class="nav-link active px-1" aria-current="page" href="{{ path('app_login') }}">Se connecter</a>
+									{% endif %}
 								</div>
 							</div>
 						</div>
 					</div>
-				{% endblock %}
-				<!------------------------ HEADER END------------------------>
-			</header>
-			{% block body %}{% endblock %}
+				</div>
+			</nav>
+		</header>
 
-			<footer>
+		<!------------------------ HEADER END------------------------>
 
-				<!------------------------ FOOTER START------------------------>
+		{% block body %}{% endblock %}
 
-				<!-------------------------- CATEGORIES -------------------------->
-					<div class="bs-docs-footer" id="footer"> <div class="container">
-						<div
-							class="row ms-5">
-							<!-------------------------- A Propos -------------------------->
-							<div class="col-4">
-								<h4 class="mt-3">A propos</h4>
-								<div id="a-propos">
-									<ul class="list-unstyled">
-										<li class="">
-											<a href="#">Notre histoire</a>
-										</li>
-										<li class="">
-											<a href="#">Notre équipe</a>
-										</li>
-										<li class="">
-											<a href="#">Deviens organisateur</a>
-										</li>
-										<li class="">
-											<a href="#">Nos valeurs</a>
-										</li>
-									</ul>
-								</div>
+		<!------------------------ FOOTER START------------------------>
+		<footer>
+			<!-------------------------- CATEGORIES -------------------------->
+			<div class="bs-docs-footer" id="footer">
+				<div class="container">
+					<div
+						class="row ms-md-5">
+						<!-------------------------- About section -------------------------->
+						<div class="col-12 col-md-4">
+							<h4 class="mt-3">A propos</h4>
+							<div id="a-propos">
+								<ul class="list-unstyled">
+									<li class="">
+										<a href="#">Notre histoire</a>
+									</li>
+									<li class="">
+										<a href="#">Notre équipe</a>
+									</li>
+									<li class="">
+										<a href="#">Deviens organisateur</a>
+									</li>
+									<li class="">
+										<a href="#">Nos valeurs</a>
+									</li>
+								</ul>
 							</div>
+						</div>
 
-							<!-------------------------- Liens Utiles -------------------------->
-							<div class="col-4">
-								<h4 class="mt-3">Liens utiles</h4>
-								<div id="utiles">
-									<ul class="list-unstyled">
-										<li class="">
-											<a href="#">Accessibilité</a>
-										</li>
-										<li class="">
-											<a href="#">Mentions légales</a>
-										</li>
-										<li class="">
-											<a href="#">CGU</a>
-										</li>
-									</ul>
-								</div>
+						<!-------------------------- Links section -------------------------->
+						<div class="col-12 col-md-4">
+							<h4 class="mt-3">Liens utiles</h4>
+							<div id="utiles">
+								<ul class="list-unstyled">
+									<li class="">
+										<a href="#">Accessibilité</a>
+									</li>
+									<li class="">
+										<a href="#">Mentions légales</a>
+									</li>
+									<li class="">
+										<a href="#">CGU</a>
+									</li>
+								</ul>
 							</div>
+						</div>
 
-							<!-------------------------- Nous suivre -------------------------->
-							<div class="col-4">
-								<h4 class="mt-3">Nous suivre</h4>
-								<div id="suivre">
-									<ul class="list-unstyled">
-										<li class="">
-											<a href="https://www.facebook.com/LaPasserelleSchool">
-												<i class="fab fa-facebook-f me-3" alt="logo facebook"></i>Facebook</a>
-										</li>
-										<li class="">
-											<a href="https://www.instagram.com/lapasserelle.school/?hl=fr">
-												<i class="fab fa-instagram me-3" alt="logo instagram"></i>Instagram</a>
-										</li>
-										<li class="">
-											<a href="">
-												<i class="fab fa-twitter me-3" alt="logo twitter"></i>Twitter</a>
-										</li>
-									</ul>
-								</div>
+						<!-------------------------- Follow section -------------------------->
+						<div class="col-12 col-md-4">
+							<h4 class="mt-3">Nous suivre</h4>
+							<div id="suivre">
+								<ul class="list-unstyled">
+									<li class="">
+										<a href="https://www.facebook.com/LaPasserelleSchool">
+											<i class="fab fa-facebook-f me-3" alt="logo facebook"></i>Facebook</a>
+									</li>
+									<li class="">
+										<a href="https://www.instagram.com/lapasserelle.school/?hl=fr">
+											<i class="fab fa-instagram me-3" alt="logo instagram"></i>Instagram</a>
+									</li>
+									<li class="">
+										<a href="">
+											<i class="fab fa-twitter me-3" alt="logo twitter"></i>Twitter</a>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
 
+				</div>
 
-					<!-------------------------- COPYRIGHT -------------------------->
-					<div class="row mx-0">
-						<div class="col text-center">
-							&copy; AmisGO, 2022
-						</div>
+
+				<!-------------------------- COPYRIGHT SECTION -------------------------->
+				<div class="row copyright">
+					<div class="col text-center">
+						&copy; AmisGO, 2022
 					</div>
+				</div>
 
+			</footer>
 
-					<!------------------------ FOOTER END------------------------>
-					{% block footer %}{% endblock %}
-				</footer>
-			</body>
-
-
-		</html>
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
+			<!-- Optional JavaScript -->
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		</body>
 	</body>
 </html>
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+{% endblock %}
