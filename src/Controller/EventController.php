@@ -202,7 +202,7 @@ class EventController extends AbstractController
 
       $response = new JsonResponse(json_encode(
         array(
-          "result" => true
+          "result" => true,
         )));
       return $response;
     }
