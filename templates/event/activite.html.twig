@@ -57,6 +57,8 @@
               {# Sinon si l'user est déja inscrit #}
               {% elseif participed == true %}
                   <a href="{{path("app_events")}}"><p>Vous êtes déjà inscrit</p></a>
+              	  {# Proposer desinscription #}               
+                  <button id="btnDelete" data-rejoins="active" data-id={{ event.id }} >J'annule !</button>
                 {# Sinon activer le boutton d'inscription #}
                 {% else %}
                   <button id="participe" data-rejoins="active" data-id={{ event.id }} >Je participe !</button>
@@ -162,6 +164,7 @@
 {% block javascripts %}
   <script src="/javascript/map.js"></script>
   <script src="/javascript/event.js"></script>
+  <script src="/javascript/eventdelete.js"></script>
     {{ encore_entry_script_tags('comments') }}
   <script>
     //recuperation des champs liés a l'adresse d'un evenement dans notre base de données
