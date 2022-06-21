@@ -28,12 +28,16 @@ class EventController extends AbstractController
     {
       //Création d'un tableau regroupant les checkbox 
       $filtre = ['sport'=>'Sport', 'pleinair' => 'Plein air', 'musique' => 'Musique', 'danse' => 'Danse', 'cuisine' => 'Cuisine', 'jeux' => 'Jeux', 'spectacle' => 'Spectacle', 'culture' => 'Culture', 'bienetre'=> 'Bien-être', 'apero'=>'Apéro'];
+      
       // Message  à afficher en cas d'absence des evenements
       $message = '';
+      
       //Message si User n'est pas connecté
       $messageUser = '';
+      
       // Etablire la date de jour
       $today = date("Y-m-d H:i:s");
+      
       // Recuperer User pour créer les recommendations
       $userId = $this->getUser();
   
@@ -41,16 +45,18 @@ class EventController extends AbstractController
       $suggestedEvents =[];
       $popularEvents = [];
       $futureEvents = [];
+      
       // Chercher les evenements dans BDD
       $events = $eventRepository->findAll();
-
+     
       // Parcourir 'events' pour selectionner les evenements en date d'aujourd'hui
       foreach($events as $event){
         $eventDate = $event->getDateOfEvent();
-        if($today < $eventDate){
-          $futureEvents[] = $event;         
+        if($today < $eventDate->format("Y-m-d H:i:s")){
+          $futureEvents[] = $event; 
         }
-
+      }  
+      
       // Si le tableau 'futureEvents' est vide mettre le message correspondant
       if(!$futureEvents){
         $message = 'Il n\'y a pas des evenements à venir'; 
@@ -75,12 +81,12 @@ class EventController extends AbstractController
             $userEvents = $userId->getEvent();
             // Si user a participé
             if($userEvents){
-              // Créer le tableau d'evenements à recommandé par type d'evenement
+              // Créer le tableau d'evenements à recommandé par type d'evenements au quels user a participé
               $suggestedEvents = [];
               $typeEvents = [];
               foreach($userEvents as $event){
                 $typeEvents[] = $event->getTypeOfEvent();
-              };
+              }                     
               // Parcourir 'futureEvents' et choisir les evenements par type selon le tableau typeEvents
               foreach($futureEvents as $event){
                 if(in_array($event->getTypeOfEvent(), $typeEvents)){
@@ -90,15 +96,17 @@ class EventController extends AbstractController
               }
             }               
             // Si il n'y a pas des evenements à venir à recommander choisir les evenements recommandés au hasard
-            if($suggestedEvents){
-              $suggestedEvents = $futureEvents[rand(0, count($futureEvents)-1)];
+            if(!$suggestedEvents){
+              $suggestedEvents[]= $futureEvents[rand(0, count($futureEvents)-1)];
             }
-          } else{
+          } 
+          else{
             $messageUser = 'Connectez-vous pour voir les evenements recommandés pour vous ! ';
           }
-       }
-      }
+        }
+      
 
+        // Retourner les tableau des evenements et les messages
         return $this->render('event/index.html.twig', [
             'futureEvents' => $futureEvents, 'suggestedEvents' => $suggestedEvents, 'popularEvents' => $popularEvents, 'message' => $message, 'messageUser' => $messageUser , 'filtre' => $filtre        
         ]);
