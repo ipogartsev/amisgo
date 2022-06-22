@@ -7,10 +7,16 @@ function Comments() {
     // récuperer les commentaires existants pour les afficher ensuite
     const [contentBdd, setContentBdd] = useState([]);
 
+    // on récupere la totalité de notre url pour pouvoir ensuite récupérer l'id qui est en fin d'url
     let Url= document.location.pathname;
+
+    // on récupère l'id qui est en fin d'url avec la methode slice et lastIndexOf
     let id=(Url.slice(Url.lastIndexOf("/")+1));
+
+    // on initialise la variable userId
     let userId;
 
+    // on affecte a userID les données de l'utilisateur qui était caché dans un dataset au préalable en html
     userId = document.getElementById("root").dataset.user;
 
     const url = '/comments/'+ id;
@@ -44,7 +50,7 @@ function Comments() {
         return httpResponse.json()
       })
       .then(body => {
-        // on utilise le JSON.parse pour forcer le "truc"
+        // on utilise le JSON.parse pour forcer la compréhension du navigateur
         setContentBdd(JSON.parse(body));   
       })  
      }

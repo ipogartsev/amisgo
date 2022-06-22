@@ -1,85 +1,95 @@
 {% extends 'base.html.twig' %}
 {% block header %}{% endblock %}
-{% block title %}Personnalités!{% endblock %}
+{% block title %}Personnalités!
+{% endblock %}
 {% block stylesheets %}
-				<link rel="stylesheet" href="assets/css/design-system.css">
- 	 			<link rel="stylesheet" href="assets/css/personnalites.css">
- 				 {% endblock %}
+	<link rel="stylesheet" href="assets/css/design-system.css">
+	<link rel="stylesheet" href="assets/css/personnalites.css">
+{% endblock %}
 
 {% block body %}
 
-      <header>
-				<div class="container-fluid section-top-personnalites">
-          <div class="row">
-            <div class="col-12 col-xl-8">
-              <h1>Les types d’AmisGo</h1>
-              <p class="ms-5">
-                Obtenez une description concrète et exacte de qui vous êtes et de la raison pour laquelle vous faites les choses de la façon dont vous les faites.
-              </p>
-              <div class="d-flex justify-content-end me-5" id="decouvrir">
-                <button type="button" class="btn btn-heroshot"><a href="{{ path("app_persotest")}}">Faire le test !</a></button>
+	<header>
+		<div class="container-fluid section-top-personnalites">
+			<div class="row">
+				<div class="col-12 col-xl-8">
+					<h1>Les types d’AmisGo</h1>
+					<p class="ms-5">
+						Obtenez une description concrète et exacte de qui vous êtes et de la raison pour laquelle vous faites les choses de la façon dont vous les faites.
+					</p>
+					<div class="d-flex justify-content-end me-5" id="decouvrir">
+						<button type="button" class="btn btn-heroshot">
+							<a href="{{ path("app_persotest")}}">Faire le test !</a>
+						</button>
 
-              </div>
-            </div>
-          </div>
-        </div>
-				 </header>
-				
- <!------------------------ MAIN START------------------------>
-    <main>
-      <section class="container">
-        
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-
-        <div class="container">
-          <div class="row justify-content-center">
-            <!-------------------------- Card 01  -------------------------->
-            {% set tabData = ['Les Meneurs','Les éclaireurs', 'Les émancipateurs','Les Intermédiaires'] %}
-            {% set tabColor = ['background-color: #B4E5BC;',' background-color: #F4CE9B;', 'background-color: #B8DFF2;','background-color: #F3ABA7;'] %}
-            {% set i = 0 %}
-            {% set u = 0 %}
-            {% for person in persons %}
-            {% if i == 0 %}
-          <!-------------------------- section Title -------------------------->
-
-            <div class="row text-center">
-              <h3>{{ tabData[u] }}</h3>
-            </div>
-            {% endif %}
-        <!-------------------------- Cards section  -------------------------->
-            <div class="col-3 card justify-content-center mx-3  " style="{{tabColor[u]}}">
-              <img class="card-img-top" src="assets/img/{{person.personalityPicture}}" alt="Card image cap">
-              <div class="card-personnality-body">
-               <a href="{{ path('app_perso', {'title': person.typeOfPersonality }) }}"> <h4 class="card-title">{{person.typeOfPersonality}}</h4></a>
-                <p class="card-text">{{person.description}}</p>
-              </div>
-            </div>
-            {% set i = i + 1 %}
-            
-            {% if i == 3 %}
-              {% set i = 0 %}
-              {% set u = u + 1 %}
-            {% endif %}
-            
-            {% endfor %}
-      </section><br />
-
-        <!-------------------------- Bottom section -------------------------->
-        <section class="container-fluid">
-          <div class="row" style="background-color: grey;">
-            <div class="col-sm col-md-4 col-xxl-6">
-              <h3>Et toi ? <br /> Quel type d'AmisGO es-tu ?</h3>
-            </div>
-
-            <div class="col-sm col-md-4 col-xxl-6">
-              <img src="assets/img/group-amisgo.png" alt="">
-            </div>
-
-          </div>
-        </section>
-
-    </main>
-    <!------------------------ MAIN END------------------------>
+	<!------------------------ MAIN START------------------------>
+	<main>
+		<section class="container">
 
 
-{% endblock %}
+			<div class="container">
+				<div
+					class="row justify-content-center">
+					<!-------------------------- Card 01  -------------------------->
+					{% set tabData = ['Les Meneurs','Les éclaireurs', 'Les émancipateurs','Les Intermédiaires'] %}
+					{% set tabColor = ['background-color: #B4E5BC;',' background-color: #F4CE9B;', 'background-color: #B8DFF2;','background-color: #F3ABA7;'] %}
+					{% set i = 0 %}
+					{% set u = 0 %}
+					{% for person in persons %}
+						{% if i == 0 %}
+							<!-------------------------- section Title -------------------------->
+
+							<div class="row text-center">
+								<h3>{{ tabData[u] }}</h3>
+							</div>
+						{% endif %}
+						<!-------------------------- Cards section  -------------------------->
+						<div class="col-3 card justify-content-center mx-3  " style="{{tabColor[u]}}">
+							<img class="card-img-top" src="assets/img/{{person.personalityPicture}}" alt="Card image cap">
+							<div class="card-personnality-body">
+								<a href="{{ path('app_perso', {'title': person.typeOfPersonality }) }}">
+									<h4 class="card-title">{{person.typeOfPersonality}}</h4>
+								</a>
+								<p class="card-text">{{person.description}}</p>
+							</div>
+						</div>
+						{% set i = i + 1 %}
+
+						{% if i == 3 %}
+							{% set i = 0 %}
+							{% set u = u + 1 %}
+						{% endif %}
+
+					{% endfor %}
+				</section><br/>
+
+				<!-------------------------- Bottom section -------------------------->
+				<section class="container-fluid">
+					<div class="row" style="background-color: grey;">
+						<div class="col-sm col-md-4 col-xxl-6">
+							<h3>Et toi ?
+								<br/>
+								Quel type d'AmisGO es-tu ?</h3>
+							<div class="d-flex justify-content-end me-5 btn-test" id="decouvrir">
+								<a href="{{ path('app_persotest') }}" class="btn">Faire le test !</a>
+							</div>
+						</div>
+
+						<div class="col-sm col-md-4 col-xxl-6">
+							<img src="assets/img/group-amisgo.png" alt="">
+						</div>
+
+					</div>
+				</section>
+
+			</main>
+			<!------------------------ MAIN END------------------------>
+
+
+		{% endblock %}

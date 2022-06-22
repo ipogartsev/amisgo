@@ -49,23 +49,21 @@
 						<button class="icon-btn">
 							<img src="/assets/icons/icone-heart-outlined-black.svg" alt="">
 						</button>
-            {# SI l'utilisateur est connecté #}
-            {% if app.user %}
-              {# Si l'evenement est complet #}
-              {% if closed == true %}
-                <button> complet !</button>
-              {# Sinon si l'user est déja inscrit #}
-              {% elseif participed == true %}
-                  <a href="{{path("app_events")}}"><p>Vous êtes déjà inscrit</p></a>
-                {# Sinon activer le boutton d'inscription #}
-                {% else %}
-                  <button id="participe" data-rejoins="active" data-id={{ event.id }} >Je participe !</button>
-              {% endif %}
-              {# fin si #}
-              {# si l'user n'est pas connecté, lui proposer de se connecter #}
-            {% else %}
-              <a href="{{path("app_login")}}"><p>connectez vous pour participer</p></a>
-            {% endif %}
+						{# Si l'evenement est complet #}
+						{% if closed == true %}
+							<button> Complet !</button>
+						{# Sinon si l'utilisateur est connecté #}
+						{% elseif app.user %}
+							{# Proposer desinscription ou participation selon ça situation #}               
+							<button id="participe" data-rejoins="active" data-id={{ event.id }} 
+							{# si l'user est déja inscrit #}
+							{% if participed == true %}data-action = "in"
+							{% else %} data-action = "out"{% endif %}>
+							</button>
+						{# si l'user n'est pas connecté, lui proposer de se connecter #}
+						{% else %}
+							<a href="{{path("app_login")}}"><p>Connectez-vous pour participer !</p></a>
+						{% endif %}
 					</div>
 				</div>
 				<div class="activity-summary-more d-flex flex-wrap justify-content-center">
@@ -160,9 +158,9 @@
 
 
 {% block javascripts %}
-  <script src="/javascript/map.js"></script>
-  <script src="/javascript/event.js"></script>
-    {{ encore_entry_script_tags('comments') }}
+	<script src="/javascript/map.js"></script>
+	<script src="/javascript/event.js"></script>
+	{{ encore_entry_script_tags('comments') }}
   <script>
     //recuperation des champs liés a l'adresse d'un evenement dans notre base de données
     addMarkerFromAdress('{{event.address1}} {{event.zipcode}} {{event.city}}');
