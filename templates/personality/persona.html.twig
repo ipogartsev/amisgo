@@ -1,0 +1,155 @@
+{% extends "base.html.twig" %}
+
+{% block header %}{% endblock %}
+{% block body %}
+	{% block stylesheets %}
+		<link rel="stylesheet" href="/assets/css/resultats.css">
+	{% endblock %}
+
+	<main
+		id="resultats">
+		<!-- personnalité résultats card section -->
+		<section class="container-fluid">
+			<article class="row resultats-card">
+				<div class="col-5 resultats-img">
+					<img src="/assets/img/{{person.personalityPicture}}" alt="">
+				</div>
+
+				<div class="col-7 text-center d-flex flex-column justify-content-center align-items-center resultats-txt ">
+					<h3>Tu es :</h3>
+					<h2>{{person.typeOfPersonality}}</h2>
+					<p>{{person.typeOfPersonality}}
+						appartient à la famille : Éclaireurs</p>
+				</div>
+			</article>
+		</section>
+
+		<!-- divider section -->
+		<div class="container-fluid">
+			<div class="row g-0 divider-section">
+				<img class="col-12" src="/assets/img/Separateur-courbe.png" alt="séparateur vague">
+			</div>
+		</div>
+
+		<!-- description section -->
+		<section class="container-fluid">
+			<div class="row description-section">
+				<div class="col-6">
+					<p>
+						{{person.description}}
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- points forts section -->
+		<section class="container-fluid">
+			<div class="row points-forts-container">
+				<div class="col-7"></div>
+				<div class="col-5 points-forts-list">
+					<h4>Tes points forts</h4>
+					<ul>
+						<li>{{person.quality1}}</li>
+						<li>{{person.quality2}}</li>
+						<li>{{person.quality3}}</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- artiste section -->
+		<section class="container-fluid">
+			<div class="row artist-section">
+				<article class="col-7 artist-txt">
+					<h4 class="text-center">{{person.descrip2Title}}</h4>
+					<p>
+						{{person.descrip2Text}}
+					</p>
+				</article>
+			</div>
+		</section>
+
+		<!-- quote section -->
+		<section class="container-fluid quote-section-container">
+			<div class="row quote-section text-center">
+				<article class="col">
+					<q>
+						{{person.quote}}</q>
+				</article>
+			</div>
+		</section>
+
+		<!-- Sociable section -->
+		<section class="container-fluid">
+			<div class="row sociable-section">
+				<div class="col-6">
+					<img src="/assets/img/img-sociable.png" alt="">
+
+				</div>
+				<article class="col-6 sociable-txt">
+					<h4>
+						{{person.descrip3Title}}</h4>
+					<p>{{person.descrip3Text}}
+					</p>
+				</article>
+			</div>
+		</section>
+
+		<!-- match section -->
+		<section class="container-fluid match-section-container">
+			<div class="row match-section">
+				<div class="col-6 text-center">
+					<h4>L’aventurier match avec :</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				<article class="col-6 d-flex flex-wrap justify-content-center">
+					<div class="card card-match">
+						<img src="/assets/img/Ellipse-createur.png" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-text">Les Créateurs</h5>
+						</div>
+					</div>
+
+					<div class="card card-match">
+						<img src="/assets/img/Ellipse-populaire.png" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-text">Les Populaires</h5>
+						</div>
+					</div>
+
+					<div class="card card-match">
+						<img src="/assets/img/Ellipse-heros.png" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-text">Les Héros</h5>
+						</div>
+					</div>
+				</article>
+
+				<div class="col-6 text-end">
+					<img src="/assets/img/img-match.png" alt="">
+				</div>
+
+			</div>
+		</section>
+
+		<!-- call to action section -->
+		<section class="container-fluid">
+			<div class="row calltoaction-section">
+				<h3 class="col-12 text-center calltoaction-txt">
+					{{person.slogan}}
+				</h3>
+
+				<div class="col-12 text-center ">
+					<button class="see-more-btn  btn btn-heroshot">
+						<a href="{{ path('app_events') }}">
+							C'est parti !
+						</a>
+					</button>
+
+				</div>
+			</div>
+		</section>
+	</main>
+{% endblock %}
