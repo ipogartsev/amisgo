@@ -320,9 +320,12 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
 }
 
 .form-control {
-    background-color: var(--blanc);
+border-radius: 0.5rem;
     border: none;
-    padding: 1.2rem;
+    background-color: rgb(220, 220, 220);
+    height: 2rem;
+   
+    padding-left: 1rem;
 }
 
 .form-outline ::placeholder {
@@ -433,7 +436,7 @@ Large devices (desktops, 992px and up)
         padding: 10rem;
         padding-left: 25rem;
         color: white;
-        margin-bottom: 3rem;
+        margin-bottom: 0rem;
     }
 
     .txt-heroshot {
