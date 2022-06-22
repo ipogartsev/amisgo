@@ -35,6 +35,7 @@
 				<!-------------------------- Card 01  -------------------------->
 				{% set tabData = ['Les Meneurs','Les éclaireurs', 'Les émancipateurs','Les Intermédiaires'] %}
 				{% set tabColor = ['background-color: #B4E5BC;',' background-color: #F4CE9B;', 'background-color: #B8DFF2;','background-color: #F3ABA7;'] %}
+				{% set tabColorTitle = ['color: #2d432d;','color: #583709;', 'color: #0c0958;','color: #580909;'] %}
 				{% set i = 0 %}
 				{% set u = 0 %}
 				{% for person in persons %}
@@ -42,7 +43,7 @@
 						<!-------------------------- section Title -------------------------->
 
 						<div class="row text-center p-5 " style="{{tabColor[u]}}">
-							<h3>{{ tabData[u] }}</h3>
+							<h3 style ="{{tabColorTitle[u]}}">{{ tabData[u] }}</h3>
 						</div>
 					{% endif %}
 					<!-------------------------- Cards section  -------------------------->
