@@ -30,65 +30,61 @@
 
 	<!------------------------ MAIN START------------------------>
 	<main>
-		<section class="container">
+		<section class="container-fluid">
+			<div class="row justify-content-center">
+				<!-------------------------- Card 01  -------------------------->
+				{% set tabData = ['Les Meneurs','Les éclaireurs', 'Les émancipateurs','Les Intermédiaires'] %}
+				{% set tabColor = ['background-color: #B4E5BC;',' background-color: #F4CE9B;', 'background-color: #B8DFF2;','background-color: #F3ABA7;'] %}
+				{% set i = 0 %}
+				{% set u = 0 %}
+				{% for person in persons %}
+					{% if i == 0 %}
+						<!-------------------------- section Title -------------------------->
 
-
-			<div class="container">
-				<div
-					class="row justify-content-center">
-					<!-------------------------- Card 01  -------------------------->
-					{% set tabData = ['Les Meneurs','Les éclaireurs', 'Les émancipateurs','Les Intermédiaires'] %}
-					{% set tabColor = ['background-color: #B4E5BC;',' background-color: #F4CE9B;', 'background-color: #B8DFF2;','background-color: #F3ABA7;'] %}
-					{% set i = 0 %}
-					{% set u = 0 %}
-					{% for person in persons %}
-						{% if i == 0 %}
-							<!-------------------------- section Title -------------------------->
-
-							<div class="row text-center">
-								<h3>{{ tabData[u] }}</h3>
-							</div>
-						{% endif %}
-						<!-------------------------- Cards section  -------------------------->
-						<div class="col-3 card justify-content-center mx-3  " style="{{tabColor[u]}}">
-							<img class="card-img-top" src="assets/img/{{person.personalityPicture}}" alt="Card image cap">
-							<div class="card-personnality-body">
-								<a href="{{ path('app_perso', {'title': person.typeOfPersonality }) }}">
-									<h4 class="card-title">{{person.typeOfPersonality}}</h4>
-								</a>
-								<p class="card-text">{{person.description}}</p>
-							</div>
+						<div class="row text-center p-5 " style="{{tabColor[u]}}">
+							<h3>{{ tabData[u] }}</h3>
 						</div>
-						{% set i = i + 1 %}
-
-						{% if i == 3 %}
-							{% set i = 0 %}
-							{% set u = u + 1 %}
-						{% endif %}
-
-					{% endfor %}
-				</section><br/>
-
-				<!-------------------------- Bottom section -------------------------->
-				<section class="container-fluid">
-					<div class="row" style="background-color: grey;">
-						<div class="col-sm col-md-4 col-xxl-6">
-							<h3>Et toi ?
-								<br/>
-								Quel type d'AmisGO es-tu ?</h3>
-							<div class="d-flex justify-content-end me-5 btn-test" id="decouvrir">
-								<a href="{{ path('app_persotest') }}" class="btn">Faire le test !</a>
-							</div>
+					{% endif %}
+					<!-------------------------- Cards section  -------------------------->
+					<div class="col-4 card justify-content-center  p-5  " style="{{tabColor[u]}}">
+						<img class="card-img-top" src="assets/img/{{person.personalityPicture}}" alt="Card image cap">
+						<div class="card-personnality-body">
+							<a href="{{ path('app_perso', {'title': person.typeOfPersonality }) }}">
+								<h4 class="card-title">{{person.typeOfPersonality}}</h4>
+							</a>
+							<p class="card-text">{{person.description}}</p>
 						</div>
-
-						<div class="col-sm col-md-4 col-xxl-6">
-							<img src="assets/img/group-amisgo.png" alt="">
-						</div>
-
 					</div>
-				</section>
+					{% set i = i + 1 %}
 
-			</main>
+					{% if i == 3 %}
+						{% set i = 0 %}
+						{% set u = u + 1 %}
+					{% endif %}
+
+				{% endfor %}
+		</section><br/>
+
+	<!-------------------------- Bottom section -------------------------->
+		<section class="container-fluid">
+			<div class="row" style="background-color: grey;">
+				<div class="col-sm col-md-4 col-xxl-6">
+					<h3>Et toi ?
+						<br/>
+						Quel type d'AmisGO es-tu ?</h3>
+					<div class="d-flex justify-content-end me-5 btn-test" id="decouvrir">
+						<a href="{{ path('app_persotest') }}" class="btn">Faire le test !</a>
+					</div>
+				</div>
+
+				<div class="col-sm col-md-4 col-xxl-6">
+					<img src="assets/img/group-amisgo.png" alt="">
+				</div>
+
+			</div>
+		</section>
+
+	</main>
 			<!------------------------ MAIN END------------------------>
 
 
