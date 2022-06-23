@@ -19,7 +19,7 @@
 			padding: 2px 6px;
 		}
 	</style>
-	<div class="container-fluid section-top activite-pict">
+	<div class="container-fluid section-top activite-pict mb-5">
 		<div class="row">
 			<div class="col-12 col-xl-8">
 				<h1>Apprendre le langage des Fleurs</h1>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<!--------------------- IMPORTANT METTRE le div root à l'endroit où l'on souhaite qu'il soit affiché sur la page -------------------->
-	<div class="container w-75 " id="root"></div>
+	<div class="container w-75" id="root"></div>
 
 
 	<!-- Filter Button Section -->
@@ -77,7 +77,9 @@
 					<div class="d-flex flex-column card-item-body">
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ suggestedEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
-							<h4 class="text-start">{{ suggestedEvent.title }}</h4>
+							
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': suggestedEvent.id}) }}"><h4 class="text-start">{{ suggestedEvent.title }}</h4></a>
 							<h5 class="text-start">{{ suggestedEvent.city }}</h5>
 							<p class="text-start1 lh-1 p-3">{{ suggestedEvent.description }}</p>
 							<div class="d-flex flex-row justify-content-between">
@@ -102,6 +104,7 @@
 						</div>
 					</div>
 				</article>
+				
 
 				{% set i = i + 1 %}
 			{% endfor %}
@@ -132,7 +135,8 @@
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ popularEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
 
-							<h4 class="text-start">{{ popularEvent.title }}</h4>
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': popularEvent.id}) }}"><h4 class="text-start">{{ popularEvent.title }}</h4></a>
 							<h5 class="text-start">{{ popularEvent.city }}</h5>
 							<p class="text-start1 lh-1 p-3">{{ popularEvent.description }}</p>
 
@@ -163,7 +167,7 @@
 			{% endfor %}
 
 		</div>
-		<button class="see-more-btn">En savoir plus</button>
+		<button class="see-more-btn">En voir plus</button>
 	</div>
 
 
@@ -189,8 +193,8 @@
 					<div class="d-flex flex-column card-item-body">
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{futureEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
-
-							<h4 class="text-start">{{ futureEvent.title }}</h4>
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': futureEvent.id}) }}"><h4 class="text-start">{{ futureEvent.title }}</h4></a>
 							<h5 class="text-start">{{ futureEvent.city }}</h5>
 							<p class="text-start1 lh-1 p-3">{{ futureEvent.description }}</p>
 
@@ -219,7 +223,7 @@
 				{% set i = i + 1 %}
 			{% endfor %}
 		</div>
-		<button class="see-more-btn">En savoir plus</button>
+		<button class="see-more-btn">En voir plus</button>
 	</div>
 {% endblock %}
 
