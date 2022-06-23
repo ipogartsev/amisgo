@@ -24,9 +24,11 @@
 					Fais le test et embarque-toi dans l’aventure !
 				</p>
 				<div class="d-flex justify-content-end me-5" id="decouvrir">
-					<button type="button" class="btn btn-heroshot">
-						<a href="{{ path('app_persotest') }}">Faire le test !</a>
-					</button>
+					<a href={{ path('app_persotest') }}>
+						<button type="button" class="btn btn-heroshot">
+						Faire le test !
+						</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -90,7 +92,7 @@
 									<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="/assets/img/icon-face03.jpg"></div>
 									<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="/assets/img/icon-face04.jpg"></div>
 									<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="/assets/img/icon-face06.jpg"></div>
-									<div class="icon-wrapper icons-position icon-position-6">9/12</div>
+									<div class="icon-wrapper icons-position icon-position-6">{{ popularEvent.participantsRegistered}}/{{ popularEvent.participantsMax }}</div>
 								</div>
 							</div>
 						</div>
