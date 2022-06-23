@@ -1,10 +1,8 @@
 {
-  "build/app.css": "/build/app.css",
-  "build/app.js": "/build/app.js",
-  "build/comments.css": "/build/comments.css",
-  "build/comments.js": "/build/comments.js",
-  "build/runtime.js": "/build/runtime.js",
-  "build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-e4b339.js": "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-e4b339.js",
-  "build/vendors-node_modules_react-dom_client_js.js": "/build/vendors-node_modules_react-dom_client_js.js",
-  "build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-991003.js": "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-991003.js"
+  "build/app.css": "/build/app.b75294ae.css",
+  "build/app.js": "/build/app.c8499e56.js",
+  "build/comments.css": "/build/comments.b75294ae.css",
+  "build/comments.js": "/build/comments.bb777e16.js",
+  "build/runtime.js": "/build/runtime.9634bf38.js",
+  "build/403.e53d31e1.js": "/build/403.e53d31e1.js"
 }

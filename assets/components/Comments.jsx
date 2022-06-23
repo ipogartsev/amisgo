@@ -73,9 +73,10 @@ function Comments() {
                   {userId && 
                     <form method = "post" >
                       <div className="form-group">
-                        <label for="comment">Ecrire un nouveau commentaire :</label>
-                        <input type= "textarea" className="form-control" id="comment" rows="3"></input>
-                        <button type='button' onClick={sendData} id='post'>Envoyer</button>
+                        <div class="input-group">
+                          <input type= "textarea" className="form-control" id="comment" rows="3"  placeholder="Ecrivez une message ..."></input>
+                          <button  class="btn send-btn" type='button' onClick={sendData} id='post'>Envoyer</button>
+                        </div>
                       </div>
                     </form>
       }
