@@ -11,7 +11,7 @@
 </style>
 {% block stylesheets %}
             <link rel="stylesheet" href="/assets/css/design-system.css">
-<link rel="stylesheet" href="/assets/css/tree-climbing.css">
+<link rel="stylesheet" href="/assets/css/kayak.css">
 	<link rel="stylesheet" href="assets/styles/comments.css"/> 
 
 {# link vers une api pour afficher la map #}
@@ -25,19 +25,21 @@
 	<header>
 		<div class="container mw-100 px-0">
 			
-
+         <div class="container-fluid section-top-activitée">
+		 </div>
 
 
 			<div class="activity-participation-section">
 				<div class="activity-summary-container d-flex flex-wrap justify-content-around">
 					<div class="activity-back">
-						<img src="/assets/icons/icone-left-arrow.svg" alt="">
+						<img class="color" ="/assets/icons/icone-left-arrow.svg" alt="">
 					</div>
 					<div class="activity-admin d-flex flex-column align-items-center">
-						<div class="activity-admin-picture">
-							<img src="/assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
-						</div>
-						<h5>Admin</h5>
+						
+					<div class="activity-admin-picture">
+						<img src="/assets/icons/icone-serge.png" alt="">
+					</div>
+					<h5>Admin</h5>
 					</div>
 					<div class="activity-summary text-center d-flex flex-column justify-content-center">
 						<h4>{{event.typeOfEvent}}</h4>
@@ -142,7 +144,136 @@
 					<div class="price">&nbsp;{{event.price}}</div>
 				</div>
 			</div>
-      
+      <! ----------------- Activity Participants Section ------------------->
+		<div class="activity-participants-container d-flex flex-wrap justify-content-center text-center">
+			<h4 class="section mb-4">Participants</h4>
+			<div class="activity-particpants-wrapper d-flex flex-wrap justify-content-evenly">
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face01.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face03.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face04.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="assets/img/icon-face06.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face01.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="assets/img/icon-face04.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face03.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face02.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face01.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face03.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/img/icon-face02.jpg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/participant-test.png" alt="">
+						<div class="activity-particpant-description">Explorateur</div>
+					</div>
+				</div>
+				<div class="activity-participant-item invitation d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/icons/icone-user.svg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Inviter un Amigo</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<button class="d-flex justify-content-center align-items-center">
+							<img src="/assets/icons/icone-add.svg" alt="">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<button class="participation-btn">Je participe !</button>
+			</div>
+		</div>
       <div id="map" class="py-2" style="width:600px; height:400px;"></div>
 	<div class="container w-75" id="root" 
   {% if app.user %} 
@@ -150,19 +281,52 @@
   {% else %} 
   data-user = "" 
   {% endif %}>
-  </div>
+</div>
 
-		</div>
+	</div>
+    
+ 
+     */comentaire*/
+  <div class="activity-chat-container d-flex flex-wrap justify-content-center">
+			<div class="activity-chat-title section text-center mb-3">
+				<h4>Conversation de groupe</h4>
+			</div>
+			<div class="container-chat">
+			<div class="chat-conversation-container">
+			<div class="chat-conversation-wrapper d-flex justify-content-center align-items-end mb-5">
+			<div class="chat-conversation-img">
+				<img src="/assets/img/icon-face01.jpg" alt="">
+			</div>
+			<div class="chat-conversation">
+			<div class="chat-conversation-name">Serge</div>
+			<div class="chat-conversation-text-wrapper d-flex">
+			</div>
+			</div>
+			</div>
+			<div class="chat-message-bar">
+			<div class="input-group">
+			<input type="text" class="form-control" placeholder="Ecrivez une message ..."
+				aria-label="write a text" aria-describedby="button-addon2">
+			<button class="btn send-btn" type="button" id="button-addon2">Envoyer</button>
+			</div>
+			</div>
+			</div>
+		</div>	
+
 	</main>
     {% endblock %}
 
-
+ 
 {% block javascripts %}
+		 
 	<script src="/javascript/map.js"></script>
 	<script src="/javascript/event.js"></script>
+
+
 	{{ encore_entry_script_tags('comments') }}
   <script>
     //recuperation des champs liés a l'adresse d'un evenement dans notre base de données
     addMarkerFromAdress('{{event.address1}} {{event.zipcode}} {{event.city}}');
   </script>
+ 
 {% endblock %}
