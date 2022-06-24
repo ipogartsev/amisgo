@@ -41,18 +41,18 @@
 	<!-- Filter Button Section -->
 
 	<div class="d-flex flex-wrap justify-content-around section" id="filter-button-wrapper">
-
+		<div class="row">
 		{% for key, box in filtre %}
-
-			<button id="{{key}}" class="filter-button d-flex btn btn-warning align-items-center p-2">
+			<div class="col-3">
+			<button id="{{key}}" class="filter-button d-flex btn btn-warning align-items-center p-2 m-auto mt-3 mb-3">
 				<div class="icon-background">
-					<img src="assets/icons/icone-sport.svg" alt="">
+					<img src="assets/icons/icone-{{ key }}.svg" alt="">
 				</div>
 				<div class="activity-title">{{box }}</div>
 			</button>
-
+		</div>
 		{% endfor %}
-
+		</div>
 	</div>
 	<!--------------------- Recommandations Section -------------------->
 	<div class="section container-fluid section-cards-container">
@@ -69,7 +69,7 @@
 				<article class="col-6 card-item d-flex flex-row" data-category="{{suggestedEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
-							<button><img src="/assets/icons/icone-{{ suggestedEvent.category}}.svg" alt=""></button>
+							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
 						</div>
 						<img class="card-item-img" src="assets/img/{{ suggestedEvent.eventPicture }}" alt="">
 					</div>
@@ -126,7 +126,7 @@
 				<article class="col-6 card-item d-flex flex-row" data-category="{{popularEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
-							<button><img src="assets/icons/icone-{{ popularEvent.category }}.svg" alt=""></button>
+							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
 						</div>
 						<img class="card-item-img" src="assets/img/{{ popularEvent.eventPicture }}" alt="">
 					</div>

@@ -36,14 +36,13 @@ button {
 }
 
 /* Section top */
-.section-top-activitée {
-    background-image: url(../img/heroshot-kayak.jpg);
+.section-top-activitee {
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: 42%;
+    margin-bottom: 0; 
     height: 620px;
-    margin-bottom: 0;
-    
+   
 }
 
 /* test video hero-shot
