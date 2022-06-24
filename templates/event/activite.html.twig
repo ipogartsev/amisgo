@@ -59,8 +59,9 @@
 							{# Proposer desinscription ou participation selon ça situation #}               
 							<button id="participe" data-rejoins="active" data-id={{ event.id }} 
 							{# si l'user est déja inscrit #}
-							{% if participed == true %}data-action = "in"
-							{% else %} data-action = "out"{% endif %}>
+							{% if participed == true %} data-action = "in"
+							{% else %} data-action = "out"{% endif %}
+							data-new = "">
 							</button>
 						{# si l'user n'est pas connecté, lui proposer de se connecter #}
 						{% else %}
@@ -163,6 +164,7 @@
 					</div>
 				</div>
 			{% endfor %}
+			
 				
 				<div class="activity-participant-item invitation d-flex flex-column align-items-center p-3">
 					<div class="activity-participant-img">

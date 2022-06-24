@@ -3,22 +3,23 @@ let btn = document.getElementById("participe");
 
 // Définir le text de button selon la situation d'inscription d'user au evenement
 // Si User est inscrite, l'informer et proposer l'annulation
-const txtIn =  "Vous êtes inscrit(e)! Annuler";
+const txtOut =  "Vous êtes inscrit(e)! Annuler";
 // Text pour proposer l'inscription
-const txtOut = " Je participe! ";
+const txtIn = " Je participe! ";
 
 
 
 function participationUserAtEvent(e){
-    // Desactiver le button
+    // Desactiver le button pour éviter double action
     e.currentTarget.dataset.rejoins="disabled";
     // Recuperer l'id de l'evenement de la page de l'evenement
-    let idEvent=e.currentTarget.dataset.id;
+    let idEvent = e.currentTarget.dataset.id;
 
-    // If User n'est pas inscrite, inscrire User et mettre à jour la base de données
+    // SI User n'est pas inscrite, inscrire User et mettre à jour la base de données
     // Définir URL pour chaque action
     let url;
-    if(text == "out"){
+    // Si user veut s'isncrire
+    if(e.currentTarget.dataset.new == "in"){
       url = 'participe/';
     }
     else{
@@ -35,27 +36,38 @@ function participationUserAtEvent(e){
     {
       
       if(result){
-        // Changer le text du button pour l'action à l'inverse
-        if(text == "in"){
-          btn.innerHTML = txtOut;
-        } else {
-          btn.innerHTML = txtIn;
-        }
-
       };
     });
-  
+    // Changer le text du button et l'action à l'inverse
+    if(e.currentTarget.dataset.new == "in"){
+      e.currentTarget.dataset.new = "out"
+      btn.innerHTML = txtOut;
+    } else {
+      btn.innerHTML = txtIn;
+      e.currentTarget.dataset.new = "in"       
+    }
+    // Activer le buton
+    e.currentTarget.dataset.rejoins="active";
+    
+    
 }
 
 
 // Recuperer la situation d'inscription d'user depuis la page de l'evenement
-const text = btn.dataset.action;
-//Afficher le text du button
-if(text == "in"){
-  btn.innerHTML = txtIn;
-} else {
+let currentAction = btn.dataset.action;
+//Si user est inscrit
+if(currentAction == "in"){
+  // Proposer descinscription
   btn.innerHTML = txtOut;
+
+  // Etablir action d'effectuer en cas de demande d'user  
+  btn.dataset.new = "out";
+} else {
+  // Et à l'inverse
+  btn.innerHTML = txtIn;
+  btn.dataset.new = "in";
 }
-// Ecouteur du button d'inscription
+
+// Ecouter du button d'inscription à l'evenement
 btn.addEventListener('click', participationUserAtEvent);
 
