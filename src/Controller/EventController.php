@@ -119,7 +119,7 @@ class EventController extends AbstractController
     public function eventDetails(Event $event,EventRepository $eventRepository, string $id): Response
     { 
       //Recuperer les details d'evenement
-      $event = $eventRepository ->findOneBy(['id' => $id]); 
+      $event = $eventRepository->findOneBy(['id' => $id]); 
       // Vérifier si il est complet
       $result = $event->isClosed();
 
@@ -139,11 +139,27 @@ class EventController extends AbstractController
             break;
           }
       }
-       
+
+      // Declaration tableau participants de meme personalite
+      $personalities = [];
+      // Recuperer la personalite d'user
+      $userperso = $userId->getPersonality();
+   
+      // Recuperation des participants par personalite
+      $participants = $event->getUsers();
+      foreach($participants as $participant){
+        if($participant->getPersonality() == $userperso)
+        $personalities[] = $participant;
+      }
+      
       }
 
-      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe  ]); 
+      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities]); 
     }
+
+
+
+
     
 
     /**
@@ -279,4 +295,6 @@ class EventController extends AbstractController
 
       return new JsonResponse(json_encode("ok"));
     }
+
+
 }

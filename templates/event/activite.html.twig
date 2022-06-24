@@ -144,120 +144,26 @@
 					<div class="price">&nbsp;{{event.price}}</div>
 				</div>
 			</div>
+
+			 <div id="map" class="py-2" style="width:600px; height:400px;"></div>
+			 
       <! ----------------- Activity Participants Section ------------------->
-		<div class="activity-participants-container d-flex flex-wrap justify-content-center text-center">
+		<div class="activity-participants-container d-flex flex-wrap justify-content-center text-center" style="min-width: 1150px">
 			<h4 class="section mb-4">Participants</h4>
 			<div class="activity-particpants-wrapper d-flex flex-wrap justify-content-evenly">
+			{% for perso in personalities %}
 				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
 					<div class="activity-participant-img">
 						<img src="/assets/img/icon-face01.jpg" alt="">
 					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
+					<div class="activity-participant-title mb-4">{{ perso.firstname}} {{ perso.name}}</div>
 					<div class="activity-participant-description-wrapper d-flex align-items-center">
 						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
+						<div class="activity-particpant-description">{{ perso.id}}</div>
 					</div>
 				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face03.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face04.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="assets/img/icon-face06.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face01.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="assets/img/icon-face04.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face03.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face02.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face01.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face03.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
-				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
-					<div class="activity-participant-img">
-						<img src="/assets/img/icon-face02.jpg" alt="">
-					</div>
-					<div class="activity-participant-title mb-4">Julien Nguyen</div>
-					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">Explorateur</div>
-					</div>
-				</div>
+			{% endfor %}
+				
 				<div class="activity-participant-item invitation d-flex flex-column align-items-center p-3">
 					<div class="activity-participant-img">
 						<img src="/assets/icons/icone-user.svg" alt="">
@@ -274,7 +180,7 @@
 				<button class="participation-btn">Je participe !</button>
 			</div>
 		</div>
-      <div id="map" class="py-2" style="width:600px; height:400px;"></div>
+     
 	
 </div>
 
