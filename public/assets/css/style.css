@@ -163,12 +163,12 @@ h3{
     font-size: 1rem;
     margin: 0;
     overflow-y: scroll;
-    
         height: 185px;
+        
 }
 
 .card-item button {
-   
+   margin-top:20px;
     width: 150px;
 }
 
@@ -259,6 +259,7 @@ Le height 100% permet au wrapper d'avoir une hauteur de 100% de la place disponi
 .iconeparticipants {
     position: relative;
     height: 100%;
+    margin-bottom: 20px;
 }
 
 /* Cette classe donne une taille fixe aux icônes (32px),
