@@ -275,43 +275,32 @@
 			</div>
 		</div>
       <div id="map" class="py-2" style="width:600px; height:400px;"></div>
-	<div class="container w-75" id="root" 
-  {% if app.user %} 
-  data-user = {{app.user.id}} 
-  {% else %} 
-  data-user = "" 
-  {% endif %}>
+	
 </div>
 
 	</div>
     
  
-     */comentaire*/
-  <div class="activity-chat-container d-flex flex-wrap justify-content-center">
-			<div class="activity-chat-title section text-center mb-3">
-				<h4>Conversation de groupe</h4>
-			</div>
-			<div class="container-chat">
+    
+	<div class="activity-chat-container d-flex flex-wrap justify-content-center">
+		<div class="activity-chat-title section text-center mb-3">
+			<h4>Conversation de groupe</h4>
+		</div>
+		<div class="container-chat">
 			<div class="chat-conversation-container">
-			<div class="chat-conversation-wrapper d-flex justify-content-center align-items-end mb-5">
-			<div class="chat-conversation-img">
-				<img src="/assets/img/icon-face01.jpg" alt="">
-			</div>
-			<div class="chat-conversation">
-			<div class="chat-conversation-name">Serge</div>
-			<div class="chat-conversation-text-wrapper d-flex">
-			</div>
-			</div>
-			</div>
-			<div class="chat-message-bar">
-			<div class="input-group">
-			<input type="text" class="form-control" placeholder="Ecrivez une message ..."
-				aria-label="write a text" aria-describedby="button-addon2">
-			<button class="btn send-btn" type="button" id="button-addon2">Envoyer</button>
-			</div>
-			</div>
-			</div>
-		</div>	
+				<div class="chat-conversation-wrapper d-flex justify-content-center align-items-end mb-5">
+					
+						<div class="container w-75" id="root" 
+						{% if app.user %} 
+						data-user = {{app.user.id}} 
+						{% else %} 
+						data-user = "" 
+						{% endif %}>
+					
+				</div>
+			</div>	
+		</div>
+	</div>
 
 	</main>
     {% endblock %}
