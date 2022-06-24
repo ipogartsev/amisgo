@@ -24,7 +24,11 @@
 					Fais le test et embarque-toi dans l’aventure !
 				</p>
 				<div class="d-flex justify-content-end me-5" id="decouvrir">
-					<a href={{ path('app_persotest') }}>
+					{% if app.user %}
+						<a href="{{ path("app_persotest")}}">
+						{% else %}
+						<a href="{{ path("app_register")}}">
+						{% endif %}
 						<button type="button" class="btn btn-heroshot">
 						Faire le test !
 						</button>
@@ -72,8 +76,9 @@
 					<div class="d-flex flex-column card-item-body">
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ popularEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
-
-							<h4 class="text-start">{{ popularEvent.title }}</h4>
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': popularEvent.id}) }}"
+							<h4 class="text-start">{{ popularEvent.title }}</h4></a>
 							<h5 class="text-start">{{ popularEvent.city }}</h5>
 							<p class="text-start lh-1 p-3">{{ popularEvent.description }}</p>
 							<div class="d-flex flex-row justify-content-between filter-wrapper">
@@ -140,8 +145,9 @@
 																																																																																																																																																																																											Août 2022
 																																																																																																																																																																																											&nbsp;13:30</time>
 							<div class="card-item-body-container">
-
-								<h4 class="text-start">{{ futureEvent.title }}</h4>
+								{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+								<a href="{{ path('app_event_details', {'id': futureEvent.id}) }}"
+								<h4 class="text-start">{{ futureEvent.title }}</h4></a>
 								<h5 class="text-start">{{ futureEvent.city }}</h5>
 								<p class="text-start lh-1 p-3">{{ futureEvent.description }}																																																																																																																																																																																manière ludique, avec le concours de ma...
 								</p>
