@@ -320,11 +320,10 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
 }
 
 .form-control {
-border-radius: 0.5rem;
+border-radius: 1rem;
     border: none;
     background-color: rgb(220, 220, 220);
-    height: 2rem;
-   
+    
     padding-left: 1rem;
 }
 

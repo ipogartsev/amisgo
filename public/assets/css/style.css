@@ -5,6 +5,11 @@ INDEX CSS START
 /*************HEADER START*********/
 
 /********************Hero Shot******************/
+body {
+    background-image: url(../img/formes-bg-index.png);
+    background-repeat: no-repeat;
+}
+
 h3{
     text-align: center;
 }
@@ -119,7 +124,7 @@ h3{
 .cards-container article {
     flex: 0 0 570px;
     max-width: 570px;
-    height: 320px;
+    height: 350px;
 }
 
 .card-row{
@@ -163,6 +168,7 @@ h3{
 }
 
 .card-item button {
+   
     width: 150px;
 }
 
@@ -215,6 +221,7 @@ pour qu'elle puisse chevaucher l'image */
     margin-left: -15px;
     padding: 1.25rem;
     background-color: var(--grisclair);
+    
 }
 
 .card-item-body h4 {
@@ -222,15 +229,18 @@ pour qu'elle puisse chevaucher l'image */
 }
 
 .card-item-body-container {
-    margin-top: 1rem;
-    height: 240px;
-    position: relative;
+  
+    height:400px;
+    position:sticky;
+   
 }
 
 .filter-wrapper {
-    position: absolute;
+    
+    position:absolute;
     bottom: 0;
     width: 100%;
+    margin-top: 8rem;
 }
 
 .card-filter-btn {
@@ -265,6 +275,7 @@ d'avoir un background blanc et une bordure */
 .profil-participants img {
     width: 32px;
     height: 100%;
+    margin-bottom: 5px;
 }
 /* Cette classe donne une position fixée en haut à droite de son wrapper aux icônes */
 .icons-position {
