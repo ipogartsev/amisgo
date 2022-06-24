@@ -111,7 +111,7 @@ p {
     background:var(--jaunesable)!important;
     width: 205px!important;
     border-radius: 1.3rem !important;
-    margin: 20px !important;
+    margin: 0 auto;
 }
 
 

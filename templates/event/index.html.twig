@@ -27,9 +27,9 @@
 					Dîtes-le avec des fleurs ! Chez ARUM , venez et apprenez à réaliser un bouquet de fleurs ou une composition florale selon vos envies, votre créativité et votre personnalité.
 				</p>
 				<div class="d-flex justify-content-end me-5" id="decouvrir">
-					<button type="button" class="btn btn-heroshot">
-						<a href="#">Découvrir</a>
-					</button>
+					<a href="#"><button type="button" class="btn btn-heroshot">
+						Découvrir
+					</button></a>
 				</div>
 			</div>
 		</div>
@@ -109,7 +109,9 @@
 				{% set i = i + 1 %}
 			{% endfor %}
 		</div>
+		{% if app.user %}
 		<button class="see-more-btn">En voir plus</button>
+		{% endif %}
 	</div>
 
 	<!--------------------- Popular Section -------------------->
