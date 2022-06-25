@@ -143,18 +143,22 @@ class EventController extends AbstractController
       // Declaration tableau participants de meme personalite
       $personalities = [];
       // Recuperer la personalite d'user
-      $userperso = $userId->getPersonality();
-   
-      // Recuperation des participants par personalite
-      $participants = $event->getUsers();
-      foreach($participants as $participant){
-        if($participant->getPersonality() == $userperso)
-        $personalities[] = $participant;
+      $userperso = $userId->getPersonality()->getTypeOfPersonality();
+      if ($userId){
+        // Recuperation des participants par personalite
+        $participants = $event->getUsers();
+        foreach($participants as $participant){
+          if($participant->getPersonality()->getTypeOfPersonality() == $userperso)
+          $personalities[] = $participant;
+          
+        }
+        
       }
+      
       
       }
 
-      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities]); 
+      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities ]); 
     }
 
 
