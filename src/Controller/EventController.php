@@ -314,7 +314,7 @@ class EventController extends AbstractController
         }                     
         // Parcourir tous les events et choisir les evenements par type selon le tableau typeEvents
         foreach($array as $event){
-          if(in_array($event->getTypeOfEvent(), $typeEvents)){
+          if(in_array($event->getTypeOfEvent(), $typeEvents) && !$event->isClosed()){
             //Ajouter l'evenement au tableau de recommendation
             $suggestedEvents[] = $event;
           }      
