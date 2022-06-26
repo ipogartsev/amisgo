@@ -149,6 +149,7 @@
 			 <div id="map" class="py-2" style="width:600px; height:400px;"></div>
 			 
       <! ----------------- Activity Participants Section ------------------->
+		{% if personalities %}
 		<div class="activity-participants-container d-flex flex-wrap justify-content-center text-center" style="min-width: 1150px">
 			<h4 class="section mb-4">Participants</h4>
 			<div class="activity-particpants-wrapper d-flex flex-wrap justify-content-evenly">
@@ -159,12 +160,11 @@
 					</div>
 					<div class="activity-participant-title mb-4">{{ perso.firstname}} {{ perso.name}}</div>
 					<div class="activity-participant-description-wrapper d-flex align-items-center">
-						<img src="/assets/img/participant-test.png" alt="">
-						<div class="activity-particpant-description">{{ perso.id}}</div>
+						<img src="/assets/img/{{persoImg}}" alt="">
+						<div class="activity-particpant-description">{{ persona}}</div>
 					</div>
 				</div>
 			{% endfor %}
-			
 				
 				<div class="activity-participant-item invitation d-flex flex-column align-items-center p-3">
 					<div class="activity-participant-img">
@@ -178,6 +178,7 @@
 					</div>
 				</div>
 			</div>
+			{% endif %}
 			<div class="activity-participation d-flex justify-content-around p-3" >
 			{% if (closed == true and not app.user) or ( (closed == true and app.user) and not participed) %}
 				<button> Complet !</button>
@@ -193,7 +194,7 @@
 	</div>
     
  
-    
+    {% if app.user %}
 	<div class="activity-chat-container d-flex flex-wrap justify-content-center">
 		<div class="activity-chat-title section text-center mb-3">
 			<h4>Conversation de groupe</h4>
@@ -213,6 +214,7 @@
 			</div>	
 		</div>
 	</div>
+	{% endif %}
 
 	</main>
     {% endblock %}
