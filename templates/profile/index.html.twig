@@ -117,26 +117,26 @@ ans</span>
 				</div>
 				<div class="section profil-cards-wrapper d-flex justify-content-start">
 					<div class="profil-card-add d-flex flex-column justify-content-evenly align-items-center">
-						<div class="profil-card-add-title">
+						<a href="{{ path('app_events') }}"><div class="profil-card-add-title">
 							Voir plus d'événements
-						</div>
+						</div></a>
 						<button class="d-flex justify-content-center align-items-center"><img src="assets/icons/icone-add.svg" alt=""></button>
 					</div>
+					{% if eventParticipation %}
+					{% for event in eventParticipation%}
 					<div class="custom-card-item">
-						<div class="custom-card-item-top-wrapper">
-							<a href="">
-								<img src="/assets/img/kayak-activity.jpg" alt="">
-							</a>
-							<div class="custom-card-item-top d-flex flex-column justify-content-center align-items-center">
-								<p>Inscrite !</p>
-								<p>15 Juillet 2022</p>
-							</div>
+						<div class="custom-card-item-top-wrapper">						
+								<img src="/assets/img/{{event.eventPicture }}" alt="">						
+							
 						</div>
 						<div class="custom-card-item-bottom d-flex flex-column justify-content-center align-items-center">
-							<h5>Canoë Kayak 77</h5>
-							<p>Vaires-Sur-Marne</p>
+								<time>{{event.dateOfEvent|date("d F y H:m")}}</time>
+							<h5>{{event.title}}</h5>
+							<p>{{event.city}}</p>
 						</div>
 					</div>
+					{% endfor %}
+					{% endif %}
 				</div>
 			</div>
 
