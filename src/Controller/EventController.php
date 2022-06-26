@@ -144,7 +144,7 @@ class EventController extends AbstractController
       $personalities = [];
       // Recuperer la personalite d'user
       $userperso = $userId->getPersonality();
-   
+    
       // Recuperation des participants par personalite
       $participants = $event->getUsers();
       foreach($participants as $participant){
@@ -153,6 +153,7 @@ class EventController extends AbstractController
       }
       
       }
+    
 
       return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities]); 
     }
