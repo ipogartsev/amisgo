@@ -35,9 +35,16 @@ class EventController extends AbstractController
       
       //Message si User n'est pas connecté
       $messageUser = '';
-
-      //Création de tableua de données
-      $suggestedEvents = [];
+      
+      // Etablire la date de jour
+      date_default_timezone_set("Europe/Paris");
+      $today = date("Y-m-d H:i:s");
+     
+      // Recuperer User pour créer les recommendations
+      $userId = $this->getUser();
+  
+      // Création des tableaux à rendre par controlleur
+      $suggestedEvents =[];
       $futureEvents = [];
       $popularEvents = [];
 
@@ -248,6 +255,7 @@ class EventController extends AbstractController
      */
     public function setCommentByIdEvent(EventRepository $eventRepository, UserRepository $userRepository, Request $request, $id, EntityManagerInterface $entityManager):JsonResponse
     {
+      date_default_timezone_set("Europe/Paris");
       // on initialise la variable comment avec les functions du repository comment
       $comment = new Comments();
 
