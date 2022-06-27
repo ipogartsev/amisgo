@@ -97,11 +97,12 @@ class EventController extends AbstractController
             break;
           }
       }
-
-
+      
       if($userId){
         // Recuperer la personalite d'user
-        $userperso = $userId->getPersonality()->getId(); 
+        $userperso = $userId->getPersonality();
+        if($userperso){
+        
         // Recuperer type personalite et image
         $persona = $userId->getPersonality()->getTypeOfPersonality();
         $persoImg = $userId->getPersonality()->getPersonalityPicture();
@@ -115,13 +116,15 @@ class EventController extends AbstractController
               // Si personalité definie
               if($participantPerso){
                 // Si meme personalité ajouter au tableau de données à afficher
-                if($participantPerso->getId() == $userperso){
+                if($participantPerso->getId() == $userperso->getId()){
                   $personalities[] = $participant;
                 }
-              }  
+              } 
+      
             }         
         }     
       }       
+    }
     }
     
 
