@@ -36,6 +36,11 @@ class EventController extends AbstractController
       //Message si User n'est pas connecté
       $messageUser = '';
 
+      //Création de tableua de données
+      $suggestedEvents = [];
+      $futureEvents = [];
+      $popularEvents = [];
+
       // Recuperer les evenements à venir
       $futureEvents = $this->getFutureEvents($eventRepository);     
       // Si le tableau 'futureEvents' est vide mettre le message correspondant
