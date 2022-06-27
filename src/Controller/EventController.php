@@ -69,7 +69,7 @@ class EventController extends AbstractController
      * @Route("events/{id}", name="app_event_details")
      */
     // page d'ffichage d'une activité
-    public function eventDetails(Event $event,EventRepository $eventRepository, string $id, Personality $personality): Response
+    public function eventDetails(Event $event,EventRepository $eventRepository, string $id): Response
     { 
       //Recuperer les details d'evenement
       $event = $eventRepository->findOneBy(['id' => $id]); 
