@@ -18,7 +18,7 @@ class PersonalityController extends AbstractController
     public function index(PersonalityRepository $personalityRepository): Response
     {
 
-        $lesEclaireurs=['Les Meneurs','Les éclaireurs', 'Les émancipateurs','Les Intermédiaires' ];
+        $lesEclaireurs=['Les Meneurs','Les Éclaireurs', 'Les Émancipateurs','Les Intermédiaires' ];
 
         return $this->render('personality/index.html.twig', [
             'persons' => $personalityRepository->findAll(),

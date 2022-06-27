@@ -171,3 +171,7 @@
 h4{
     color: var(--corail);
 }
+
+.profile-layout{
+    padding-bottom: 2rem;
+}

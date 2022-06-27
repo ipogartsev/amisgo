@@ -10,7 +10,7 @@
 	{% endblock %}
 
 	{% set age = date("now").diff(date(userData.birthdate)).y %}
-	<main>
+	<main class="profile-layout">
 
 		<div class="profil-container d-flex flex-wrap justify-content-center">
 
@@ -29,8 +29,7 @@
 						</a>
 
 						<div class="profil-summary-top-left-title-wrapper">
-						{% set categories = {1: 'Les Meneurs', 2 : 'Les Éclaireurs', 3 : 'Les Émancipateurs', 4 : 'Les Intermédiaires'}
- %}
+						{% set categories = {1: 'Les Meneurs', 2 : 'Les Éclaireurs', 3 : 'Les Émancipateurs', 4 : 'Les Intermédiaires'}%}
 							<h5 class="profil-summary-top-left-title-1 fw-bold">{{ categories[personality.idCategory] }}</h5>
 							<div class="profil-summary-top-left-title-2">{{ personality.typeOfPersonality }}</div>
 						</div>
@@ -55,8 +54,7 @@
 					</div>
 				</div>
 				<div class="profil-summary-badge-container d-flex justify-content-center">
-					<span class="badge  btn-profil p-2"> {{ age }}
-ans</span>
+					<span class="badge  btn-profil p-2"> {{ age }} ans</span>
 					<span class="badge btn-profil p-2">{{userData.city}} </span>
 				</div>
 			</div>
