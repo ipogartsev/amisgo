@@ -153,11 +153,21 @@
 		<div class="activity-participants-container d-flex flex-wrap justify-content-center text-center" style="min-width: 1150px">
 			<h4 class="section mb-4">Participants</h4>
 			<div class="activity-particpants-wrapper d-flex flex-wrap justify-content-evenly">
+<<<<<<< Updated upstream
 			{% for perso in personalities %}
 				<div class="activity-participant-item d-flex flex-column align-items-center p-3">
 					<div class="activity-participant-img">
 						<img src="/assets/img/icon-face01.jpg" alt="">
 					</div>
+=======
+			
+				{% for perso in personalities %}
+					<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+						<div class="activity-participant-img">
+							<img src="/assets/img/icon-face01.jpg" alt="">
+						</div>
+						
+>>>>>>> Stashed changes
 					<div class="activity-participant-title mb-4">{{ perso.firstname}} {{ perso.name}}</div>
 					<div class="activity-participant-description-wrapper d-flex align-items-center">
 						<img src="/assets/img/{{persoImg}}" alt="">
@@ -187,6 +197,10 @@
 			</div>
 			{%  endif %}
 		</div>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
      
 	
 </div>
