@@ -59,7 +59,7 @@
 		<h3 class="cards-title">Recommandés pour vous</h3>
 		<h3>{{ messageUser }}</h3>
 
-		<div class="section cards-container d-flex justify-content-center">
+		<div class="section cards-container  d-flex flex-wrap justify-content-center">
 			{% set i = 0 %}
 			{% for suggestedEvent in suggestedEvents %}
 				{% set display = 'block' %}
@@ -118,7 +118,7 @@
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">Les plus populaires</h3>
 		<h3>{{ message }}</h3>
-		<div class="section  cards-container d-flex justify-content-around">
+		<div class="section  cards-container  d-flex flex-wrap justify-content-center">
 			{% set i = 0 %}
 			{% for popularEvent in popularEvents %}
 				{% set display = 'block' %}
