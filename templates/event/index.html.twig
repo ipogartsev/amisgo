@@ -24,11 +24,11 @@
 			<div class="col-12 col-xl-8">
 				<h1>Apprendre le langage des Fleurs</h1>
 				<p class="">
-					Dîtes-le avec des fleurs ! Chez ARUM , venez et apprenez à réaliser un bouquet de fleurs ou une composition florale selon vos envies, votre créativité et votre personnalité.
+					Dîtes-le avec des fleurs ! Chez ARUM, venez et apprenez à réaliser un bouquet de fleurs ou une composition florale selon vos envies, votre créativité et votre personnalité.
 				</p>
 				<div class="d-flex justify-content-end me-5" id="decouvrir">
 					<button type="button" class="btn btn-heroshot">
-						<a href="{{ path('app_home') }}">Découvrir</a>
+						<a href="#">Découvrir</a>
 					</button>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 		<div class="row">
 		{% for key, box in filtre %}
 			<div class="col-3">
-			<button id="{{key}}" class="filter-button d-flex btn btn-warning align-items-center p-2 m-auto mt-3 mb-3">
+			<button id="{{key}}" class="filter-button btn-filter d-flex btn btn-warning align-items-center p-2 m-auto mt-3 mb-3">
 				<div class="icon-background">
 					<img src="assets/icons/icone-{{ key }}.svg" alt="">
 				</div>
@@ -59,7 +59,7 @@
 		<h3 class="cards-title">Recommandés pour vous</h3>
 		<h3>{{ messageUser }}</h3>
 
-		<div class="section cards-container d-flex justify-content-around">
+		<div class="section cards-container d-flex justify-content-center">
 			{% set i = 0 %}
 			{% for suggestedEvent in suggestedEvents %}
 				{% set display = 'block' %}
@@ -177,7 +177,7 @@
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">A venir</h3>
 		<h3>{{ message }}</h3>
-		<div class="section cards-container d-flex justify-content-around">
+		<div class="section cards-container d-flex flex-wrap justify-content-center">
 			{% set i = 0 %}
 			{% for futureEvent in futureEvents %}
 				{% set display = 'block' %}

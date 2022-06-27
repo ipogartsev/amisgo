@@ -20,7 +20,7 @@
 					<div class="d-flex justify-content-end me-5" id="decouvrir">
 					
 						<a href="{% if app.user %}{{ path("app_persotest")}} {% else %} {{ path("app_register")}} {% endif %}">
-							<button type="button" class="btn btn-heroshot">
+							<button type="button" class="a btn btn-heroshot">
 								Faire le test !
 							</button>
 						</a>
@@ -33,10 +33,10 @@
 
 	<!------------------------ MAIN START------------------------>
 	<main>
-		<section class="container-fluid">
-			<div class="row justify-content-center">
+		<section class="container-fluid a">
+			<div class="row justify-content-center a">
 				<!-------------------------- Card 01  -------------------------->
-				{% set tabData = ['Les Meneurs','Les éclaireurs', 'Les émancipateurs','Les Intermédiaires'] %}
+				{% set tabData = ['Les Meneurs','Les Éclaireurs', 'Les Émancipateurs','Les Intermédiaires'] %}
 				{% set tabColor = ['background-color: #B4E5BC;',' background-color: #F4CE9B;', 'background-color: #B8DFF2;','background-color: #F3ABA7;'] %}
 				{% set tabColorTitle = ['color: #2d432d;','color: #583709;', 'color: #0c0958;','color: #580909;'] %}
 				{% set i = 0 %}
@@ -76,7 +76,7 @@
 				<div class="col-sm col-md-4 col-xxl-6">
 					<h3>Et toi ?
 						<br/>
-						Quel type d'AmisGO es-tu ?</h3>
+						Quel type d'Amisgo es-tu ?</h3>
 					<div class="d-flex justify-content-end me-5 btn-test" id="decouvrir">
 						{% if app.user %}
 						<a href="{{ path("app_persotest")}}">

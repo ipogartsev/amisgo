@@ -11,6 +11,12 @@ ce qui permet sur grand écran d'avoir de l'espace sur les côtés */
     flex: 0 0 100%;
 }
 
+.btn:hover {
+    color:black !important;
+    text-decoration: none;
+}
+
+
 .activite-pict{
     background-image: url(../img/heroshot-flowers-activities.jpg);
     background-size: cover;
@@ -48,8 +54,7 @@ ce qui permet sur grand écran d'avoir de l'espace sur les côtés */
 .cards-container article {
     flex: 0 0 570px;
     max-width: 570px;
-    height: 320px;
-    
+    height: 320px;  
 }
 
 .card-item {
@@ -57,15 +62,11 @@ ce qui permet sur grand écran d'avoir de l'espace sur les côtés */
     border-radius: 20px;
     border: none;
     position: relative;
-    
     }
 
 .text-start1 {
-    overflow-y:scroll ;
-    
+    overflow-y:scroll ;   
     height: 185px;
-   
-   
 }
 
 .card-item h4 {
