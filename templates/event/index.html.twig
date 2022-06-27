@@ -66,7 +66,7 @@
 				{% if i > 3 %}
 					{% set display = 'none' %}
 				{% endif %}
-				<article class="col-6 card-item d-flex flex-row" data-category="{{suggestedEvent.category}}" style="display:{{display}}">
+				<article class="{% if i > 3 %} suggested {% endif %}col-6 card-item d-flex flex-row" data-category="{{suggestedEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
 							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
@@ -110,7 +110,7 @@
 			{% endfor %}
 		</div>
 		{% if app.user %}
-		<button class="see-more-btn">En voir plus</button>
+		<button class="see-more-btn" data-action ='' data-id="0">En voir plus</button>
 		{% endif %}
 	</div>
 
@@ -125,7 +125,7 @@
 				{% if i > 3 %}
 					{% set display = 'none !important' %}
 				{% endif %}
-				<article class="col-6 card-item d-flex flex-row" data-category="{{popularEvent.category}}" style="display:{{display}}">
+				<article class="{% if i > 3 %} popular {% endif %}col-6 card-item d-flex flex-row" data-category="{{popularEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
 							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
@@ -169,7 +169,7 @@
 			{% endfor %}
 
 		</div>
-		<button class="see-more-btn">En voir plus</button>
+		<button class="see-more-btn" data-action ='' data-id="1">En voir plus</button>
 	</div>
 
 
@@ -184,7 +184,7 @@
 				{% if i > 3 %}
 					{% set display = 'none !important' %}
 				{% endif %}
-				<article class="col-6 card-item d-flex flex-row" data-category="{{futureEvent.category}}" style="display:{{display}}">
+				<article class="{% if i > 3 %} future {% endif %} col-6 card-item d-flex flex-row" data-category="{{futureEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
 							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
@@ -225,7 +225,7 @@
 				{% set i = i + 1 %}
 			{% endfor %}
 		</div>
-		<button class="see-more-btn">En voir plus</button>
+		<button class="see-more-btn" data-action ='' data-id="2">En voir plus</button>
 	</div>
 {% endblock %}
 
