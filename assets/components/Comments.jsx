@@ -32,6 +32,8 @@ function Comments() {
       FD.append('comment',  myForm.value);
       FD.append('user',  userId);
       
+      // Vider input
+      myForm.value = "";
 
       //Set up request
       XHR.open('POST', '/comments/'+ id + '/post');
@@ -74,7 +76,7 @@ function Comments() {
                     <form method = "post" >
                       <div className="form-group">
                         <div class="input-group">
-                          <input type= "textarea" className="form-control" id="comment" rows="3"  placeholder="Ecrivez une message ..."></input>
+                          <input type= "textarea" className="form-control" id="comment" rows="3"  placeholder="Ecrivez un message ..."></input>
                           <button  class="btn send-btn" type='button' onClick={sendData} id='post'>Envoyer</button>
                         </div>
                       </div>

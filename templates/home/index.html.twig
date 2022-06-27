@@ -141,15 +141,13 @@
 						</div>
 
 						<div class="d-flex flex-column card-item-body">
-							<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">04
-																																																																																																																																																																																											Août 2022
-																																																																																																																																																																																											&nbsp;13:30</time>
+							<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{futureEvent.dateOfEvent|date("d F y H:m")}}</time>
 							<div class="card-item-body-container">
 								{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
 								<a href="{{ path('app_event_details', {'id': futureEvent.id}) }}"
 								<h4 class="text-start">{{ futureEvent.title }}</h4></a>
 								<h5 class="text-start">{{ futureEvent.city }}</h5>
-								<p class="text-start lh-1 p-3">{{ futureEvent.description }}																																																																																																																																																																																manière ludique, avec le concours de ma...
+								<p class="text-start lh-1 p-3">{{ futureEvent.description }}
 								</p>
 
 								<div class="d-flex flex-row justify-content-between filter-wrapper">
@@ -168,7 +166,7 @@
 										<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="/assets/img/icon-face03.jpg"></div>
 										<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="/assets/img/icon-face04.jpg"></div>
 										<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="/assets/img/icon-face06.jpg"></div>
-										<div class="icon-wrapper icons-position icon-position-6"{{ futureEvent.participantsRegistered}}/{{ futureEvent.participantsMax }}</div>
+										<div class="icon-wrapper icons-position icon-position-6">{{ futureEvent.participantsRegistered}}/{{ futureEvent.participantsMax }}</div>
 									</div>
 								</div>
 							</div>
