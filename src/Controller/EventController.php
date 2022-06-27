@@ -37,8 +37,9 @@ class EventController extends AbstractController
       $messageUser = '';
       
       // Etablire la date de jour
+      date_default_timezone_set("Europe/Paris");
       $today = date("Y-m-d H:i:s");
-      
+     
       // Recuperer User pour créer les recommendations
       $userId = $this->getUser();
   
@@ -293,6 +294,7 @@ class EventController extends AbstractController
      */
     public function setCommentByIdEvent(EventRepository $eventRepository, UserRepository $userRepository, Request $request, $id, EntityManagerInterface $entityManager):JsonResponse
     {
+      date_default_timezone_set("Europe/Paris");
       // on initialise la variable comment avec les functions du repository comment
       $comment = new Comments();
 
