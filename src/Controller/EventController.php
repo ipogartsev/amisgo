@@ -35,7 +35,6 @@ class EventController extends AbstractController
       
       //Message si User n'est pas connecté
       $messageUser = '';
-<<<<<<< Updated upstream
       
       // Etablire la date de jour
       $today = date("Y-m-d H:i:s");
@@ -59,16 +58,6 @@ class EventController extends AbstractController
         }
       }  
       
-=======
-
-      // Création de tableau à rendre par controlleur
-      $suggestedEvents = [];
-      $futureEvents = [];
-      $popularEvents = [];
-
-      // Recuperer les evenements à venir
-      $futureEvents = $this->getFutureEvents($eventRepository);     
->>>>>>> Stashed changes
       // Si le tableau 'futureEvents' est vide mettre le message correspondant
       if(!$futureEvents){
         $message = 'Il n\'y a pas des evenements à venir'; 
