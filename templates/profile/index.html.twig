@@ -131,7 +131,9 @@ ans</span>
 						</div>
 						<div class="custom-card-item-bottom d-flex flex-column justify-content-center align-items-center">
 								<time>{{event.dateOfEvent|date("d F y H:m")}}</time>
+							<a href="{{ path('app_event_details', {'id': event.id}) }}">
 							<h5>{{event.title}}</h5>
+							</a>
 							<p>{{event.city}}</p>
 						</div>
 					</div>

@@ -142,11 +142,11 @@
 				</h3>
 
 				<div class="col-12 text-center ">
-					<button class="see-more-btn  btn btn-heroshot">
-						<a href="{{ path('app_events') }}">
+						<a href="{% if app.user %}{{ path("app_persotest")}} {% else %} {{ path("app_register")}} {% endif %}">
+							<button class="see-more-btn  btn btn-heroshot">
 							C'est parti !
-						</a>
 					</button>
+						</a>
 
 				</div>
 			</div>

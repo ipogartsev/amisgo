@@ -44,6 +44,7 @@ function participationUserAtEvent(){
     window.fetch(url+idEvent)
     .then(function(httpResponse){
       //renvoi de la réponse au prochain Then
+      location.reload();
       return httpResponse.json();
     })
     .then(function(result) // results = les données JSON, grâce au httpResponse.json() ci-dessus

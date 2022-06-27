@@ -179,7 +179,6 @@
 					</div>
 				</div>
 			</div>
-			{% endif %}
 			<div class="activity-participation d-flex justify-content-around p-3" >
 			{% if (closed == true and not app.user) or ( (closed == true and app.user) and not participed) %}
 				<button> Complet !</button>
@@ -188,6 +187,7 @@
 			</div>
 			{%  endif %}
 		</div>
+		{% endif %}
      
 	
 </div>
