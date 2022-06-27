@@ -7,7 +7,7 @@
 	{% block stylesheet%}
 		<link rel="stylesheet" href="/assets/css/design-system.css">
 		<link rel="stylesheet" href="/assets/css/style.css">
-		<link rel="stylesheet" href="/assets/css/personnalites.css">
+		
 	{% endblock %}
 
 	<!---------------------------- Section top ---------------------------->
@@ -24,9 +24,15 @@
 					Fais le test et embarque-toi dans l’aventure !
 				</p>
 				<div class="d-flex justify-content-end me-5" id="decouvrir">
-					<button type="button" class="btn btn-heroshot">
-						<a href="{{ path('app_persotest') }}">Faire le test !</a>
-					</button>
+					{% if app.user %}
+						<a href="{{ path("app_persotest")}}">
+						{% else %}
+						<a href="{{ path("app_register")}}">
+						{% endif %}
+						<button type="button" class="btn btn-heroshot">
+						Faire le test !
+						</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -43,14 +49,20 @@
 			</div>
 		</div>
 
-		<!--------------------- Popular Section -------------------->
+		<!-- Popular Section -->
 		<div class="section container-fluid section-cards-container">
 			<div class="row">
 				<h3 class="cards-title">Les plus populaires</h3>
+				<h3>{{ message }}</h3>
 			</div>
 		</div>
 		<div class="section cards-container d-flex flex-wrap justify-content-center">
+			{% set i = 0 %}
 			{% for popularEvent in popularEvents %}
+			{% set display = 'block' %}
+				{% if i > 3 %}
+					{% set display = 'none !important' %}
+				{% endif %}
 				<article class="col-12 col-xl-6 card-item d-flex flex-row justify-content-center">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
@@ -64,8 +76,9 @@
 					<div class="d-flex flex-column card-item-body">
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ popularEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
-
-							<h4 class="text-start">{{ popularEvent.title }}</h4>
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': popularEvent.id}) }}"
+							<h4 class="text-start">{{ popularEvent.title }}</h4></a>
 							<h5 class="text-start">{{ popularEvent.city }}</h5>
 							<p class="text-start lh-1 p-3">{{ popularEvent.description }}</p>
 							<div class="d-flex flex-row justify-content-between filter-wrapper">
@@ -84,12 +97,13 @@
 									<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="/assets/img/icon-face03.jpg"></div>
 									<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="/assets/img/icon-face04.jpg"></div>
 									<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="/assets/img/icon-face06.jpg"></div>
-									<div class="icon-wrapper icons-position icon-position-6">9/12</div>
+									<div class="icon-wrapper icons-position icon-position-6">{{ popularEvent.participantsRegistered}}/{{ popularEvent.participantsMax }}</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</article>
+				{% set i = i + 1 %}
 			{% endfor %}
 
 		</div>
@@ -102,35 +116,38 @@
 		</div>
 
 
-		<!--------------------- Coming soon Section -------------------->
+		<!-- Coming soon Section -->
 		<div class="section container-fluid section-cards-container">
 			<h3 class="cards-title">A venir</h3>
+			<h3>{{ message }}</h3>
 
 			<div class="section cards-container d-flex flex-wrap justify-content-center">
-				<div class="row card-row d-flex flex-wrap justify-content-center">
-					<article class="col-12 col-xl-6 card-item d-flex flex-row justify-content-center">
+				{% set i = 0 %}
+				{% for futureEvent in futureEvents %}
+					{% set display = 'block' %}
+					{% if i > 3 %}
+						{% set display = 'none !important' %}
+					{% endif %}
+				
+					<article class="col-12 col-xl-6 card-item d-flex flex-row justify-content-center" data-category={{futureEvent.category}} style="display:{{display}}">
 						<div class="card-item-img-wrapper">
 							<div class="card-item-like-icon">
 								<button><img src="/assets/icons/icone-heart-outlined.svg" alt=""></button>
 							</div>
 							<a href="">
-								<img class="card-item-img" src="/assets/img/aquarium-activity.jpg" alt="">
+								<img class="card-item-img" src="assets/img/{{ futureEvent.eventPicture }}" alt="">
 							</a>
 
 						</div>
 
 						<div class="d-flex flex-column card-item-body">
-							<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">04
-																																																																																																																																																																																											Août 2022
-																																																																																																																																																																																											&nbsp;13:30</time>
+							<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{futureEvent.dateOfEvent|date("d F y H:m")}}</time>
 							<div class="card-item-body-container">
-
-								<h4 class="text-start">Aquarium Sealife</h4>
-								<h5 class="text-start">Serris</h5>
-								<p class="text-start lh-1 p-3">Pour découvrir l’Océan et ses mystères,
-																																																																																																																																																																																																																				l’Aquarium propose des activités pédago-ludiques tout au long de l’année.
-																																																																																																																																																																																																																				Sans jamais rien céder sur le fond, les messages éducatifs sont diffusés de
-																																																																																																																																																																																																																				manière ludique, avec le concours de ma...
+								{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+								<a href="{{ path('app_event_details', {'id': futureEvent.id}) }}"
+								<h4 class="text-start">{{ futureEvent.title }}</h4></a>
+								<h5 class="text-start">{{ futureEvent.city }}</h5>
+								<p class="text-start lh-1 p-3">{{ futureEvent.description }}
 								</p>
 
 								<div class="d-flex flex-row justify-content-between filter-wrapper">
@@ -139,7 +156,7 @@
 											<div class="icon-background">
 												<img src="/assets/icons/icone-culture.svg" alt="">
 											</div>
-											<div class="card-activity-title mx-2">Culture</div>
+											<div class="card-activity-title mx-2">{{ futureEvent.typeOfEvent }}</div>
 										</button>
 									</div>
 
@@ -149,12 +166,14 @@
 										<div class="icon-wrapper icons-position icon-position-3"><img class="icon-participants" src="/assets/img/icon-face03.jpg"></div>
 										<div class="icon-wrapper icons-position icon-position-4"><img class="icon-participants" src="/assets/img/icon-face04.jpg"></div>
 										<div class="icon-wrapper icons-position icon-position-5"><img class="icon-participants" src="/assets/img/icon-face06.jpg"></div>
-										<div class="icon-wrapper icons-position icon-position-6">5/12</div>
+										<div class="icon-wrapper icons-position icon-position-6">{{ futureEvent.participantsRegistered}}/{{ futureEvent.participantsMax }}</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</article>
+					{% set i = i + 1 %}
+			{% endfor %}
 				</div>
 			</div>
 			<div class="container text-center">

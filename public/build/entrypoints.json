@@ -3,7 +3,7 @@
     "app": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-e4b339.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_m-5adc5c.js",
         "/build/app.js"
       ],
       "css": [
@@ -13,7 +13,7 @@
     "comments": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-e4b339.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_m-5adc5c.js",
         "/build/comments.js"
       ],
       "css": [

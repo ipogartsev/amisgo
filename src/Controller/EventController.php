@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Entity\Comments;
 use App\Entity\User;
+use App\Entity\Personality;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,89 +28,46 @@ class EventController extends AbstractController
     public function index(EventRepository $eventRepository, UserRepository $userRepository): Response
     {
       //Création d'un tableau regroupant les checkbox 
-      $filtre = ['sport'=>'Sport', 'pleinair' => 'Plein air', 'musique' => 'Musique', 'danse' => 'Danse', 'cuisine' => 'Cuisine', 'jeux' => 'Jeux', 'spectacle' => 'Spectacle', 'culture' => 'Culture', 'bienetre'=> 'Bien-être', 'apero'=>'Apéro'];
+      $filtre = ['sport'=>'Sport', 'pleinair' => 'Plein air', 'musique' => 'Musique', 'cuisine' => 'Cuisine', 'jeux' => 'Jeux', 'culture' => 'Culture', 'bienetre'=> 'Bien-être', 'apero'=>'Apéro'];
       
-      // Message  à afficher en cas d'absence des evenements
+      // Message  à afficher en cas d'absence des evenements à venir
       $message = '';
       
       //Message si User n'est pas connecté
       $messageUser = '';
-      
-      // Etablire la date de jour
-      $today = date("Y-m-d H:i:s");
-      
-      // Recuperer User pour créer les recommendations
-      $userId = $this->getUser();
-  
-      // Création des tableaux à redre par controlleur
-      $suggestedEvents =[];
-      $popularEvents = [];
+
+      //Création de tableua de données
+      $suggestedEvents = [];
       $futureEvents = [];
-      
-      // Chercher les evenements dans BDD
-      $events = $eventRepository->findAll();
-     
-      // Parcourir 'events' pour selectionner les evenements en date d'aujourd'hui
-      foreach($events as $event){
-        $eventDate = $event->getDateOfEvent();
-        if($today < $eventDate->format("Y-m-d H:i:s")){
-          $futureEvents[] = $event; 
-        }
-      }  
-      
+      $popularEvents = [];
+
+      // Recuperer les evenements à venir
+      $futureEvents = $this->getFutureEvents($eventRepository);     
       // Si le tableau 'futureEvents' est vide mettre le message correspondant
       if(!$futureEvents){
         $message = 'Il n\'y a pas des evenements à venir'; 
-        }
-      // Sinon parcourir le tableau pour selectionner autres types d'evenements
+      }
+      // Sinon selectionner evenements populaires et recommandés
       else{
-          foreach($futureEvents as $event){ 
-          // Selectionner les evenements populaires
-          if( $event->getParticipantsRegistered()/$event->getParticipantsMax() > 0.5){
-            $popularEvents[] = $event;
-          }
-        }
-          // Si 'popularEvents' est le tableau vide
-          if(!$popularEvents){
-            // Mettre à la place le tableau d'evenements à venir
-            $popularEvents = $futureEvents;
-          }
-
+        $popularEvents = $this->getPopularEvents($futureEvents);
+        
+        // Recuperer User pour créer les recommendations
+        $userId = null;
+        $userId = $this->getUser();
+        // Si User est connecté
+        if($userId){
           // Selectionner les evenements recommandés
-          if($userId !== null){
-            // Vérifier si user a participé aux evenements
-            $userEvents = $userId->getEvent();
-            // Si user a participé
-            if($userEvents){
-              // Créer le tableau d'evenements à recommandé par type d'evenements au quels user a participé
-              $suggestedEvents = [];
-              $typeEvents = [];
-              foreach($userEvents as $event){
-                $typeEvents[] = $event->getTypeOfEvent();
-              }                     
-              // Parcourir 'futureEvents' et choisir les evenements par type selon le tableau typeEvents
-              foreach($futureEvents as $event){
-                if(in_array($event->getTypeOfEvent(), $typeEvents)){
-                  //Ajouter l'evenement au tableau de recommendation
-                  $suggestedEvents[] = $event;
-                }
-              }
-            }               
-            // Si il n'y a pas des evenements à venir à recommander choisir les evenements recommandés au hasard
-            if(!$suggestedEvents){
-              $suggestedEvents[]= $futureEvents[rand(0, count($futureEvents)-1)];
-            }
-          } 
-          else{
-            $messageUser = 'Connectez-vous pour voir les evenements recommandés pour vous ! ';
-          }
+          $suggestedEvents = $this->getSuggestedEvents($futureEvents, $userId); 
         }
-      
+        else{
+          $messageUser = 'Connectez-vous pour voir les evenements recommandés pour vous ! ';
+        }
+      }
 
-        // Retourner les tableau des evenements et les messages
-        return $this->render('event/index.html.twig', [
-            'futureEvents' => $futureEvents, 'suggestedEvents' => $suggestedEvents, 'popularEvents' => $popularEvents, 'message' => $message, 'messageUser' => $messageUser , 'filtre' => $filtre        
-        ]);
+      // Retourner les tableau des evenements et les messages
+      return $this->render('event/index.html.twig', [
+          'futureEvents' => $futureEvents, 'suggestedEvents' => $suggestedEvents, 'popularEvents' => $popularEvents, 'message' => $message, 'messageUser' => $messageUser , 'filtre' => $filtre        
+      ]);
     }
 
     /**
@@ -119,13 +77,18 @@ class EventController extends AbstractController
     public function eventDetails(Event $event,EventRepository $eventRepository, string $id): Response
     { 
       //Recuperer les details d'evenement
-      $event = $eventRepository ->findOneBy(['id' => $id]); 
+      $event = $eventRepository->findOneBy(['id' => $id]); 
       // Vérifier si il est complet
       $result = $event->isClosed();
 
       // recuperer l'id d'un user
       $userId=$this->getUser();
       $isParticipe = false;
+
+      // Declaration tableau participants de meme personalite
+      $personalities = [];
+      $persona ="";
+      $persoImg = "";
       // recuperer les evenements auxquels il participe
       if($userId){
         $userEvents = $userId->getEvent();
@@ -139,12 +102,41 @@ class EventController extends AbstractController
             break;
           }
       }
-       
-      }
-
-      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe  ]); 
+      
+      if($userId){
+        // Recuperer la personalite d'user
+        $userperso = $userId->getPersonality();
+        if($userperso){
+        
+        // Recuperer type personalite et image
+        $persona = $userId->getPersonality()->getTypeOfPersonality();
+        $persoImg = $userId->getPersonality()->getPersonalityPicture();
+        // Si User a personalité
+        if($userperso){
+          // Recuperation des participants d'evenement
+          $participants = $event->getUsers();
+            foreach($participants as $participant){
+              // Recuperer la personalite de participant                        
+              $participantPerso = $participant->getPersonality();
+              // Si personalité definie
+              if($participantPerso){
+                // Si meme personalité ajouter au tableau de données à afficher
+                if($participantPerso->getId() == $userperso->getId()){
+                  $personalities[] = $participant;
+                }
+              } 
+      
+            }         
+        }     
+      }       
+    }
     }
     
+
+      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities, 'persona' => $persona, 'persoImg' => $persoImg]); 
+    }
+
+
 
     /**
      * @Route("events/participe/{id}", name="app_event_participe")
@@ -250,6 +242,7 @@ class EventController extends AbstractController
       
       return new JsonResponse(json_encode($comments));
     }
+
     /**
      * @Route("/comments/{id}/post", name="app_comments_post")
      */
@@ -273,10 +266,90 @@ class EventController extends AbstractController
       // injection des données dans la BDD
       $entityManager->persist($comment);
       $entityManager->flush();
-      
-
-
 
       return new JsonResponse(json_encode("ok"));
     }
-}
+
+    /**
+     * Function pour recuperer les evenements à venir
+     *
+     * @param [array] $eventRepository
+     * @return array
+     */
+    public function getFutureEvents($eventRepository){
+      // Etablire la date de jour
+      $today = date("Y-m-d H:i:s");
+      // Création des tableaux des evenements à venir
+      $futureEvents = [];
+
+      // Chercher tous les evenements dans BDD
+      $events = $eventRepository->findAll();
+
+      // Parcourir 'events' pour selectionner les evenements en date d'aujourd'hui
+      foreach($events as $event){
+        // recuperer la date d'evenement
+        $eventDate = $event->getDateOfEvent();
+        // comparer avec la date d'aujourd'hui
+        if($today < $eventDate->format("Y-m-d H:i:s")){
+          $futureEvents[] = $event; 
+        }
+      }  
+      return $futureEvents;
+    }
+
+    /**
+     * Function pour recuperer les evenements populaires
+     *
+     * @param [array] 
+     * @return array
+     */
+    public function getPopularEvents($array){
+      // Création des tableaux des evenements populaires
+      $popularEvents = [];
+      foreach($array as $event){ 
+        // Selectionner les evenements populaires
+        if( ($event->getParticipantsRegistered()/$event->getParticipantsMax()) > 0.5){
+          $popularEvents[] = $event;
+        }
+      }   
+      // Si 'popularEvents' est le tableau vide
+      if(!$popularEvents){
+        // Mettre à la place les evenements de tableau d'evenements à venir            
+        $popularEvents = $array; 
+      }
+
+  
+      return $popularEvents;
+    }
+    /**
+     * Function pour recuperer les evenements recommandés
+     *
+     * @param [array, int] 
+     * @return array
+     */
+    public function getSuggestedEvents($array, $userId){
+      $suggestedEvents = [];
+      // Vérifier si user a participé aux evenements
+      $userEvents = $userId->getEvent();
+      // Si user a participé
+      if($userEvents){
+        // Créer le tableau d'evenements à recommandé par type d'evenements au quels user a participé
+        $typeEvents = [];
+        foreach($userEvents as $event){
+          $typeEvents[] = $event->getTypeOfEvent();
+        }                     
+        // Parcourir tous les events et choisir les evenements par type selon le tableau typeEvents
+        foreach($array as $event){
+          if(in_array($event->getTypeOfEvent(), $typeEvents) && !$event->isClosed()){
+            //Ajouter l'evenement au tableau de recommendation
+            $suggestedEvents[] = $event;
+          }      
+        } 
+      }
+      // Si il n'y a pas des evenements  à recommander choisir les evenements au hasard
+      if(!$suggestedEvents){
+        $suggestedEvents[]= $array[rand(0, count($array)-1)];
+      }                
+      return $suggestedEvents;   
+    }  
+} 

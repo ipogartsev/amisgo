@@ -18,9 +18,15 @@
 						Obtenez une description concrète et exacte de qui vous êtes et de la raison pour laquelle vous faites les choses de la façon dont vous les faites.
 					</p>
 					<div class="d-flex justify-content-end me-5" id="decouvrir">
-						<button type="button" class="btn btn-heroshot">
-							<a href="{{ path("app_persotest")}}">Faire le test !</a>
-						</button>
+					{% if app.user %}
+						<a href="{{ path("app_persotest")}}">
+						{% else %}
+						<a href="{{ path("app_register")}}">
+						{% endif %}
+							<button type="button" class="btn btn-heroshot">
+								Faire le test !
+							</button>
+						</a>
 
 					</div>
 				</div>
@@ -50,10 +56,10 @@
 					<div class="col-4 card justify-content-center  p-5  rounded-0" style="{{tabColor[u]}}">
 						<img class="card-img-top" src="assets/img/{{person.personalityPicture}}" alt="Card image cap">
 						<div class="card-personnality-body">
-							<a href="{{ path('app_perso', {'title': person.typeOfPersonality }) }}">
-								<h4 class="card-title">{{person.typeOfPersonality}}</h4>
-							</a>
-							<p class="card-text">{{person.description}}</p>
+							{#<a href="{{ path('app_perso', {'title': person.typeOfPersonality }) }}"> #}
+								<h4 class="card-title text-center p-3">{{person.typeOfPersonality}}</h4>
+							{#</a>#}
+							<p class="card-text text-center">{{person.description}}</p>
 						</div>
 					</div>
 					{% set i = i + 1 %}
@@ -69,13 +75,21 @@
 
 	<!-------------------------- Bottom section -------------------------->
 		<section class="container-fluid">
-			<div class="row" style="background-color: grey;">
+			<div class="row pt-3" style="background-color: grey;">
 				<div class="col-sm col-md-4 col-xxl-6">
 					<h3>Et toi ?
 						<br/>
 						Quel type d'AmisGO es-tu ?</h3>
 					<div class="d-flex justify-content-end me-5 btn-test" id="decouvrir">
-						<a href="{{ path('app_persotest') }}" class="btn">Faire le test !</a>
+						{% if app.user %}
+						<a href="{{ path("app_persotest")}}">
+						{% else %}
+						<a href="{{ path("app_register")}}">
+						{% endif %}
+							<button type="button" class="btn btn-heroshot">
+								Faire le test !
+							</button>
+						</a>
 					</div>
 				</div>
 

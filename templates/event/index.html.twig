@@ -3,8 +3,8 @@
 {% block title %}Activités
 {% endblock %}
 {% block stylesheets %}
+	<link rel="stylesheet" href="assets/css/design-system.css">
 	<link rel="stylesheet" href="assets/css/activites.css">
-	
 {% endblock %}
 {% block body %}
 	<style>
@@ -19,7 +19,7 @@
 			padding: 2px 6px;
 		}
 	</style>
-	<div class="container-fluid section-top activite-pict">
+	<div class="container-fluid section-top activite-pict mb-5">
 		<div class="row">
 			<div class="col-12 col-xl-8">
 				<h1>Apprendre le langage des Fleurs</h1>
@@ -35,24 +35,24 @@
 		</div>
 	</div>
 	<!--------------------- IMPORTANT METTRE le div root à l'endroit où l'on souhaite qu'il soit affiché sur la page -------------------->
-	<div class="container w-75 " id="root"></div>
+	<div class="container w-75" id="root"></div>
 
 
 	<!-- Filter Button Section -->
 
 	<div class="d-flex flex-wrap justify-content-around section" id="filter-button-wrapper">
-
+		<div class="row">
 		{% for key, box in filtre %}
-
-			<button id="{{key}}" class="filter-button d-flex btn btn-warning align-items-center p-2">
+			<div class="col-3">
+			<button id="{{key}}" class="filter-button d-flex btn btn-warning align-items-center p-2 m-auto mt-3 mb-3">
 				<div class="icon-background">
-					<img src="assets/icons/icone-sport.svg" alt="">
+					<img src="assets/icons/icone-{{ key }}.svg" alt="">
 				</div>
 				<div class="activity-title">{{box }}</div>
 			</button>
-
+		</div>
 		{% endfor %}
-
+		</div>
 	</div>
 	<!--------------------- Recommandations Section -------------------->
 	<div class="section container-fluid section-cards-container">
@@ -69,7 +69,7 @@
 				<article class="col-6 card-item d-flex flex-row" data-category="{{suggestedEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
-							<button><img src="/assets/icons/icone-{{ suggestedEvent.category}}.svg" alt=""></button>
+							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
 						</div>
 						<img class="card-item-img" src="assets/img/{{ suggestedEvent.eventPicture }}" alt="">
 					</div>
@@ -77,7 +77,9 @@
 					<div class="d-flex flex-column card-item-body">
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ suggestedEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
-							<h4 class="text-start">{{ suggestedEvent.title }}</h4>
+							
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': suggestedEvent.id}) }}"><h4 class="text-start">{{ suggestedEvent.title }}</h4></a>
 							<h5 class="text-start">{{ suggestedEvent.city }}</h5>
 							<p class="text-start1 lh-1 p-3">{{ suggestedEvent.description }}</p>
 							<div class="d-flex flex-row justify-content-between">
@@ -102,11 +104,14 @@
 						</div>
 					</div>
 				</article>
+				
 
 				{% set i = i + 1 %}
 			{% endfor %}
 		</div>
+		{% if app.user %}
 		<button class="see-more-btn">En voir plus</button>
+		{% endif %}
 	</div>
 
 	<!--------------------- Popular Section -------------------->
@@ -123,7 +128,7 @@
 				<article class="col-6 card-item d-flex flex-row" data-category="{{popularEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
-							<button><img src="assets/icons/icone-{{ popularEvent.category }}.svg" alt=""></button>
+							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
 						</div>
 						<img class="card-item-img" src="assets/img/{{ popularEvent.eventPicture }}" alt="">
 					</div>
@@ -132,7 +137,8 @@
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{ popularEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
 
-							<h4 class="text-start">{{ popularEvent.title }}</h4>
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': popularEvent.id}) }}"><h4 class="text-start">{{ popularEvent.title }}</h4></a>
 							<h5 class="text-start">{{ popularEvent.city }}</h5>
 							<p class="text-start1 lh-1 p-3">{{ popularEvent.description }}</p>
 
@@ -163,7 +169,7 @@
 			{% endfor %}
 
 		</div>
-		<button class="see-more-btn">En savoir plus</button>
+		<button class="see-more-btn">En voir plus</button>
 	</div>
 
 
@@ -189,8 +195,8 @@
 					<div class="d-flex flex-column card-item-body">
 						<time class="d-flex justify-content-end" datetime="2018-07-03T20:00:00">{{futureEvent.dateOfEvent|date("d F y H:m")}}</time>
 						<div class="card-item-body-container">
-
-							<h4 class="text-start">{{ futureEvent.title }}</h4>
+							{# AJOUT D'UN LIEN DYNAMIQUE VERS UNE PAGE ACTIVITE EN PARTICULIER EN RECUPERANT L'ID POUR LE RAJOUTER DYNAMIQUEMENT AU PATH #} 
+							<a href="{{ path('app_event_details', {'id': futureEvent.id}) }}"><h4 class="text-start">{{ futureEvent.title }}</h4></a>
 							<h5 class="text-start">{{ futureEvent.city }}</h5>
 							<p class="text-start1 lh-1 p-3">{{ futureEvent.description }}</p>
 
@@ -219,7 +225,7 @@
 				{% set i = i + 1 %}
 			{% endfor %}
 		</div>
-		<button class="see-more-btn">En savoir plus</button>
+		<button class="see-more-btn">En voir plus</button>
 	</div>
 {% endblock %}
 

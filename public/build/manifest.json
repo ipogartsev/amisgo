@@ -4,7 +4,5 @@
   "build/comments.css": "/build/comments.css",
   "build/comments.js": "/build/comments.js",
   "build/runtime.js": "/build/runtime.js",
-  "build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-e4b339.js": "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-e4b339.js",
-  "build/vendors-node_modules_react-dom_client_js.js": "/build/vendors-node_modules_react-dom_client_js.js",
-  "build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-991003.js": "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-991003.js"
+  "build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_m-5adc5c.js": "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_m-5adc5c.js"
 }
