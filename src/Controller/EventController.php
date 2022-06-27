@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Entity\Comments;
 use App\Entity\User;
+use App\Entity\Personality;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -68,7 +69,7 @@ class EventController extends AbstractController
      * @Route("events/{id}", name="app_event_details")
      */
     // page d'ffichage d'une activité
-    public function eventDetails(Event $event,EventRepository $eventRepository, string $id): Response
+    public function eventDetails(Event $event,EventRepository $eventRepository, string $id, Personality $personality): Response
     { 
       //Recuperer les details d'evenement
       $event = $eventRepository->findOneBy(['id' => $id]); 
@@ -78,6 +79,11 @@ class EventController extends AbstractController
       // recuperer l'id d'un user
       $userId=$this->getUser();
       $isParticipe = false;
+
+      // Declaration tableau participants de meme personalite
+      $personalities = [];
+      $persona ="";
+      $persoImg = "";
       // recuperer les evenements auxquels il participe
       if($userId){
         $userEvents = $userId->getEvent();
@@ -92,26 +98,34 @@ class EventController extends AbstractController
           }
       }
 
-      // Declaration tableau participants de meme personalite
-      $personalities = [];
-      // Recuperer la personalite d'user
-      $userperso = $userId->getPersonality()->getTypeOfPersonality();
-      if ($userId){
-        // Recuperation des participants par personalite
-        $participants = $event->getUsers();
-        foreach($participants as $participant){
-          if($participant->getPersonality()->getTypeOfPersonality() == $userperso)
-          $personalities[] = $participant;
-          
-        }
-        
-      }
-      
-      
-      }
+
+      if($userId){
+        // Recuperer la personalite d'user
+        $userperso = $userId->getPersonality()->getId(); 
+        // Recuperer type personalite et image
+        $persona = $userId->getPersonality()->getTypeOfPersonality();
+        $persoImg = $userId->getPersonality()->getPersonalityPicture();
+        // Si User a personalité
+        if($userperso){
+          // Recuperation des participants d'evenement
+          $participants = $event->getUsers();
+            foreach($participants as $participant){
+              // Recuperer la personalite de participant                        
+              $participantPerso = $participant->getPersonality();
+              // Si personalité definie
+              if($participantPerso){
+                // Si meme personalité ajouter au tableau de données à afficher
+                if($participantPerso->getId() == $userperso){
+                  $personalities[] = $participant;
+                }
+              }  
+            }         
+        }     
+      }       
+    }
     
 
-      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities ]); 
+      return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities, 'persona' => $persona, 'persoImg' => $persoImg]); 
     }
 
 

@@ -31,7 +31,7 @@
 						<div class="profil-summary-top-left-title-wrapper">
 						{% set categories = {1: 'Les Meneurs', 2 : 'Les Éclaireurs', 3 : 'Les Émancipateurs', 4 : 'Les Intermédiaires'}
  %}
-							<h5 class="profil-summary-top-left-title-1 fw-bold">Explorateur {{ categories[personality.idCategory] }}</h5>
+							<h5 class="profil-summary-top-left-title-1 fw-bold">{{ categories[personality.idCategory] }}</h5>
 							<div class="profil-summary-top-left-title-2">{{ personality.typeOfPersonality }}</div>
 						</div>
 					</div>
