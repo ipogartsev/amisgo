@@ -51,13 +51,13 @@
 						<button class="icon-btn">
 							<img src="/assets/icons/icone-heart-outlined-black.svg" alt="">
 						</button>
-						{# Si l'evenement est complet #}
-						{% if closed == true %}
+						{# Si l'evenement est complet  et user n'est pas inscrit#}
+						{% if (closed == true and not app.user) or ( (closed == true and app.user) and not participed) %}
 							<button> Complet !</button>
 						{# Sinon si l'utilisateur est connecté #}
 						{% elseif app.user %}
 							{# Proposer desinscription ou participation selon ça situation #}               
-							<button id="participe" data-rejoins="active" data-id={{ event.id }} 
+							<button class="participe" data-rejoins="active" data-id={{ event.id }} 
 							{# si l'user est déja inscrit #}
 							{% if participed == true %} data-action = "in"
 							{% else %} data-action = "out"{% endif %}
@@ -181,9 +181,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="section">
-				<button class="participation-btn">Je participe !</button>
+			<div class="activity-participation d-flex justify-content-around p-3" >
+			{% if (closed == true and not app.user) or ( (closed == true and app.user) and not participed) %}
+				<button> Complet !</button>
+			{% elseif app.user %}
+				<button class="participe" data-rejoins = "active"></button>
 			</div>
+			{%  endif %}
 		</div>
 		{% endif %}
      

@@ -157,6 +157,7 @@ class EventController extends AbstractController
       
       
       }
+    
 
       return $this->render('event/activite.html.twig', [ 'event' => $event, 'closed' => $result , 'participed' => $isParticipe, 'personalities' => $personalities ]); 
     }

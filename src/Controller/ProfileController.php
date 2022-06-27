@@ -11,6 +11,7 @@ use App\Repository\UserRepository;
 
 
 
+
 class ProfileController extends AbstractController
 {
 
@@ -24,7 +25,7 @@ class ProfileController extends AbstractController
         // Recuperer l'id d'user
         $user = $this->getUser();
         $userData = $userRepository->findOneById($user);
-
+       
         // Initialiser variable de personalité
         $personality = null;
 
@@ -33,10 +34,17 @@ class ProfileController extends AbstractController
             $personality = $personalityRepository->findOneById($userData->getPersonality()->getId());
         } 
 
+        // Création tableau data events d user
+        $eventParticipation = [];
+        // Recuperer les events d'user      
+        $eventParticipation = $userData->getEvent();
+        
+
         // Rendrer les données pour affichage de page
         return $this->render('profile/index.html.twig', [
             'userData' => $userData,
-            'personality' => $personality
+            'personality' => $personality,
+            'eventParticipation' => $eventParticipation
         ]);
     }
 }
