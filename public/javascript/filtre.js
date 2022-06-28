@@ -57,7 +57,7 @@ function showMore(e){
         }) 
     }
     e.currentTarget.dataset.action = 'active';
-    e.currentTarget.textContent = 'En vois moins';
+    e.currentTarget.textContent = 'En voir moins';
     
     
   } else {

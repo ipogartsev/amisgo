@@ -59,7 +59,7 @@
 		<h3 class="cards-title">Recommandés pour vous</h3>
 		<h3>{{ messageUser }}</h3>
 		{% if app.user %}
-		<div class="section cards-container d-flex justify-content-around">
+		<div class="section cards-container d-flex flex-wrap justify-content-center">
 			{% set i = 0 %}
 			{% for suggestedEvent in suggestedEvents %}
 				{% set display = 'block' %}
