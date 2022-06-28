@@ -11,45 +11,50 @@
 
 	{% set age = date("now").diff(date(userData.birthdate)).y %}
 	<main class="profile-layout">
-
+		<div class="container-fluid section-top"></div>
 		<div class="profil-container d-flex flex-wrap justify-content-center">
 
 
 			<div class="profil-img-wrapper">
-				<img src="/assets/img/{{userData.profilePicture}}"  alt="">
+				<img src="/assets/img/{{userData.profilePicture}}" alt="">
 			</div>
 
 			<!---------------------- Profil Summary ------------------------>
 			{% if personality != null %}
-			<div class="section section-container profil-summary-container text-center p-4">
-				<div class="profil-summary-top d-flex justify-content-between align-items-center">
-					<div class="profil-summary-top-left d-flex align-items-center">
-						<a href="">
-							<img src="/assets/img/{{ personality.personalityPicture }}" alt="">
-						</a>
+				<div class="section section-container profil-summary-container text-center p-4">
+					<div class="profil-summary-top d-flex justify-content-between align-items-center">
+						<div class="profil-summary-top-left d-flex align-items-center">
+							<a href="">
+								<img src="/assets/img/{{ personality.personalityPicture }}" alt="">
+							</a>
 
-						<div class="profil-summary-top-left-title-wrapper">
-						{% set categories = {1: 'Les Meneurs', 2 : 'Les Éclaireurs', 3 : 'Les Émancipateurs', 4 : 'Les Intermédiaires'}%}
-							<h5 class="profil-summary-top-left-title-1 fw-bold">{{ categories[personality.idCategory] }}</h5>
-							<div class="profil-summary-top-left-title-2">{{ personality.typeOfPersonality }}</div>
+							<div class="profil-summary-top-left-title-wrapper">
+								{% set categories = {1: 'Les Meneurs', 2 : 'Les Éclaireurs', 3 : 'Les Émancipateurs', 4 : 'Les Intermédiaires'}%}
+								<h5 class="profil-summary-top-left-title-1 fw-bold">{{ categories[personality.idCategory] }}</h5>
+								<div class="profil-summary-top-left-title-2">{{ personality.typeOfPersonality }}</div>
+							</div>
 						</div>
+
 					</div>
-					
-				</div>
-			{% endif %}
+				{% endif %}
 				<div class="profil-summary-description-container d-flex flex-wrap justify-content-center text-center text-dark">
 					<div class="section profil-summary-description-title mb-0">
-						<h4>{{userData.firstname}} {{userData.name}} </h4>
+						<h4>{{userData.firstname}}
+							{{userData.name}}
+						</h4>
 					</div>
 					<div class="profil-summary-description">
-						{{userData.description}} 
-																																																						                        seule ou en groupe :), je suis nouvelle sur ce site c’est pourquoi je cherche des Amisgo pour
-																																																						                        réaliser ma première expérience !
+						{{userData.description}}
+						seule ou en groupe :), je suis nouvelle sur ce site c’est pourquoi je cherche des Amisgo pour
+																																																												                        réaliser ma première expérience !
 					</div>
 				</div>
 				<div class="profil-summary-badge-container d-flex justify-content-center">
-					<span class="badge  btn-profil p-2"> {{ age }} ans</span>
-					<span class="badge btn-profil p-2">{{userData.city}} </span>
+					<span class="badge  btn-profil p-2">
+						{{ age }}
+						ans</span>
+					<span class="badge btn-profil p-2">{{userData.city}}
+					</span>
 				</div>
 			</div>
 
@@ -86,21 +91,21 @@
 						<button class="d-flex justify-content-center align-items-center"><img src="assets/icons/icone-add.svg" alt=""></button>
 					</div>
 					{% if eventParticipation %}
-					
-					<div class="custom-card-item">
-						<div class="custom-card-item-top-wrapper">						
-								<img src="/assets/img/{{eventParticipation[0].eventPicture }}" alt="">						
-							
-						</div>
-						<div class="custom-card-item-bottom d-flex flex-column justify-content-center align-items-center">
+
+						<div class="custom-card-item">
+							<div class="custom-card-item-top-wrapper">
+								<img src="/assets/img/{{eventParticipation[0].eventPicture }}" alt="">
+
+							</div>
+							<div class="custom-card-item-bottom d-flex flex-column justify-content-center align-items-center">
 								<time>{{eventParticipation[0].dateOfEvent|date("d F y H:m")}}</time>
-							<a href="{{ path('app_event_details', {'id': eventParticipation[0].id}) }}">
-							<h5>{{eventParticipation[0].title}}</h5>
-							</a>
-							<p>{{eventParticipation[0].city}}</p>
+								<a href="{{ path('app_event_details', {'id': eventParticipation[0].id}) }}">
+									<h5>{{eventParticipation[0].title}}</h5>
+								</a>
+								<p>{{eventParticipation[0].city}}</p>
+							</div>
 						</div>
-					</div>
-					
+
 					{% endif %}
 				</div>
 			</div>
@@ -112,33 +117,36 @@
 				</div>
 				<div class="section profil-cards-wrapper d-flex justify-content-start">
 					<div class="profil-card-add d-flex flex-column justify-content-evenly align-items-center">
-						<a href="{{ path('app_events') }}"><div class="profil-card-add-title">
-							Voir plus d'événements
-						</div></a>
+						<a href="{{ path('app_events') }}">
+							<div class="profil-card-add-title">
+								Voir plus d'événements
+							</div>
+						</a>
 						<button class="d-flex justify-content-center align-items-center"><img src="assets/icons/icone-add.svg" alt=""></button>
 					</div>
 					{% if eventParticipation %}
-					{% for event in eventParticipation%}
-					<div class="custom-card-item">
-						<div class="custom-card-item-top-wrapper">						
-								<img src="/assets/img/{{event.eventPicture }}" alt="">						
-							
-						</div>
-						<div class="custom-card-item-bottom d-flex flex-column justify-content-center align-items-center">
-								<time>{{event.dateOfEvent|date("d F y H:m")}}</time>
-							<a href="{{ path('app_event_details', {'id': event.id}) }}">
-							<h5>{{event.title}}</h5>
-							</a>
-							<p>{{event.city}}</p>
-						</div>
-					</div>
-					{% endfor %}
+						{% for event in eventParticipation%}
+							<div class="custom-card-item">
+								<div class="custom-card-item-top-wrapper">
+									<img src="/assets/img/{{event.eventPicture }}" alt="">
+
+								</div>
+								<div class="custom-card-item-bottom d-flex flex-column justify-content-center align-items-center">
+									<time>{{event.dateOfEvent|date("d F y H:m")}}</time>
+									<a href="{{ path('app_event_details', {'id': event.id}) }}">
+										<h5>{{event.title}}</h5>
+									</a>
+									<p>{{event.city}}</p>
+								</div>
+							</div>
+						{% endfor %}
 					{% endif %}
 				</div>
 			</div>
 
 			<a href="{{ path('app_persotest') }}">
-			<button class="btn btn-heroshot">Refaire le test</button></a>
+				<button class="btn btn-heroshot">Refaire le test</button>
+			</a>
 		</div>
 	</main>
 
