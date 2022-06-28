@@ -29,3 +29,70 @@ function displayChoice(e){
   })
 }
 
+
+/**
+ * Fonction pour afficher plus d'evenements sur la page
+ * @param {event} e 
+ */
+function showMore(e){
+  // Recuperer la section
+  let section = e.currentTarget.dataset.id;
+
+  // Faire afficher ou cacher les evenements selon la datat-action
+  if(e.currentTarget.dataset.action == ''){
+    switch(section){
+      case 0:
+         suggestedEvents.forEach(element => {
+          element.style ="display:block";
+        }) 
+        break;
+      case 1:
+        popularEvents.forEach(element => {
+          element.style ="display:block";
+        }) 
+        break;
+      default:
+        futureEvents.forEach(element => {
+          element.style ="display:block";
+        }) 
+    }
+    e.currentTarget.dataset.action = 'active';
+    e.currentTarget.textContent = 'En vois moins';
+    
+    
+  } else {
+    switch(section){
+      case 0:
+        suggestedEvents.forEach(element => {
+          element.style ="display:none !important";
+        })
+        break;
+      case 1:
+        popularEvents.forEach(element => {
+          element.style ="display:none !important";
+        })
+        break;
+      default:
+        futureEvents.forEach(element => {
+          element.style ="display:none !important";
+        })
+      }
+      e.currentTarget.dataset.action = '';
+      e.currentTarget.textContent = 'En voir plus';
+  }
+    
+
+}
+
+// Selectioner butons pour vois plus d'events
+let btnSeeMoreBtn = document.querySelectorAll(".see-more-btn");
+
+// Recuperer la class de cards à afficher
+let futureEvents = document.querySelectorAll(".future");
+let suggestedEvents = document.querySelectorAll(".suggested");
+let popularEvents = document.querySelectorAll(".popular");
+
+// Ajouter l'écouteur d'evenements
+ btnSeeMoreBtn.forEach(element => {
+ element.addEventListener('click', showMore);
+})

@@ -24,11 +24,11 @@
 			<div class="col-12 col-xl-8">
 				<h1>Apprendre le langage des Fleurs</h1>
 				<p class="">
-					Dîtes-le avec des fleurs ! Chez ARUM , venez et apprenez à réaliser un bouquet de fleurs ou une composition florale selon vos envies, votre créativité et votre personnalité.
+					Dîtes-le avec des fleurs ! Chez ARUM, venez et apprenez à réaliser un bouquet de fleurs ou une composition florale selon vos envies, votre créativité et votre personnalité.
 				</p>
 				<div class="d-flex justify-content-end me-5" id="decouvrir">
 					<button type="button" class="btn btn-heroshot">
-						<a href="{{ path('app_home') }}">Découvrir</a>
+						<a href="#">Découvrir</a>
 					</button>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 		<div class="row">
 		{% for key, box in filtre %}
 			<div class="col-3">
-			<button id="{{key}}" class="filter-button d-flex btn btn-warning align-items-center p-2 m-auto mt-3 mb-3">
+			<button id="{{key}}" class="filter-button btn-filter d-flex btn btn-warning align-items-center p-2 m-auto mt-3 mb-3">
 				<div class="icon-background">
 					<img src="assets/icons/icone-{{ key }}.svg" alt="">
 				</div>
@@ -58,7 +58,7 @@
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">Recommandés pour vous</h3>
 		<h3>{{ messageUser }}</h3>
-
+		{% if app.user %}
 		<div class="section cards-container d-flex justify-content-around">
 			{% set i = 0 %}
 			{% for suggestedEvent in suggestedEvents %}
@@ -66,7 +66,7 @@
 				{% if i > 3 %}
 					{% set display = 'none' %}
 				{% endif %}
-				<article class="col-6 card-item d-flex flex-row" data-category="{{suggestedEvent.category}}" style="display:{{display}}">
+				<article class="{% if i > 3 %} suggested {% endif %}col-6 card-item d-flex flex-row" data-category="{{suggestedEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
 							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
@@ -108,24 +108,26 @@
 
 				{% set i = i + 1 %}
 			{% endfor %}
-		</div>
-		{% if app.user %}
-		<button class="see-more-btn">En voir plus</button>
 		{% endif %}
+		</div>
+		
+			{% if suggestedEvents|length > 3 %}
+			<button class="see-more-btn" data-action ='' data-id="0">En voir plus</button>
+			{% endif %}
 	</div>
 
 	<!--------------------- Popular Section -------------------->
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">Les plus populaires</h3>
 		<h3>{{ message }}</h3>
-		<div class="section  cards-container d-flex justify-content-around">
+		<div class="section  cards-container  d-flex flex-wrap justify-content-center">
 			{% set i = 0 %}
 			{% for popularEvent in popularEvents %}
 				{% set display = 'block' %}
 				{% if i > 3 %}
 					{% set display = 'none !important' %}
 				{% endif %}
-				<article class="col-6 card-item d-flex flex-row" data-category="{{popularEvent.category}}" style="display:{{display}}">
+				<article class="{% if i > 3 %} popular {% endif %}col-6 card-item d-flex flex-row" data-category="{{popularEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
 							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
@@ -169,7 +171,9 @@
 			{% endfor %}
 
 		</div>
-		<button class="see-more-btn">En voir plus</button>
+		{% if popularEvents|length > 3 %}
+		<button class="see-more-btn" data-action ='' data-id="1">En voir plus</button>
+		{% endif %}
 	</div>
 
 
@@ -177,14 +181,14 @@
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">A venir</h3>
 		<h3>{{ message }}</h3>
-		<div class="section cards-container d-flex justify-content-around">
+		<div class="section cards-container d-flex flex-wrap justify-content-center">
 			{% set i = 0 %}
 			{% for futureEvent in futureEvents %}
 				{% set display = 'block' %}
 				{% if i > 3 %}
 					{% set display = 'none !important' %}
 				{% endif %}
-				<article class="col-6 card-item d-flex flex-row" data-category="{{futureEvent.category}}" style="display:{{display}}">
+				<article class="{% if i > 3 %} future {% endif %} col-6 card-item d-flex flex-row" data-category="{{futureEvent.category}}" style="display:{{display}}">
 					<div class="card-item-img-wrapper">
 						<div class="card-item-like-icon">
 							<button><img src="assets/icons/icone-heart.svg" alt=""></button>
@@ -224,9 +228,11 @@
 				</article>
 				{% set i = i + 1 %}
 			{% endfor %}
+			{% if futureEvents|length > 3 %}
 		</div>
-		<button class="see-more-btn">En voir plus</button>
+		<button class="see-more-btn" data-action ='' data-id="2">En voir plus</button>
 	</div>
+	{% endif %}
 {% endblock %}
 
 {% block javascripts %}
