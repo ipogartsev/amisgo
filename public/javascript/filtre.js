@@ -57,6 +57,9 @@ function showMore(e){
         }) 
     }
     e.currentTarget.dataset.action = 'active';
+    e.currentTarget.textContent = 'En vois moins';
+    
+    
   } else {
     switch(section){
       case 0:
@@ -75,6 +78,7 @@ function showMore(e){
         })
       }
       e.currentTarget.dataset.action = '';
+      e.currentTarget.textContent = 'En voir plus';
   }
     
 
