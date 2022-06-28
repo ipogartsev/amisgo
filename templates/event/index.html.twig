@@ -58,8 +58,8 @@
 	<div class="section container-fluid section-cards-container">
 		<h3 class="cards-title">Recommandés pour vous</h3>
 		<h3>{{ messageUser }}</h3>
-
-		<div class="section cards-container  d-flex flex-wrap justify-content-center">
+		{% if app.user %}
+		<div class="section cards-container d-flex justify-content-around">
 			{% set i = 0 %}
 			{% for suggestedEvent in suggestedEvents %}
 				{% set display = 'block' %}
@@ -108,10 +108,12 @@
 
 				{% set i = i + 1 %}
 			{% endfor %}
-		</div>
-		{% if app.user %}
-		<button class="see-more-btn" data-action ='' data-id="0">En voir plus</button>
 		{% endif %}
+		</div>
+		
+			{% if suggestedEvents|length > 3 %}
+			<button class="see-more-btn" data-action ='' data-id="0">En voir plus</button>
+			{% endif %}
 	</div>
 
 	<!--------------------- Popular Section -------------------->
@@ -169,7 +171,9 @@
 			{% endfor %}
 
 		</div>
+		{% if popularEvents|length > 3 %}
 		<button class="see-more-btn" data-action ='' data-id="1">En voir plus</button>
+		{% endif %}
 	</div>
 
 
@@ -224,9 +228,11 @@
 				</article>
 				{% set i = i + 1 %}
 			{% endfor %}
+			{% if futureEvents|length > 3 %}
 		</div>
 		<button class="see-more-btn" data-action ='' data-id="2">En voir plus</button>
 	</div>
+	{% endif %}
 {% endblock %}
 
 {% block javascripts %}
