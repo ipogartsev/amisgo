@@ -8,5 +8,11 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
-// start the Stimulus application
-import './bootstrap';
+import React from 'react';
+import ReactDOM from "react-dom/client";
+import Searchbar from './components/Searchbar.jsx';
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render( 
+    <Searchbar />
+);

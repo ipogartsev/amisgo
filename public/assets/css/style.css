@@ -5,13 +5,21 @@ INDEX CSS START
 /*************HEADER START*********/
 
 /********************Hero Shot******************/
+body {
+    background-image: url(../img/formes-bg-index.png);
+    background-repeat: no-repeat;
+}
+
+h3{
+    text-align: center;
+}
+
 .container {
-    max-width: 100%;
     padding: 0;
 }
 
-.section-top {
-    background-image: url(../img/heroshot-home.jpg);
+.home-pict{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url(../img/heroshot-home.jpg);
     background-size: cover;
     background-position: bottom;
 }
@@ -19,6 +27,11 @@ INDEX CSS START
 #homepage #decouvrir{
     text-align: left;
 }
+
+.btn .btn-heroshot {
+    background-color: var(--degrade1) !important;
+}
+
 /*************HEADER END*********/
 #content-container {
     margin: 0 auto;
@@ -30,15 +43,56 @@ INDEX CSS START
     flex: 0 0 100%;
 }
 
+/* Search bar */
+.search-location {
+    border-radius: 20px !important;
+    height: 50px;
+    padding: 5px;
+    background-color: var(--gris);
+    color: #fff;
+}
+
+.search-button {
+    border-radius: 20px !important;
+    background-color: var(--corail);
+    color: white;
+    height: 50px;
+    padding: 6px;
+}
+
+.search-bar-wrapper {
+    flex: 0 0 880px;
+    max-width: 880px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;
+    margin: 50px 0;
+}
+
+.search-bar {
+    background-color: var(--grisclair);
+    padding: 6px;
+    margin: 0;
+}
+
+#Recherche {
+    background-color: var(--grisclair)3;
+    height: 50px;
+}
+
+/* End Search bar */
+
 #filter-button-wrapper {
     flex: 0 0 1200px;
-    max-width: 1200px;
+    max-width: 87rem;
+    margin: 0 auto;
 }
 
 .icon-background {
     background-color: #fff;
     padding: 3px;
     border-radius: 20px;
+    height: 100%;
     max-width: 36px;
     flex: 0 0 36px;
 }
@@ -46,6 +100,9 @@ INDEX CSS START
 .icon-background img {
     height: 30px;
     max-width: 30px;
+    padding: 3px;
+
+
 }
 
 .activity-title {
@@ -59,6 +116,7 @@ INDEX CSS START
 .section-cards-container {
     text-align: center;
     margin: 50px 0;
+    padding: 0;
 }
 
 /* Ici on fixe la taille des cartes à 570 de largeur
@@ -66,11 +124,23 @@ INDEX CSS START
 .cards-container article {
     flex: 0 0 570px;
     max-width: 570px;
-    height: 320px;
+    height: 350px;
+}
+
+.card-row{
+    margin: auto;
+    width: 1200px;
+}
+
+@media screen and (max-width: 998px) {
+    .card-row {
+        width: 100%;
+        margin: 0;
+    }
 }
 
 .card-item {
-    margin: 20px;
+    margin: 20px 0;
     border-radius: 20px;
     border: none;
     position: relative;
@@ -92,17 +162,21 @@ INDEX CSS START
 .card-item p {
     font-size: 1rem;
     margin: 0;
+    overflow-y: scroll;
+        height: 185px;
+        
 }
 
 .card-item button {
+   margin-top:20px;
     width: 150px;
 }
 
 /* On donne au wrapper de l'image une taille de 45% de la carte
 soit plus de 40% pour que la partie desciption puisse chevaucher l'image*/
 .card-item-img-wrapper {
-    max-width: 45%;
-    flex: 0 0 45%;
+    max-width: 40%;
+    flex: 0 0 40%;
 }
 
 .card-item-like-icon {
@@ -110,7 +184,7 @@ soit plus de 40% pour que la partie desciption puisse chevaucher l'image*/
     width: 33px;
     height: 33px;
     top: 1rem;
-    left: 1rem;
+    left: 2rem;
 }
 
 .card-item-like-icon button {
@@ -141,24 +215,32 @@ On joue avec object-position pour centrer l'image */
 /* On fixe le body de la carte à 65% et une margin-left négative
 pour qu'elle puisse chevaucher l'image */
 .card-item-body {
-    flex: 0 0 65%;
-    max-width: 65%;
+    flex: 0 0 60%;
+    max-width: 60%;
     border-radius: 20px;
-    margin-left: -57px;
+    margin-left: -15px;
     padding: 1.25rem;
-    background-color: var(--gris);
+    background-color: var(--grisclair);
+    
 }
 
- .card-item-body h4 {
+.card-item-body h4 {
     color: var(--corail);
- }
- 
- .card-item-body time {
-    color: var(--corail);
- }
+}
 
 .card-item-body-container {
-    margin-top: 1rem;
+  
+    height:400px;
+    position:sticky;
+   
+}
+
+.filter-wrapper {
+    
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 8rem;
 }
 
 .card-filter-btn {
@@ -177,6 +259,7 @@ Le height 100% permet au wrapper d'avoir une hauteur de 100% de la place disponi
 .iconeparticipants {
     position: relative;
     height: 100%;
+    margin-bottom: 20px;
 }
 
 /* Cette classe donne une taille fixe aux icônes (32px),
@@ -184,13 +267,17 @@ d'avoir un background blanc et une bordure */
 .icon-wrapper {
     width: 32px;
     height: 32px;
-    padding: 3px;
     background-color: #fff;
     border-radius: 20px;
     text-align: center;
     border: 1px solid var(--jaunesable);
+    overflow: hidden;
 }
-
+.profil-participants img {
+    width: 32px;
+    height: 100%;
+    margin-bottom: 5px;
+}
 /* Cette classe donne une position fixée en haut à droite de son wrapper aux icônes */
 .icons-position {
     position: absolute;
@@ -248,7 +335,7 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
 /* Personnalities section */
 #personnalities-section-container {
     padding: 50px 0;
-    background-color: var(--gris);
+    background-color: var(--transparent);
 }
 
 #personnalities-section-container h3 {
@@ -259,7 +346,6 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
     flex: 0 0 310px;
     max-width: 310px;
     text-align: center;
-    overflow: hidden;
     margin: 0 20px;
 }
 
@@ -286,20 +372,48 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
 
 /* Team section */
 #team-section-container {
+    background: var(--bleunuit);
+    justify-content: center;
     text-align: center;
-    margin: 50px 0;
+   /*  border-radius: 20px; */
+    padding: 50px 0;
+    margin: auto;
+}
+
+.team-items-container{
+    justify-content: center;
+    text-align: center;
 }
 
 .team-item {
-    flex: 0 0 630px;
-    max-width: 630px;
-    margin: 20px 0;
+    flex: 0 0 170px;
+
+    border-radius: 20px;
+    margin: 20px;
+    margin-left: 50px;
+    background-color: white;
 }
 
-.team-item img {
-    width: 114px;
-    height: 114px;
-    border-radius: 60px;
+.team-item-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    border: 1px solid orange;
+    overflow: hidden;
+}
+
+.team-item-img img {
+    height: 100%;
+    width: auto;
+}
+
+.team-item-title-2 {
+    font-size: 14px;
+}
+
+.team-item-description-wrapper img {
+    width: 60px;
+    height: 60px;
 }
 
 /*************MAIN END*********/
@@ -309,3 +423,105 @@ Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage
 /******************************
 INDEX CSS END
 ******************************/
+
+
+/* // X-Large devices (large desktops, 1200px and up) */
+/*@media (max-width: 850px) {
+
+    .cards-container  {
+        display: none;
+    }
+
+    .cards-container article {
+        max-width: 450px;
+        height: 400px;
+        justify-content: center;
+        margin: 15px;
+    }
+
+    .card-item-img {
+        width: auto;
+        height: 400px;
+        object-position: -80px;
+        border-radius: 20px;
+    }
+    .card-item-body h4 {
+        margin: 10px 0;
+    }
+
+
+}*/
+
+/* Media query for mobile */
+@media screen and (max-width: 576px) {
+    /* Title Size */
+    h2 {
+        font-size: 45px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    /* Cards responsive */
+    .card-row {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .cards-container article {
+        height: auto;
+    }
+
+    .card-item {
+        flex-wrap: wrap;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .card-item-img-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .card-item-img {
+        width: 100%;
+        height: auto;
+        object-position: 0;
+        border-radius: 20px 20px 0 0 ;
+    }
+
+    .card-item-body {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .card-item-body-container p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 145px;
+        white-space: revert;
+    }
+
+    /* Personnalities Section Small fixes to erase vertical scroll */
+    .personnalities-section-title {
+        margin: 0 0 50px 0;
+        width: 100%;
+        font-size: 2.5rem;
+    }
+
+    .personnalities-item-wrapper {
+        width: 100%;
+    }
+
+    .personnalities-item {
+        margin: 0;
+    }
+    .personnalities-item img {
+        width: 100%;
+        height: auto;
+    }
+}

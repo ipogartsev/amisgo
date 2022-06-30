@@ -1,0 +1,177 @@
+.section {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.section-container {
+    background-color: var(--grisclair);
+    border-radius: 20px;
+}
+
+
+.section-top {
+    height: 390px;
+    background: url("../img/profil-section-top.png") no-repeat center;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.profil-container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.see-more-btn {
+    margin-bottom: 50px;
+}
+
+
+/* Profil Picture */
+.profil-img-wrapper {
+    flex: 0 0 300px;
+    max-width: 300px;
+    border-radius: 160px;
+    border: 5px solid var(--jaunesable);
+    overflow: hidden;
+    position: absolute;
+    top: -180px;
+}
+
+.profil-img-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+/* Profil Summary */
+.profil-summary-top-left img {
+    width: 115px;
+    height: auto;
+}
+.profil-summary-description-title {
+    padding-top: 0.5rem;
+}
+.profil-summary-top-left-title-2 {
+    font-size: 14px;
+}
+
+.profil-summary-description {
+    font-size: 14px;
+    max-width: 50%;
+    flex: 0 0 50%;
+}
+
+.profil-summary-badge-container {
+    margin-top: 30px;
+}
+
+.badge {
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+.profil-cards-wrapper {
+    margin-top: 20px;
+}
+
+/* Liked Events */
+.profil-card-add {
+    background-color: white;
+    border: 1px dashed black;
+    padding: 20px;
+    border-radius: 20px;
+    width: 200px;
+    height: 240px;
+}
+
+.profil-card-add button {
+    padding: 2px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+}
+
+.profil-card {
+    border: 1px dashed black;
+    padding: 20px;
+    border-radius: 20px;
+    width: calc(100% - 220px);
+}
+
+.form-check-input{
+    border: none;
+    background-color: #D7E0FD;
+}
+
+.form-check-input:checked{
+    background-color: #FA985A;
+}
+
+.card-recommandation{
+    border-radius: 20px 20px 0px 0px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url(../img/pp-recommandations01.avif);
+    background-repeat: no-repeat;
+}
+
+.btn-profil{
+    background: #F9C041;
+}
+
+.btn-profil-milieu{
+    background: #FC7073;
+}
+
+/* Custom card */
+.custom-card-item {
+    flex: 0 0 200px;
+    max-width: 200px;
+    height: 240px;
+    border-radius: 20px;
+    margin-left: 1.5rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.custom-card-item-top-wrapper {
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-card-item-top-wrapper img {
+    height: auto;
+    width: 100%;
+}
+
+.custom-card-item-top {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.custom-card-item-top p {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.custom-card-item-bottom {
+    height: calc(100% - 160px);
+}
+
+.custom-card-item-bottom p {
+    font-size: 16px;
+    margin: 0;
+}
+
+h4{
+    color: var(--corail);
+}
+
+.profile-layout{
+    padding-bottom: 2rem;
+}

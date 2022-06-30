@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Activités{% endblock %}
+{% block title %}Activité{% endblock %}
+
+
 
 {% block body %}
 <style>
@@ -9,7 +11,13 @@
 </style>
 {% block stylesheets %}
             <link rel="stylesheet" href="/assets/css/design-system.css">
-<link rel="stylesheet" href="/assets/css/tree-climbing.css">
+<link rel="stylesheet" href="/assets/css/kayak.css">
+	<link rel="stylesheet" href="assets/styles/comments.css"/> 
+
+{# link vers une api pour afficher la map #}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+{# script lié a une api pour afficher la map #}
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
         {% endblock %}
 
         <body id="activites">
@@ -17,45 +25,53 @@
 	<header>
 		<div class="container mw-100 px-0">
 			
-
+         <div class="container-fluid section-top-activitee" style="background-image: url({{asset('assets/img/' ~ event.eventPicture)}})">
+		 </div>
 
 
 			<div class="activity-participation-section">
 				<div class="activity-summary-container d-flex flex-wrap justify-content-around">
 					<div class="activity-back">
-						<img src="/assets/icons/icone-left-arrow.svg" alt="">
+						<img class="color" ="/assets/icons/icone-left-arrow.svg" alt="">
 					</div>
 					<div class="activity-admin d-flex flex-column align-items-center">
-						<div class="activity-admin-picture">
-							<img src="/assets/img/tasos-mansour-o_7J4koKmnM-unsplash.jpg" alt="">
-						</div>
-						<h5>Admin</h5>
+						
+					<div class="activity-admin-picture">
+						<img src="/assets/img/admin-julien.png" alt="">
+					</div>
+					<h5>Admin</h5>
 					</div>
 					<div class="activity-summary text-center d-flex flex-column justify-content-center">
-						<h4>Evasion Verte, Paris 75000</h4>
+						<h4>{{event.typeOfEvent}}</h4>
 						<div>
-							Au coeur du Parc Floral de Paris et à 10 minutes de la porte de Bercy (accès possible en bus
-							ou métro), Evasion Verte vous propose une activité de parcours aventure dans les arbres dans
-							l’espace jeux.
+							{{event.description}}
 						</div>
 					</div>
-					<div class="activity-participation d-flex">
+					<div class="activity-participation d-flex justify-content-around" >
 						<button class="icon-btn">
 							<img src="/assets/icons/icone-heart-outlined-black.svg" alt="">
 						</button>
-						<button>Je participe !</button>
+						{# Si l'evenement est complet  et user n'est pas inscrit#}
+						{% if (closed == true and not app.user) or ( (closed == true and app.user) and not participed) %}
+							<button> Complet !</button>
+						{# Sinon si l'utilisateur est connecté #}
+						{% elseif app.user %}
+							{# Proposer desinscription ou participation selon ça situation #}               
+							<button class="participe" data-rejoins="active" data-id={{ event.id }} 
+							{# si l'user est déja inscrit #}
+							{% if participed == true %} data-action = "in"
+							{% else %} data-action = "out"{% endif %}
+							data-new = "">
+							</button>
+						{# si l'user n'est pas connecté, lui proposer de se connecter #}
+						{% else %}
+							<a href="{{path("app_login")}}"><p>Connectez-vous pour participer !</p></a>
+						{% endif %}
 					</div>
 				</div>
-				<div class="activity-summary-more d-flex flex-wrap justify-content-center">
+				{# <div class="activity-summary-more d-flex flex-wrap justify-content-center">
 					<div class="activity-summary-more-desc col-4 text-center p-3">
-						Une fois équipé, vous suivrez une initiation avec nos opérateurs et vous pourrez profiter des
-						ateliers sur 4 parcours adaptés et équipés en ligne de vie continue.
-					</div>
-					<div class="activity-summary-more-desc col-4 text-center p-3">
-						Location de matériel pour une excursion d'une journée entière au coeur du Parc de l’Evasion
-						Verte et de ses arbres en fleurs. Idéal pour les groupes d'amis, familles et sportifs.
-					</div>
-				</div>
+				</div> #}
 			</div>
 		</div>
 	</header>
@@ -66,16 +82,16 @@
 		d-flex flex-wrap justify-content-center 
 		activity-informations-container">
 			<div class="activity-information-item">
-				<h4>Informations sur l'activité</h4>
-				<p>Adresse : <span>Parc floral de Paris - 75012 PARIS</span></p>
+				<h4>information sur l'activité</h4>
+				<p>Adresse : <span>{{event.address1}}</span></p>
 				<p>Parcours : <span>Escapade entre aventurier</span></p>
-				<p>Distance de parcours : <span>2 Km</span></p>
-				<p>Niveau : <span>Confirmé</span></p>
+				<p>Distance de parcours : <span>{{event.distance}}</span></p>
+				<p>Niveau : <span>{{event.niveau}}</span></p>
 				<p>Horaire de départ : <span>10h00</span></p>
-				<p>Temps estimé de l'activité : <span>4h00</span></p>
+				<p>Temps estimé de l'activité : <span>{{event.estimatedTime}}</span></p>
 
 				<div class="activity-information-item-description">
-					<p>Tout le matériel d’accrobranche vous est fourni</p>
+					<p>Tout le matériel vous est fourni</p>
 					<div>
 						Notre matériel est régulièrement contrôlé. Une partie du stock est renouvelé chaque année pour
 						répondre à toutes les normes de sécurité.
@@ -97,19 +113,11 @@
 			<div class="activity-information-item d-flex justify-content-center flex-wrap">
 				<h4>Informations utiles</h4>
 				<div class="activity-information-item-description">
-						Au coeur du Parc Floral de Paris et à 10 minutes de la porte de Bercy (accès possible en bus ou
-						métro), Evasion Verte vous propose une activité de parcours aventure dans les arbres dans
-						l’espace jeux.
+						{{event.description}}
 
 						<br>
 
-						* Afin de vous permettre de passer un moment ludique et sportif agréable en toute sécurité, nous
-						vous
-						rappelons qu’évoluer d’arbres en arbres, à plusieurs mètres du sol - de façon totalement
-						autonome,
-						c’est-à-dire sans encadrement - constitue une activité à risque qui implique le strict respect
-						d’un
-						certain nombre d’obligations et de consignes impératives décrites ci-dessous.
+						
 				</div>
 
 				<div class="activity-information-item-description">
@@ -130,17 +138,96 @@
 				</div>
 
 				<div class="activity-price d-flex justify-content-center">
-					<div class="title">Tarifs&nbsp;</div>
-					<div class="price">&nbsp;35€ TTC</div>
+					<div class="title">Tarif : &nbsp;</div>
+					<div class="price">&nbsp;{{event.price}}€</div>
 				</div>
 			</div>
+
+			 <div id="map" class="py-2" style="width:600px; height:400px;"></div>
+			 
+      <! ----------------- Activity Participants Section ------------------->
+		{% if personalities %}
+		<div class="activity-participants-container d-flex flex-wrap justify-content-center text-center" style="min-width: 1150px">
+			<h4 class="section mb-4">Participants</h4>
+			<div class="activity-particpants-wrapper d-flex flex-wrap justify-content-evenly">
+			
+				{% for perso in personalities %}
+					<div class="activity-participant-item d-flex flex-column align-items-center p-3">
+						<div class="activity-participant-img">
+							<img src="/assets/img/icon-face01.jpg" alt="">
+						</div>
+					<div class="activity-participant-title mb-4">{{ perso.firstname}} {{ perso.name}}</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<img src="/assets/img/{{persoImg}}" alt="">
+						<div class="activity-particpant-description">{{ persona}}</div>
+					</div>
+				</div>
+			{% endfor %}
+				
+				<div class="activity-participant-item invitation d-flex flex-column align-items-center p-3">
+					<div class="activity-participant-img">
+						<img src="/assets/icons/icone-user.svg" alt="">
+					</div>
+					<div class="activity-participant-title mb-4">Inviter un Amisgo</div>
+					<div class="activity-participant-description-wrapper d-flex align-items-center">
+						<button class="d-flex justify-content-center align-items-center">
+							<img src="/assets/icons/icone-add.svg" alt="">
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="activity-participation d-flex justify-content-around p-3" >
+			{% if (closed == true and not app.user) or ( (closed == true and app.user) and not participed) %}
+				<button> Complet !</button>
+			{% elseif app.user %}
+				<button class="participe" data-rejoins = "active"></button>
+			</div>
+			{%  endif %}
 		</div>
+		{% endif %}
+     
+	
+</div>
+
+	</div>
+    
+ 
+    {% if app.user and participed %}
+	<div class="activity-chat-container d-flex flex-wrap justify-content-center">
+		<div class="activity-chat-title section text-center mb-3">
+			<h4>Conversation de groupe</h4>
+		</div>
+		<div class="container-chat">
+			<div class="chat-conversation-container">
+				<div class="chat-conversation-wrapper d-flex justify-content-center align-items-end mb-5">
+					
+						<div class="container w-75" id="root" 
+						{% if app.user %} 
+						data-user = {{app.user.id}} 
+						{% else %} 
+						data-user = "" 
+						{% endif %}>
+					
+				</div>
+			</div>	
+		</div>
+	</div>
+	{% endif %}
+
 	</main>
-    			
-</body>
-
-</html>
-
     {% endblock %}
 
+ 
+{% block javascripts %}
+		 
+	<script src="/javascript/map.js"></script>
+	<script src="/javascript/event.js"></script>
 
+
+	{{ encore_entry_script_tags('comments') }}
+  <script>
+    //recuperation des champs liés a l'adresse d'un evenement dans notre base de données
+    addMarkerFromAdress('{{event.address1}} {{event.zipcode}} {{event.city}}');
+  </script>
+ 
+{% endblock %}

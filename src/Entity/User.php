@@ -89,6 +89,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Personality::class, inversedBy="users")
+     */
+    private $personality;
+
     public function __construct()
     {
         $this->event = new ArrayCollection();
@@ -330,6 +340,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPersonality(): ?Personality
+    {
+        return $this->personality;
+    }
+
+    public function setPersonality(?Personality $personality): self
+    {
+        $this->personality = $personality;
 
         return $this;
     }

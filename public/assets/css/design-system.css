@@ -1,3 +1,9 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
 /********************* TYPOGRAPHIE *****************************/
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
@@ -10,6 +16,7 @@
     src: url('../fonts/Karla/Karla-VariableFont_wght.ttf') format('ttf');
 }
 
+
 /********************* REM *****************************/
 html {
     font-size: 62, 5%;
@@ -18,7 +25,7 @@ html {
 /********************* STYLES *****************************/
 h1 {
     font-family: 'Montserrat';
-    font-size: 6.0rem;
+    font-size: 5.0rem;
     font-weight: bold;
 }
 
@@ -26,12 +33,14 @@ h2 {
     font-family: 'Montserrat';
     font-size: 3.4rem;
     font-weight: bold;
+    color: var(--corail);
 }
 
 h3 {
     font-family: 'Montserrat';
     font-size: 2.7rem;
     font-weight: bold;
+    color: var(--corail);
 }
 
 h4 {
@@ -40,10 +49,22 @@ h4 {
     font-weight: bold;
 }
 
+h5 {
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-weight: medium;
+
+}
+
 button {
     font-family: 'Karla';
     font-size: 1.8rem;
     font-weight: medium;
+}
+
+.btn:hover {
+    color:white;
+    text-decoration: none;
 }
 
 p {
@@ -52,11 +73,15 @@ p {
     font-weight: normal;
 }
 
-.txt-heroshot{
+.txt-heroshot {
     font-family: 'Montserrat';
-    font-size: 3.4rem;
+    font-size: 1rem;
     font-weight: bold;
-    
+
+}
+
+a {
+    text-decoration: none;
 }
 
 .date {
@@ -65,87 +90,172 @@ p {
     font-weight: normal;
 }
 
+.navbar a {
+    font-family: 'Karla';
+    font-size: 1.2rem;
+    font-weight: medium;
+    color: var(--blanc);
+}
+.nav-item {
+    color: white;
+}
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+    color: white;
+}
+.navbar-nav .nav-link.active:hover{
+    color: var(--jaunesable);
+}
 /******************************** COLORS *******************************/
 :root {
     --noir: #0E101C;
     --gris: #AEB6D5;
-    --grisclair: #DEE1EE;
+    --grisclair: #F2F5FF;
     --blanc: #F2F3F8;
-
+    --bleufonce: #3b425b;
+    --bleunuit: #2C334A;
     --jaunesable: #F9C041;
     --corail: #FC7073;
     --degradeinverse: linear-gradient(90deg, #F6AA00 0%, #FC7073 82%);
     --degrade: linear-gradient(90deg, #FC6B76 0%, #F9C041 82%);
+    --degrade1: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
 }
 
 /******************************** BUTTONS *******************************/
 
 /* Filter button */
 .filter-button {
-    background: var(--jaunesable);
-    width: 205px;
-    border-radius: 1.3rem;
-    margin: 20px 0;
+    background:var(--jaunesable)!important;
+    width: 205px!important;
+    border-radius: 1.3rem !important;
+    margin: 0 auto;
 }
 
 
-.filtre p{
+
+.filtre p {
     text-align: center;
     margin: auto;
 }
 
 .btn-heroshot {
-    background-color: var(--blanc);
 
-    border-radius: 1.3rem;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: auto;
+    background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    border-radius: 18px;
     border: none;
+    color: var(--blanc);
+    text-align: center;
 
 }
 
 .btn-heroshot a {
-    color: var(--corail);
-
-}
-
-.btn-heroshot :hover{
-    background-color: var(--corail);
-}
-
-.btn-heroshot a:hover{
     color: var(--blanc);
-    background-color: var(--corail);
+    text-decoration: none;
+    /*  padding-left: 2rem;
+    padding-right: 2rem; */
+    background-color: var(--degrade1);
+    border-radius: 1.3rem;
+
+
 }
 
 
-.btn-warning:hover{
+
+/* .btn-warning:hover{
     Text-Decoration: None !important; 
+} */
+.see-more-btn {
+    width: 200px;
+    height: 80px;
+    font-size: 50Px;
+    margin-top: 50px;
+    padding: auto;
+    background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    border-radius: 20px;
+    border: none;
+    color: var(--blanc)
+    
 }
 
 /******************************** CARDS *******************************/
-.card-img {
-    border-radius: 2rem 0rem 0rem 2rem;
-    width: 28, 3rem;
-    height: 31, 7rem;
-}
-.iconeparticipant1{
-    margin-left: 0rem;
+/* On met les wrapper des icônes en position relative
+pour pouvoir utiliser le z-index sur les icônes.
+Le height 100% permet au wrapper d'avoir une hauteur de 100% de la place disponible */
+.iconeparticipants {
+    position: relative !important;
+    height: 100% !important;
+    margin-top: 20px !important;;
+
 }
 
-.iconeparticipant2{
-    margin-left: -1.1rem;
+
+/* Cette classe donne une taille fixe aux icônes (32px),
+d'avoir un background blanc et une bordure */
+.icon-wrapper {
+    width: 32px;
+    height: 32px;
+    /* padding: 2px; */
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--jaunesable);
+    overflow: hidden;
+
+
 }
 
-.iconeparticipant3{
-    margin-left: -1.1rem;
+.profil-participants img {
+    width: 32px;
+    height: 100%;
 }
-.iconeparticipant4{
-    margin-left: -1.1rem;
+
+/* Cette classe donne une position fixée en haut à droite de son wrapper aux icônes */
+.icons-position {
+    position: absolute;
+    top: 0;
 }
-.iconeparticipant5{
-    margin-left: -1.1rem;
+
+/* Pour les classe icon-position 1 à 6,
+on déplace les icônes à partir de la droite avec la propriété right
+Le z-index permet de mettre les icônes l'un par dessus l'autre. 
+Plus le z-index sera haut plus l'objet en question aura la priorité d'affichage */
+.icon-position-1 {
+    right: 16px;
+    z-index: 5;
 }
-.icone-nombre-participant{
-    margin-left: -1.1rem;
+
+.icon-position-2 {
+    right: 32px;
+    z-index: 4;
+}
+
+.icon-position-3 {
+    right: 48px;
+    z-index: 3;
+}
+
+.icon-position-4 {
+    right: 64px;
+    z-index: 2;
+}
+
+.icon-position-5 {
+    right: 80px;
+    z-index: 1;
+}
+
+.icon-position-6 {
+    right: 0;
+    z-index: 6;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--jaunesable);
 }
 
 .card-body {
@@ -157,48 +267,69 @@ p {
     justify-content: flex-end;
 }
 
-/*************NAV START*********/
+/*************NAV BAR*********/
 
-.navbar{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    background: linear-gradient(90deg, #FC6B76 0%, #F9C041 82%);
+.container {
+    overflow: hidden;
 }
 
-.navbar-brand{
-    margin-left: 10rem;
 
-}
-.nav-link{
-    color: rgb(0, 0, 0);
+.navbar {
+    background: linear-gradient(93.76deg, #FC6B76 21.48%, #FA985A 100%);
+    /* margin-bottom: -80px; */
 }
 
-#login{
+.nav-main{
+    margin-left: 5rem;
+    justify-content: center;
+}
+
+.nav-bg {
+    margin-bottom: -100px;
+    width: 100%;
+}
+
+.navbar-brand {
+    margin-left: 5rem;
+
+}
+
+.nav-main .nav-link {
+    color: rgb(255, 255, 255);
+    margin-left: 2rem;
+}
+
+.nav-link:hover{
+    color: var(--jaunesable);
+}
+
+#login {
     margin-right: 10rem;
 
 }
 
 
 /********************Section top******************/
-.section-top{
+.section-top {
     background-color: rgba(117, 190, 218, 0.0);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 10rem;
-    padding-left: 25rem;
+    padding: 4rem;
     color: white;
-    text-shadow: -.2rem .1rem .5rem rgb(73, 66, 66);
     margin-bottom: 3rem;
 }
 
-/*************NAV FIN*********/
-
+.section-top h1 {
+    font-family: 'Montserrat';
+    font-size: 1.9rem;
+    font-weight: bold;
+}
 /*************SEARCH BAR*********/
-.search-bar{
+.search-bar {
     margin-bottom: 3rem;
 }
 
-.search-location{
+.search-location {
     background-color: var(--grisclair);
     border: none;
     border-top-left-radius: .8rem;
@@ -206,18 +337,20 @@ p {
     padding: 1.2rem;
 }
 
-.form-control{
-    background-color: var(--blanc);
+.form-control {
+border-radius: 1rem;
     border: none;
-    padding: 1.2rem;
+    background-color: rgb(220, 220, 220);
+    
+    padding-left: 1rem;
 }
 
-.form-outline ::placeholder{
+.form-outline ::placeholder {
     color: grey;
 
 }
 
-.search-button{ 
+.search-button {
     text-transform: uppercase;
     background-color: var(--grisclair);
     color: var(--noir);
@@ -229,8 +362,110 @@ p {
 
 /*************FOOTER DEBUT*********/
 #footer {
-    background-color: #D9D9D9;
-    color: rgb(0, 0, 0);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #3b425b;
+}
+
+footer h4 {
+    color: var(--corail);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--jaunesable);
+}
+
+#suivre {
+    color: white;
+}
+
+.copyright {
+    width: 100%;
+    margin-top: 2rem;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    #footer {
+        text-align: center;
+    }
 }
 
 /*************FOOTER FIN*********/
+
+/* X-Small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap
+ */
+
+/*  // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .section-top h1 {
+        font-family: 'Montserrat';
+        font-size: 2.0rem;
+        font-weight: bold;
+    }
+    
+    .section-top {
+        padding-left: 5rem;
+    
+    }
+
+    .txt-heroshot {
+        font-size: 1.4rem;
+    }
+}
+
+
+
+/* 
+// Medium devices (tablets, 768px and up) 
+@media (min-width: 768px) {
+    ...
+}
+
+Large devices (desktops, 992px and up) 
+@media (min-width: 992px) {
+    ...
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .navbar-brand {
+        margin-left: 10rem;
+    
+    }
+
+    .section-top h1 {
+        font-family: 'Montserrat';
+        font-size: 5.0rem;
+        font-weight: bold;
+    }
+
+    .section-top {
+        background-color: rgba(117, 190, 218, 0.0);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 10rem;
+        padding-left: 25rem;
+        color: white;
+        margin-bottom: 0rem;
+    }
+
+    .txt-heroshot {
+        font-family: 'Montserrat';
+        font-size: 3.4rem;
+        font-weight: bold;
+    
+    }
+
+
+}
+    
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+/* @media (min-width: 1400px) {} */

@@ -1,0 +1,56 @@
+
+{% extends "base.html.twig" %}
+
+{% block header %}{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="/assets/css/questionnaire.css">
+{% endblock %}
+{% block body %}
+	<body id="test01">
+		<main>
+			<div class="container_quiz">
+				<div class="row">
+					<div class="col-5 signup-section quiz-section">
+						<div class="page-number d-flex justify-content-end">
+							<p class="page-counter">1 sur 2</p>
+						</div>
+						<!--Title -->
+						<div class="text-center">
+							<h3>Quel amisgo es-tu ?</h3>
+						</div><br/>
+						<!--Form section-->
+						<form
+							action="/persotest/page2" method="post">
+							<!--Question section-->
+							<div
+								class="">
+								<!--boucle question-->
+								{% for question in questions %}
+
+									<label for="">
+										<h5 class="question-title">{{question.text}}</h5>
+									</label><br/>
+
+									<!--boucle réponse-->
+									{% for answer in question.answers %}
+										<div class="form-check">
+											<input class="form-check-input" required type="radio" name="flexRadioDefault{{ question.id }}" id="flexRadioDefault1" value="{{answer.idCategory}}">
+											<label class="form-check-label" for="flexRadioDefault1">
+												{{answer.text}}
+											</label>
+										</div>
+									{% endfor %}
+								{% endfor %}
+							</div><br/>
+							<!--Send section-->
+							<div class="text-center">
+							
+								<input type="submit" value="Suivant" class="btn btn-heroshot">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+{% endblock %}
