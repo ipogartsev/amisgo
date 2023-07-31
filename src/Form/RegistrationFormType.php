@@ -23,10 +23,12 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('phone_number')
             ->add('birthdate', DateType::class, array(
-                'years' => range(date('Y') - 100, date('Y') -18)
+                'years' => range(date('Y') - 100, date('Y') - 18),
+                'data' => new \DateTime('-30 years'),
+
             ))
             ->add('city')
-            
+
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -51,8 +53,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
