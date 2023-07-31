@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -21,7 +22,7 @@ class RegistrationFormType extends AbstractType
             ->add('firstname')
             ->add('name')
             ->add('email')
-            ->add('phone_number')
+            ->add('phone_number', TelType::class)
             ->add('birthdate', DateType::class, array(
                 'years' => range(date('Y') - 100, date('Y') - 18),
                 'data' => new \DateTime('-30 years'),
